@@ -1,0 +1,626 @@
+commit a9dbd7b7cdbf5338efcd655650ed30b356beb563
+Author: Qian Min Chen <chen.qiaomin@99cloud.net>
+Date:   Mon May 21 16:34:28 2018 +0800
+
+    Add some batch actions for instance i18n
+    
+    Change-Id: Ia1c2da5d8d2bc930fec7ec3c0bc749725d25a423
+
+diff --git a/horizon/locale/zh_CN/LC_MESSAGES/django.po b/horizon/locale/zh_CN/LC_MESSAGES/django.po
+index 3fab23f9f1..ed0c47f135 100644
+--- a/horizon/locale/zh_CN/LC_MESSAGES/django.po
++++ b/horizon/locale/zh_CN/LC_MESSAGES/django.po
+@@ -11,7 +11,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+ "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+-"POT-Creation-Date: 2018-05-21 15:01+0800\n"
++"POT-Creation-Date: 2018-05-21 16:30+0800\n"
+ "PO-Revision-Date: 2017-02-01 12:56+0000\n"
+ "Last-Translator: Tony <tfu@redhat.com>\n"
+ "Language: zh_Hans_CN\n"
+diff --git a/horizon/locale/zh_CN/LC_MESSAGES/djangojs.po b/horizon/locale/zh_CN/LC_MESSAGES/djangojs.po
+index 6582a68362..f3491f717a 100644
+--- a/horizon/locale/zh_CN/LC_MESSAGES/djangojs.po
++++ b/horizon/locale/zh_CN/LC_MESSAGES/djangojs.po
+@@ -16,7 +16,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+ "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+-"POT-Creation-Date: 2018-05-21 15:01+0800\n"
++"POT-Creation-Date: 2018-05-21 16:30+0800\n"
+ "PO-Revision-Date: 2017-02-01 12:53+0000\n"
+ "Last-Translator: Tony <tfu@redhat.com>\n"
+ "Language: zh_Hans_CN\n"
+diff --git a/openstack_dashboard/locale/zh_CN/LC_MESSAGES/django.po b/openstack_dashboard/locale/zh_CN/LC_MESSAGES/django.po
+index 7fb16a657e..44327b3529 100644
+--- a/openstack_dashboard/locale/zh_CN/LC_MESSAGES/django.po
++++ b/openstack_dashboard/locale/zh_CN/LC_MESSAGES/django.po
+@@ -24,7 +24,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: horizon 11.0.0.0rc2.dev131\n"
+ "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+-"POT-Creation-Date: 2018-05-21 15:01+0800\n"
++"POT-Creation-Date: 2018-05-21 16:30+0800\n"
+ "PO-Revision-Date: 2017-02-05 07:22+0000\n"
+ "Last-Translator: Alex Eng <loones1595@gmail.com>\n"
+ "Language: zh_Hans_CN\n"
+@@ -249,6 +249,7 @@ msgstr "Cinder服务未启用。"
+ 
+ #: openstack_dashboard/api/rest/constants.py:19
+ #: openstack_dashboard/api/rest/constants.py:29
++#: openstack_dashboard/api/rest/contrib/cinder.py:400
+ msgid "Quota exceeded."
+ msgstr "超过配额。"
+ 
+@@ -491,11 +492,11 @@ msgstr ""
+ msgid "Captcha"
+ msgstr ""
+ 
+-#: openstack_dashboard/api/rest/contrib/cinder.py:758
++#: openstack_dashboard/api/rest/contrib/cinder.py:778
+ msgid "Not supported available zones in cinder"
+ msgstr ""
+ 
+-#: openstack_dashboard/api/rest/contrib/cinder.py:772
++#: openstack_dashboard/api/rest/contrib/cinder.py:792
+ #: openstack_dashboard/dashboards/project/cgroups/workflows.py:31
+ #: openstack_dashboard/dashboards/project/volumes/forms.py:53
+ msgid "Unable to determine if availability zones extension is supported."
+diff --git a/openstack_dashboard/locale/zh_CN/LC_MESSAGES/djangojs.po b/openstack_dashboard/locale/zh_CN/LC_MESSAGES/djangojs.po
+index 8e94624fd7..cdfdf8261d 100644
+--- a/openstack_dashboard/locale/zh_CN/LC_MESSAGES/djangojs.po
++++ b/openstack_dashboard/locale/zh_CN/LC_MESSAGES/djangojs.po
+@@ -14,7 +14,7 @@ msgid ""
+ msgstr ""
+ "Project-Id-Version: horizon 11.0.0.0b4.dev24\n"
+ "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+-"POT-Creation-Date: 2018-05-21 15:01+0800\n"
++"POT-Creation-Date: 2018-05-21 16:30+0800\n"
+ "PO-Revision-Date: 2017-02-01 03:40+0000\n"
+ "Last-Translator: Tony <tfu@redhat.com>\n"
+ "Language: zh_Hans_CN\n"
+@@ -2414,7 +2414,7 @@ msgstr "上传文件"
+ #: openstack_dashboard/static/app/contrib/project/images/actions/actions.module.js:70
+ #: openstack_dashboard/static/app/contrib/project/images/actions/actions.module.js:100
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:138
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:376
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:408
+ #: openstack_dashboard/static/app/contrib/project/instances/snapshots/actions/actions.module.js:66
+ #: openstack_dashboard/static/app/contrib/project/instances/snapshots/actions/actions.module.js:124
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:84
+@@ -4297,7 +4297,7 @@ msgstr "创建主机集合"
+ #: openstack_dashboard/static/app/contrib/project/firewalls/policies/actions/actions.module.js:79
+ #: openstack_dashboard/static/app/contrib/project/firewalls/rules/actions/actions.module.js:75
+ #: openstack_dashboard/static/app/contrib/project/images/actions/actions.module.js:86
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:218
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:250
+ #: openstack_dashboard/static/app/contrib/project/instances/snapshots/actions/actions.module.js:96
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:121
+ #: openstack_dashboard/static/app/contrib/project/loadbalancer/lb-instances/listeners/details/detail.controller.js:106
+@@ -4322,7 +4322,7 @@ msgstr "管理主机"
+ #: openstack_dashboard/static/app/contrib/admin/ironic-flavors/actions/actions.module.js:93
+ #: openstack_dashboard/static/app/contrib/admin/volume-types/volume-types/actions/actions.module.js:112
+ #: openstack_dashboard/static/app/contrib/project/images/actions/actions.module.js:93
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:246
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:278
+ #: openstack_dashboard/static/app/contrib/project/instances/snapshots/actions/actions.module.js:110
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:128
+ #: openstack_dashboard/static/app/contrib/project/snapshots/actions/actions.module.js:112
+@@ -5141,7 +5141,7 @@ msgid "Evacuate"
+ msgstr "疏散"
+ 
+ #: openstack_dashboard/static/app/contrib/admin/hypervisors/compute-host/actions/actions.module.js:79
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:295
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:327
+ msgid "Migrate"
+ msgstr "迁移"
+ 
+@@ -5243,7 +5243,7 @@ msgid "Disk Over Commit"
+ msgstr "磁盘超配"
+ 
+ #: openstack_dashboard/static/app/contrib/admin/hypervisors/compute-host/actions/migrate-host.action.service.js:62
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:303
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:335
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/live-migrate.action.service.js:177
+ msgid "Live Migrate"
+ msgstr "热迁移"
+@@ -5586,14 +5586,16 @@ msgid "Move to"
+ msgstr "移动"
+ 
+ #: openstack_dashboard/static/app/contrib/admin/ironic/actions/actions.module.js:130
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:332
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:162
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:364
+ #: openstack_dashboard/static/app/contrib/project/instances/instances.module.js:43
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:142
+ msgid "Reboot"
+ msgstr "重启"
+ 
+ #: openstack_dashboard/static/app/contrib/admin/ironic/actions/actions.module.js:137
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:324
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:170
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:356
+ msgid "Soft Reboot"
+ msgstr "软重启"
+ 
+@@ -8657,7 +8659,7 @@ msgstr "创建用户"
+ 
+ #: openstack_dashboard/static/app/contrib/identity/users/actions/actions.module.js:88
+ #: openstack_dashboard/static/app/contrib/identity/users/actions/change-password.service.js:134
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:225
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:257
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/change-password.action.service.js:155
+ msgid "Change Password"
+ msgstr "修改密码"
+@@ -10929,19 +10931,20 @@ msgid "Suspend Instance"
+ msgstr "挂起云主机"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/events/events.module.js:225
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:73
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:140
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:71
+ msgid "Reboot Instance"
+ msgstr "重启云主机"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/events/events.module.js:232
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:232
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:264
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/attach-volume.action.service.js:157
+ #: openstack_dashboard/static/app/contrib/project/volumes/actions/attach.action.service.js:132
+ msgid "Attach Volume"
+ msgstr "挂载云硬盘"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/events/events.module.js:239
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:239
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:271
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/detach-volume.action.service.js:172
+ #: openstack_dashboard/static/app/contrib/project/volumes/actions/detach.action.service.js:140
+ msgid "Detach Volume"
+@@ -11756,13 +11759,15 @@ msgstr "VMware Tools未安装"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/actions.module.js:53
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/start.action.service.js:56
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:77
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:135
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:75
+ msgid "Start Instance"
+ msgstr "启动云主机"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/actions.module.js:60
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/stop.action.service.js:60
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:73
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:141
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:71
+ msgid "Stop Instance"
+ msgstr "关闭云主机"
+ 
+@@ -11781,37 +11786,43 @@ msgid "Unable to create the instance."
+ msgstr "无法创建云主机。"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/start.action.service.js:57
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:80
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:136
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:78
+ #, python-format
+ msgid "Are you sure to start instance \"%s\" ?"
+ msgstr "确认要启动云主机\"%s\" ?"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/start.action.service.js:58
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:83
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:137
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:81
+ #, python-format
+ msgid "Instance \"%s\" started successfully."
+ msgstr "云主机\"%s\"启动成功。"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/start.action.service.js:59
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:86
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:138
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:84
+ #, python-format
+ msgid "Unable to start instance \"%s\"."
+ msgstr "无法启动云主机\"%s\"。"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/stop.action.service.js:61
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:76
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:142
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:74
+ #, python-format
+ msgid "Are you sure to stop instance \"%s\" ?"
+ msgstr "确认要关闭云主机\"%s\" ?"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/stop.action.service.js:62
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:79
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:143
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:77
+ #, python-format
+ msgid "Instance \"%s\" stopped successfully."
+ msgstr "云主机\"%s\"关闭成功。"
+ 
+ #: openstack_dashboard/static/app/contrib/plugins/vcenter/instances/actions/stop.action.service.js:63
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:82
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:144
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:80
+ #, python-format
+ msgid "Unable to stop instance \"%s\"."
+ msgstr "无法关闭云主机\"%s\"。"
+@@ -12401,7 +12412,7 @@ msgid "Unable to asssociate floating ip."
+ msgstr "无法关联浮动IP"
+ 
+ #: openstack_dashboard/static/app/contrib/project/floating-ips/actions/disassociate.action.service.js:59
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:182
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:214
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/simple-disassociate-ip.action.service.js:60
+ #: openstack_dashboard/static/app/contrib/project/loadbalancer/lb-instances/actions/actions.module.js:84
+ #: openstack_dashboard/static/app/contrib/project/loadbalancer/lb-instances/actions/disassociate-ip.action.service.js:48
+@@ -12635,7 +12646,7 @@ msgstr "公有"
+ 
+ #: openstack_dashboard/static/app/contrib/project/images/actions/actions.module.js:59
+ #: openstack_dashboard/static/app/contrib/project/images/actions/create.action.service.js:84
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:168
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:200
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/create-image.action.service.js:159
+ #: openstack_dashboard/static/app/contrib/project/instances/snapshots/actions/actions.module.js:82
+ #: openstack_dashboard/static/app/contrib/project/snapshots/actions/actions.module.js:91
+@@ -12739,7 +12750,7 @@ msgstr "修改配置/迁移"
+ msgid "Confirm or Revert Resize/Migrate"
+ msgstr "确认/回滚修改配置/迁移"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:190
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:222
+ #: openstack_dashboard/static/app/contrib/project/instances/instances.module.js:42
+ msgid "Revert Resize/Migrate"
+ msgstr "回滚修改配置/迁移"
+@@ -12748,7 +12759,7 @@ msgstr "回滚修改配置/迁移"
+ msgid "Hard Reboot"
+ msgstr "硬重启"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:348
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:380
+ #: openstack_dashboard/static/app/contrib/project/instances/instances.module.js:46
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:158
+ msgid "Rebuild"
+@@ -12983,94 +12994,96 @@ msgstr "云主机类型无法访问"
+ msgid "Apply Instance"
+ msgstr "申请云主机"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:147
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:146
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:179
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:93
+ msgid "Start"
+ msgstr "启动"
+ 
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:154
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:372
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:150
++msgid "Stop"
++msgstr "关闭"
++
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:186
+ msgid "Confirm Resize/Migrate"
+ msgstr "确认修改配置/迁移"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:161
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:193
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:100
+ msgid "Console"
+ msgstr "控制台"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:175
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:207
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/create-snapshot.action.service.js:133
+ #: openstack_dashboard/static/app/contrib/project/volumes/actions/actions.module.js:119
+ #: openstack_dashboard/static/app/contrib/project/volumes/actions/create-snapshot.action.service.js:140
+ msgid "Create Snapshot"
+ msgstr "创建快照"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:197
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:229
+ #: openstack_dashboard/static/app/contrib/project/loadbalancer/lb-instances/actions/actions.module.js:77
+ msgid "Associate Floating IP"
+ msgstr "绑定浮动IP"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:204
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:236
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/attach-interface.action.service.js:199
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:107
+ msgid "Attach Interface"
+ msgstr "挂载网卡"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:211
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:243
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/detach-interface.action.service.js:155
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:114
+ msgid "Detach Interface"
+ msgstr "卸载网卡"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:253
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:285
+ msgid "Decrypt Instanc Ppassword"
+ msgstr ""
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:260
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:292
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:135
+ msgid "Edit Security Groups"
+ msgstr "编辑安全组"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:267
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:299
+ msgid "Pause"
+ msgstr "暂停"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:274
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:288
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:306
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:320
+ #: openstack_dashboard/static/app/contrib/project/stacks/actions/actions.module.js:95
+ #: openstack_dashboard/static/app/contrib/project/stacks/stacks.module.js:167
+ msgid "Resume"
+ msgstr "恢复"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:281
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:313
+ #: openstack_dashboard/static/app/contrib/project/stacks/actions/actions.module.js:88
+ #: openstack_dashboard/static/app/contrib/project/stacks/stacks.module.js:166
+ msgid "Suspend"
+ msgstr "挂起"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:310
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:342
+ msgid "Resize"
+ msgstr "修改配置"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:317
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:349
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/extend-root-volume.action.service.js:65
+ msgid "Extend Root Volume"
+ msgstr "扩容根磁盘"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:340
+-#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js:150
+-msgid "Stop"
+-msgstr "关闭"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:355
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:387
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/clone-instance.action.service.js:197
+ msgid "Clone Instance"
+ msgstr "克隆云主机"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:362
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:394
+ msgid "Lock"
+ msgstr "锁定"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:369
++#: openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js:401
+ msgid "Unlock"
+ msgstr "解锁"
+ 
+@@ -13427,36 +13440,32 @@ msgstr "云主机\"%s\"暂停成功。"
+ msgid "Unable to pause instance \"%s\"."
+ msgstr "无法暂停云主机\"%s\"。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:73
+-msgid "Reboot Ironic Instance"
+-msgstr "重启裸机"
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:56
++#, python-format
++msgid "You are not allowed to reboot instance \"%s\"."
++msgstr "不允许重启云主机 \"%s\"。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:75
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:115
+ #, python-format
+-msgid "Are you sure to reboot ironic instance \"%s\" ?"
+-msgstr "确定要重启裸机\"%s\" ?"
++msgid ""
++"Instance \"%s\" status is not in active, shutoff or error, can not reboot"
++" it."
++msgstr "云主机 \"%s\" 状态不是运行中或关闭，不允许重启。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:76
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:141
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:74
+ #, python-format
+ msgid "Are you sure to reboot instance \"%s\" ?"
+ msgstr "确认要重启云主机\"%s\" ?"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:78
+-#, python-format
+-msgid "Ironic instance \"%s\" rebooted successfully."
+-msgstr "裸机\"%s\"重启成功。"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:79
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:142
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:77
+ #, python-format
+ msgid "Instance \"%s\" rebooted successfully."
+ msgstr "云主机\"%s\"重启成功。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:81
+-#, python-format
+-msgid "Unable to reboot ironic instance \"%s\"."
+-msgstr "无法重启裸机\"%s\"。"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:82
++#: openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js:143
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:80
+ #, python-format
+ msgid "Unable to reboot instance \"%s\"."
+ msgstr "无法重启云主机\"%s\"。"
+@@ -13581,61 +13590,53 @@ msgid "Unable to disassociate floating ip with instance \"%s\"."
+ msgstr "无法解绑云主机\"%s\"浮动IP。"
+ 
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:57
++#, python-format
++msgid "You are not allowed to soft reboot instance \"%s\"."
++msgstr "不允许软重启云主机 \"%s\"。"
++
++#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:115
++#, python-format
++msgid "Instance \"%s\" status is not active, can not soft reboot it."
++msgstr "云主机 \"%s\" 状态不是运行中，不能软重启。"
++
++#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:140
+ msgid "Soft Reboot Instance"
+ msgstr "软重启云主机"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:58
++#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:141
+ #, python-format
+ msgid "Are you sure to soft reboot instance \"%s\" ?"
+ msgstr "确认要软重启云主机\"%s\" ?"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:59
++#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:142
+ #, python-format
+ msgid "Instance \"%s\" soft rebooted successfully."
+ msgstr "云主机\"%s\"软重启成功。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:60
+-#, python-format
+-msgid "Unable to soft rebooted instance \"%s\"."
+-msgstr "无法软重启云主机\"%s\"。"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:77
+-msgid "Start Ironic Instance"
+-msgstr "启动裸机"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:79
++#: openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js:143
+ #, python-format
+-msgid "Are you sure to start ironic instance \"%s\" ?"
+-msgstr "确认要启动裸机\"%s\" ?"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:82
+-#, python-format
+-msgid "Ironic instance \"%s\" started successfully."
+-msgstr "裸机\"%s\"启动成功"
++msgid "Unable to soft reboot instance \"%s\"."
++msgstr ""
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:85
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:59
+ #, python-format
+-msgid "Unable to start ironic instance \"%s\"."
+-msgstr "无法启动裸机\"%s\"。"
+-
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:73
+-msgid "Stop Ironic Instance"
+-msgstr "关闭裸机"
++msgid "You are not allowed to start instance \"%s\"."
++msgstr "不允许启动云主机 \"%s\"。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:75
++#: openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js:110
+ #, python-format
+-msgid "Are you sure to stop ironic instance \"%s\" ?"
+-msgstr "确定要关闭裸机\"%s\" ?"
++msgid "Instance \"%s\" status is not shutoff, can not start it."
++msgstr "云主机 \"%s\"状态不是关闭，不允许启动。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:78
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:57
+ #, python-format
+-msgid "Ironic instance \"%s\" stopped successfully."
+-msgstr "裸机\"%s\"关闭成功。"
++msgid "You are not allowed to stop instance \"%s\"."
++msgstr "不允许关闭云主机 \"%s\"。"
+ 
+-#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:81
++#: openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js:116
+ #, python-format
+-msgid "Unable to stop ironic instance \"%s\"."
+-msgstr "无法关闭裸机\"%s\"。"
++msgid "Instance \"%s\" status is not in active or suspended, can not stop it."
++msgstr "云主机 \"%s\"状态不是云心中，不允许关闭。"
+ 
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/suspend.action.service.js:58
+ #, python-format
+@@ -13721,6 +13722,7 @@ msgstr "安全设置"
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/workflows/launch_instance/base.html:20
+ #: openstack_dashboard/static/app/contrib/project/instances/actions/workflows/launch_instance/help.html:27
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/workflows/launch_instance/help.html:27
++#: openstack_dashboard/static/app/contrib/project/volumes/actions/volume-modal.service.js:87
+ msgid "Quantity"
+ msgstr "数量"
+ 
+@@ -14134,6 +14136,63 @@ msgstr "裸机\"%s\"删除成功"
+ msgid "Unable to delete ironic instance \"%s\"."
+ msgstr "无法删除裸机\"%s\""
+ 
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:71
++msgid "Reboot Ironic Instance"
++msgstr "重启裸机"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:73
++#, python-format
++msgid "Are you sure to reboot ironic instance \"%s\" ?"
++msgstr "确定要重启裸机\"%s\" ?"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:76
++#, python-format
++msgid "Ironic instance \"%s\" rebooted successfully."
++msgstr "裸机\"%s\"重启成功。"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js:79
++#, python-format
++msgid "Unable to reboot ironic instance \"%s\"."
++msgstr "无法重启裸机\"%s\"。"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:75
++msgid "Start Ironic Instance"
++msgstr "启动裸机"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:77
++#, python-format
++msgid "Are you sure to start ironic instance \"%s\" ?"
++msgstr "确认要启动裸机\"%s\" ?"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:80
++#, python-format
++msgid "Ironic instance \"%s\" started successfully."
++msgstr "裸机\"%s\"启动成功"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js:83
++#, python-format
++msgid "Unable to start ironic instance \"%s\"."
++msgstr "无法启动裸机\"%s\"。"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:71
++msgid "Stop Ironic Instance"
++msgstr "关闭裸机"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:73
++#, python-format
++msgid "Are you sure to stop ironic instance \"%s\" ?"
++msgstr "确定要关闭裸机\"%s\" ?"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:76
++#, python-format
++msgid "Ironic instance \"%s\" stopped successfully."
++msgstr "裸机\"%s\"关闭成功。"
++
++#: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js:79
++#, python-format
++msgid "Unable to stop ironic instance \"%s\"."
++msgstr "无法关闭裸机\"%s\"。"
++
+ #: openstack_dashboard/static/app/contrib/project/ironic-instances/actions/workflows/launch_instance/specifications.html:17
+ msgid "No Flavor for Ironic is Available"
+ msgstr "没有裸机类型"
+@@ -18152,10 +18211,3 @@ msgstr "状态：%s"
+ #: openstack_dashboard/themes/contrib/static/js/horizon.d3linechart_overview.js:192
+ msgid "An error occurred. Please try again later."
+ msgstr "发生错误，请稍后重试。"
+-
+-#~ msgid "Animbus"
+-#~ msgstr ""
+-
+-#~ msgid "Cloud Management"
+-#~ msgstr ""
+-

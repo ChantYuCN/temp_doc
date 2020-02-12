@@ -1,0 +1,1251 @@
+commit df63b73ed52b3183d2b144df51aa06b04c347457
+Author: Qian Min Chen <chen.qiaomin@99cloud.net>
+Date:   Mon May 21 16:13:53 2018 +0800
+
+    Add some batch actions for instance
+    
+    Support batch stop, start, reboot and soft-reboot actions
+    for instance.
+    
+    Change-Id: Iea4bc069ccd49aa10b75d2eac6434a64183c6ff3
+
+diff --git a/horizon/static/framework/widgets/action-list/actions-batch-selected.template.html b/horizon/static/framework/widgets/action-list/actions-batch-selected.template.html
+new file mode 100644
+index 0000000000..2599623a5d
+--- /dev/null
++++ b/horizon/static/framework/widgets/action-list/actions-batch-selected.template.html
+@@ -0,0 +1,5 @@
++<action action-classes="'btn btn-batch-action'"
++        disabled="tCtrl.selected.length === 0"
++        item="tCtrl.selected">
++  $text$
++</action>
+diff --git a/horizon/static/framework/widgets/action-list/actions.service.js b/horizon/static/framework/widgets/action-list/actions.service.js
+index da5d7ca3e4..a5ccad2f97 100644
+--- a/horizon/static/framework/widgets/action-list/actions.service.js
++++ b/horizon/static/framework/widgets/action-list/actions.service.js
+@@ -89,7 +89,8 @@
+             templateFetch.then(addDetailActions);
+           } else if (listType === 'batch' || permittedActions.pass.length === 1) {
+             element.addClass('btn-addon');
+-            templateFetch.then(addButtons);
++            templateFetch.then(addBatchDropdown);
++            // templateFetch.then(addButtons);
+           } else {
+             templateFetch.then(addDropdown);
+           }
+@@ -120,6 +121,28 @@
+         element.append(renderButton(template, scope));
+       }
+ 
++      /**
++       * Add all batch the buttons as a dropdown button group
++       */
++      function addBatchDropdown(templates) {
++        var templateLength = templates.length;
++        var rowTemplates = templates.slice(0, 3);
++        var dropdownTemplates = templates.slice(3, templateLength);
++
++        addButtons(rowTemplates);
++        // rowTemplates.forEach(addTemplate);
++
++        var splitButton = getSplitButton(dropdownTemplates[0]);
++        var actionList = [];
++
++        for (var iCnt = 1; iCnt < dropdownTemplates.length; iCnt++) {
++          actionList.push(getMenuButton(dropdownTemplates[iCnt]));
++        }
++
++        var actionListElem = renderList(actionList, splitButton, scope);
++        element.append($compile(actionListElem)(scope));
++      }
++
+       /**
+        * Add all the buttons as a dropdown button group
+        */
+diff --git a/openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js b/openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js
+index a0c401b086..6f2921fe59 100644
+--- a/openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js
++++ b/openstack_dashboard/static/app/contrib/project/instances/actions/actions.module.js
+@@ -130,6 +130,38 @@
+       });
+ 
+     resourceType.batchActions
++      .append({
++        id: 'batchStartAction',
++        service: startService,
++        template: {
++          type: 'batch-selected',
++          text: gettext('Start')
++        }
++      })
++      .append({
++        id: 'batchStopAction',
++        service: stopService,
++        template: {
++          type: 'batch-selected',
++          text: gettext('Stop')
++        }
++      })
++      .append({
++        id: 'batchRebootAction',
++        service: rebootService,
++        template: {
++          type: 'batch-selected',
++          text: gettext('Reboot')
++        }
++      })
++      .append({
++        id: 'batchSoftRebootAction',
++        service: softRebootService,
++        template: {
++          type: 'batch-selected',
++          text: gettext('Soft Reboot')
++        }
++      })
+       .append({
+         id: 'batchDeleteAction',
+         service: deleteService,
+diff --git a/openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js b/openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js
+index 28c2eb7c10..bf5c63fdde 100644
+--- a/openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js
++++ b/openstack_dashboard/static/app/contrib/project/instances/actions/reboot.action.service.js
+@@ -27,8 +27,8 @@
+     'horizon.app.core.openstack-service-api.policy',
+     'horizon.framework.util.i18n.gettext',
+     'horizon.framework.util.q.extensions',
+-    'horizon.framework.widgets.modal.simple-modal.service',
+-    'horizon.framework.widgets.toast.service',
++    'horizon.framework.widgets.modal.deleteModalService',
++    'horizon.framework.widgets.modal.tipsModalService',
+     'horizon.app.contrib.url.service'
+   ];
+ 
+@@ -48,10 +48,12 @@
+     policy,
+     gettext,
+     $qExtensions,
+-    simpleModalService,
+-    toast,
++    deleteModal,
++    tipsModal,
+     urlService
+   ) {
++    var scope, context, rebootPromise;
++    var notAllowedMessage = gettext('You are not allowed to reboot instance "%s".');
+ 
+     var service = {
+       initScope: initScope,
+@@ -63,52 +65,31 @@
+ 
+     //////////////
+ 
+-    function initScope() {
+-      return;
++    function initScope(newScope) {
++      scope = newScope;
++      context = { };
++      rebootPromise = policy.ifAllowed({rules: [['compute', 'compute:reboot']]});
+     }
+ 
+-    function perform(item) {
+-      var isIronic = isIronicInstance(item);
+-      var message = {
+-        title: isIronic ? gettext('Reboot Ironic Instance') : gettext('Reboot Instance'),
+-        body: isIronic
+-          ? gettext('Are you sure to reboot ironic instance "%s" ?')
+-          : gettext('Are you sure to reboot instance "%s" ?'),
+-        success: isIronic
+-          ? gettext('Ironic instance "%s" rebooted successfully.')
+-          : gettext('Instance "%s" rebooted successfully.'),
+-        error: isIronic
+-          ? gettext('Unable to reboot ironic instance "%s".')
+-          : gettext('Unable to reboot instance "%s".')
+-      };
+-
+-      var options = {
+-        title: message.title,
+-        body: interpolate(message.body, [getName(item)]),
+-        submit: message.submit,
+-        confirm: onSubmit
+-      };
+-      return simpleModalService.modal(options).result;
+-
+-      function onSubmit() {
+-        return rebootInstance(item.id).then(onSuccess, onError);
+-      }
+-
+-      function onSuccess() {
+-        toast.add('success', interpolate(message.success, [getName(item)]));
+-      }
+-
+-      function onError() {
+-        toast.add('error', interpolate(message.error, [getName(item)]));
+-      }
++    function perform(items) {
++      var instances = angular.isArray(items) ? items : [items];
++      context.labels = labelize(instances.length);
++      context.deleteEntity = rebootInstance;
++      return $qExtensions.allSettled(instances.map(checkPermission)).then(afterCheck);
+     }
+ 
+     function allowed(instance) {
+-      return $q.all([
+-        policy.ifAllowed({rules: [['compute', 'compute:reboot']]}),
+-        isActiveOrShutOffOrError(instance),
+-        isNotLockedOrAdmin(instance)
+-      ]);
++      // only row actions pass in instance
++      // otherwise, assume it is a batch action
++      if (instance) {
++        return $q.all([
++          isActiveOrShutOffOrError(instance),
++          rebootPromise,
++          isNotLockedOrAdmin(instance)
++        ]);
++      } else {
++        return rebootPromise;
++      }
+     }
+ 
+     function isNotLockedOrAdmin(instance) {
+@@ -119,8 +100,48 @@
+       }
+     }
+ 
+-    function getName(entity) {
+-      return entity.name;
++    function checkPermission(instance) {
++      return {promise: allowed(instance), context: instance};
++    }
++
++    function afterCheck(result) {
++      var outcome = $q.reject();  // Reject the promise by default
++      if (result.fail.length > 0) {
++        var errorMessage;
++        var instance = result.fail[0].context;
++        var allowStatus = ['active', 'shutoff', 'error'];
++        if (allowStatus.indexOf(instance.status) === -1) {
++          errorMessage = interpolate(
++            gettext('Instance "%s" status is not in active, shutoff or error, can not reboot it.'),
++            [instance.name || instance.id]
++          );
++        } else {
++          errorMessage = getMessage(notAllowedMessage, result.fail);
++        }
++        var params = {
++          body: errorMessage
++        };
++        tipsModal.open(params);
++        outcome = $q.reject(result.fail);
++      }
++      if (result.pass.length > 0 && result.fail.length === 0) {
++        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(
++          // For reretrieve the instances
++          function() {
++            return null;
++          }
++        );
++      }
++      return outcome;
++    }
++
++    function labelize() {
++      return {
++        title: gettext('Reboot Instance'),
++        message: gettext('Are you sure to reboot instance "%s" ?'),
++        success: gettext('Instance "%s" rebooted successfully.'),
++        error: gettext('Unable to reboot instance "%s".')
++      };
+     }
+ 
+     function isActiveOrShutOffOrError(instance) {
+@@ -133,8 +154,16 @@
+       return nova.hardRebootServer(instanceId);
+     }
+ 
+-    function isIronicInstance(instance) {
+-      return instance.metadata.hypervisor_type === 'ironic';
++    function getMessage(message, entities) {
++      return interpolate(message, [entities.map(getName).join("\", \"")]);
++    }
++
++    function getName(result) {
++      return getEntity(result).name;
++    }
++
++    function getEntity(result) {
++      return result.context;
+     }
+ 
+   }
+diff --git a/openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js b/openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js
+index db754fada7..76e32a01b6 100644
+--- a/openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js
++++ b/openstack_dashboard/static/app/contrib/project/instances/actions/soft-reboot.action.service.js
+@@ -27,8 +27,8 @@
+     'horizon.app.core.openstack-service-api.policy',
+     'horizon.framework.util.i18n.gettext',
+     'horizon.framework.util.q.extensions',
+-    'horizon.framework.widgets.modal.simple-modal.service',
+-    'horizon.framework.widgets.toast.service',
++    'horizon.framework.widgets.modal.deleteModalService',
++    'horizon.framework.widgets.modal.tipsModalService',
+     'horizon.app.contrib.url.service'
+   ];
+ 
+@@ -48,17 +48,13 @@
+     policy,
+     gettext,
+     $qExtensions,
+-    simpleModalService,
+-    toast,
++    deleteModal,
++    tipsModal,
+     urlService
+   ) {
+ 
+-    var message = {
+-      title: gettext('Soft Reboot Instance'),
+-      body: gettext('Are you sure to soft reboot instance "%s" ?'),
+-      success: gettext('Instance "%s" soft rebooted successfully.'),
+-      error: gettext('Unable to soft rebooted instance "%s".')
+-    };
++    var scope, context, softRebootPromise;
++    var notAllowedMessage = gettext('You are not allowed to soft reboot instance "%s".');
+ 
+     var service = {
+       initScope: initScope,
+@@ -70,38 +66,31 @@
+ 
+     //////////////
+ 
+-    function initScope() {
+-      return;
++    function initScope(newScope) {
++      scope = newScope;
++      context = { };
++      softRebootPromise = policy.ifAllowed({rules: [['compute', 'compute:reboot']]});
+     }
+ 
+-    function perform(item) {
+-      var options = {
+-        title: message.title,
+-        body: interpolate(message.body, [getName(item)]),
+-        submit: message.submit,
+-        confirm: onSubmit
+-      };
+-      return simpleModalService.modal(options).result;
+-
+-      function onSubmit() {
+-        return softRebootInstance(item.id).then(onSuccess, onError);
+-      }
+-
+-      function onSuccess() {
+-        toast.add('success', interpolate(message.success, [getName(item)]));
+-      }
+-
+-      function onError() {
+-        toast.add('error', interpolate(message.error, [getName(item)]));
+-      }
++    function perform(items) {
++      var instances = angular.isArray(items) ? items : [items];
++      context.labels = labelize(instances.length);
++      context.deleteEntity = softRebootInstance;
++      return $qExtensions.allSettled(instances.map(checkPermission)).then(afterCheck);
+     }
+ 
+     function allowed(instance) {
+-      return $q.all([
+-        isActive(instance),
+-        policy.ifAllowed({rules: [["compute", "os_compute_api:servers:reboot"]]}),
+-        isNotLockedOrAdmin(instance)
+-      ]);
++      // only row actions pass in instance
++      // otherwise, assume it is a batch action
++      if (instance) {
++        return $q.all([
++          isActive(instance),
++          softRebootPromise,
++          isNotLockedOrAdmin(instance)
++        ]);
++      } else {
++        return softRebootPromise;
++      }
+     }
+ 
+     function isNotLockedOrAdmin(instance) {
+@@ -112,8 +101,47 @@
+       }
+     }
+ 
+-    function getName(entity) {
+-      return entity.name;
++    function checkPermission(instance) {
++      return {promise: allowed(instance), context: instance};
++    }
++
++    function afterCheck(result) {
++      var outcome = $q.reject();  // Reject the promise by default
++      if (result.fail.length > 0) {
++        var errorMessage;
++        var instance = result.fail[0].context;
++        if (instance.status !== 'active') {
++          errorMessage = interpolate(
++            gettext('Instance "%s" status is not active, can not soft reboot it.'),
++            [instance.name || instance.id]
++          );
++        } else {
++          errorMessage = getMessage(notAllowedMessage, result.fail);
++        }
++        var params = {
++          body: errorMessage
++        };
++        tipsModal.open(params);
++        outcome = $q.reject(result.fail);
++      }
++      if (result.pass.length > 0 && result.fail.length === 0) {
++        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(
++          // For reretrieve the instances
++          function() {
++            return null;
++          }
++        );
++      }
++      return outcome;
++    }
++
++    function labelize() {
++      return {
++        title: gettext('Soft Reboot Instance'),
++        message: gettext('Are you sure to soft reboot instance "%s" ?'),
++        success: gettext('Instance "%s" soft rebooted successfully.'),
++        error: gettext('Unable to soft reboot instance "%s".')
++      };
+     }
+ 
+     function isActive(instance) {
+@@ -124,5 +152,17 @@
+       return nova.softRebootServer(instanceId);
+     }
+ 
++    function getMessage(message, entities) {
++      return interpolate(message, [entities.map(getName).join("\", \"")]);
++    }
++
++    function getName(result) {
++      return getEntity(result).name;
++    }
++
++    function getEntity(result) {
++      return result.context;
++    }
++
+   }
+ })();
+diff --git a/openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js b/openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js
+index 44670aff60..d492510866 100644
+--- a/openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js
++++ b/openstack_dashboard/static/app/contrib/project/instances/actions/start.action.service.js
+@@ -30,8 +30,8 @@
+     'horizon.app.core.openstack-service-api.policy',
+     'horizon.framework.util.i18n.gettext',
+     'horizon.framework.util.q.extensions',
+-    'horizon.framework.widgets.modal.simple-modal.service',
+-    'horizon.framework.widgets.toast.service',
++    'horizon.framework.widgets.modal.deleteModalService',
++    'horizon.framework.widgets.modal.tipsModalService',
+     'horizon.app.contrib.url.service'
+   ];
+ 
+@@ -51,11 +51,12 @@
+     policy,
+     gettext,
+     $qExtensions,
+-    simpleModalService,
+-    toast,
++    deleteModal,
++    tipsModal,
+     urlService
+   ) {
+-    var startPromise;
++    var scope, context, startPromise;
++    var notAllowedMessage = gettext('You are not allowed to start instance "%s".');
+ 
+     var service = {
+       initScope: initScope,
+@@ -67,52 +68,82 @@
+ 
+     //////////////
+ 
+-    function initScope() {
+-      startPromise = policy.ifAllowed({rules: [[ "compute", "compute:start" ]]});
++    function initScope(newScope) {
++      scope = newScope;
++      context = { };
++      startPromise = policy.ifAllowed({rules: [['compute', 'compute:start']]});
+     }
+ 
+-    function perform(item) {
+-      var isIronic = isIronicInstance(item);
+-      var message = {
+-        title: isIronic ? gettext('Start Ironic Instance') : gettext('Start Instance'),
+-        body: isIronic
+-          ? gettext('Are you sure to start ironic instance "%s" ?')
+-          : gettext('Are you sure to start instance "%s" ?'),
+-        success: isIronic
+-          ? gettext('Ironic instance "%s" started successfully.')
+-          : gettext('Instance "%s" started successfully.'),
+-        error: isIronic
+-          ? gettext('Unable to start ironic instance "%s".')
+-          : gettext('Unable to start instance "%s".')
+-      };
+-
+-      var options = {
+-        title: message.title,
+-        body: interpolate(message.body, [getName(item)]),
+-        submit: message.submit,
+-        confirm: onSubmit
+-      };
+-      return simpleModalService.modal(options).result;
++    function perform(items) {
++      var instances = angular.isArray(items) ? items : [items];
++      context.labels = labelize(instances.length);
++      context.deleteEntity = startInstance;
++      return $qExtensions.allSettled(instances.map(checkPermission)).then(afterCheck);
++    }
+ 
+-      function onSubmit() {
+-        return startInstance(item.id).then(onSuccess, onError);
++    function allowed(instance) {
++      // only row actions pass in instance
++      // otherwise, assume it is a batch action
++      if (instance) {
++        return $q.all([
++          canStart(instance),
++          startPromise,
++          isNotLockedOrAdmin(instance)
++        ]);
++      } else {
++        return startPromise;
+       }
++    }
+ 
+-      function onSuccess() {
+-        toast.add('success', interpolate(message.success, [getName(item)]));
+-      }
++    function checkPermission(instance) {
++      return {promise: allowed(instance), context: instance};
++    }
+ 
+-      function onError() {
+-        toast.add('error', interpolate(message.error, [getName(item)]));
++    function afterCheck(result) {
++      var outcome = $q.reject();  // Reject the promise by default
++      if (result.fail.length > 0) {
++        var errorMessage;
++        var instance = result.fail[0].context;
++        var allowStatus = ['shutdown', 'shutoff', 'crashed'];
++        if (allowStatus.indexOf(instance.status) === -1) {
++          errorMessage = interpolate(
++            gettext('Instance "%s" status is not shutoff, can not start it.'),
++            [instance.name || instance.id]
++          );
++        } else {
++          errorMessage = getMessage(notAllowedMessage, result.fail);
++        }
++        var params = {
++          body: errorMessage
++        };
++        tipsModal.open(params);
++        outcome = $q.reject(result.fail);
++      }
++      if (result.pass.length > 0 && result.fail.length === 0) {
++        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(
++          // For reretrieve the instances
++          function() {
++            return null;
++          }
++        );
+       }
++      return outcome;
++    }
++
++    function labelize() {
++      return {
++        title: gettext('Start Instance'),
++        message: gettext('Are you sure to start instance "%s" ?'),
++        success: gettext('Instance "%s" started successfully.'),
++        error: gettext('Unable to start instance "%s".')
++      };
+     }
+ 
+-    function allowed(item) {
+-      return $q.all([
+-        startPromise,
+-        canStart(item),
+-        isNotLockedOrAdmin(item)
+-      ]);
++    function canStart(instance) {
++      // 'shutdown' & 'crashed' are not instance status
++      return $qExtensions.booleanAsPromise(instance.status === 'shutdown' ||
++                                           instance.status === 'shutoff' ||
++                                           instance.status === 'crashed');
+     }
+ 
+     function isNotLockedOrAdmin(instance) {
+@@ -123,23 +154,20 @@
+       }
+     }
+ 
+-    function getName(entity) {
+-      return entity.name;
++    function startInstance(instanceId) {
++      return nova.startServer(instanceId);
+     }
+ 
+-    function canStart(instance) {
+-      // 'shutdown' & 'crashed' are not instance status
+-      return $qExtensions.booleanAsPromise(instance.status === 'shutdown' ||
+-                                           instance.status === 'shutoff' ||
+-                                           instance.status === 'crashed');
++    function getMessage(message, entities) {
++      return interpolate(message, [entities.map(getName).join("\", \"")]);
+     }
+ 
+-    function startInstance(instanceId) {
+-      return nova.startServer(instanceId);
++    function getName(result) {
++      return getEntity(result).name;
+     }
+ 
+-    function isIronicInstance(instance) {
+-      return instance.metadata.hypervisor_type === 'ironic';
++    function getEntity(result) {
++      return result.context;
+     }
+ 
+   }
+diff --git a/openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js b/openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js
+index 442fb18de7..ea6aa45fb6 100644
+--- a/openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js
++++ b/openstack_dashboard/static/app/contrib/project/instances/actions/stop.action.service.js
+@@ -27,8 +27,8 @@
+     'horizon.app.core.openstack-service-api.policy',
+     'horizon.framework.util.i18n.gettext',
+     'horizon.framework.util.q.extensions',
+-    'horizon.framework.widgets.modal.simple-modal.service',
+-    'horizon.framework.widgets.toast.service',
++    'horizon.framework.widgets.modal.deleteModalService',
++    'horizon.framework.widgets.modal.tipsModalService',
+     'horizon.app.contrib.url.service'
+   ];
+ 
+@@ -48,11 +48,14 @@
+     policy,
+     gettext,
+     $qExtensions,
+-    simpleModalService,
+-    toast,
++    deleteModal,
++    tipsModal,
+     urlService
+   ) {
+ 
++    var scope, context, stopPromise;
++    var notAllowedMessage = gettext('You are not allowed to stop instance "%s".');
++
+     var service = {
+       initScope: initScope,
+       allowed: allowed,
+@@ -63,52 +66,31 @@
+ 
+     //////////////
+ 
+-    function initScope() {
+-      return;
++    function initScope(newScope) {
++      scope = newScope;
++      context = { };
++      stopPromise = policy.ifAllowed({rules: [['compute', 'compute:stop']]});
+     }
+ 
+-    function perform(item) {
+-      var isIronic = isIronicInstance(item);
+-      var message = {
+-        title: isIronic ? gettext('Stop Ironic Instance') : gettext('Stop Instance'),
+-        body: isIronic
+-          ? gettext('Are you sure to stop ironic instance "%s" ?')
+-          : gettext('Are you sure to stop instance "%s" ?'),
+-        success: isIronic
+-          ? gettext('Ironic instance "%s" stopped successfully.')
+-          : gettext('Instance "%s" stopped successfully.'),
+-        error: isIronic
+-          ? gettext('Unable to stop ironic instance "%s".')
+-          : gettext('Unable to stop instance "%s".')
+-      };
+-
+-      var options = {
+-        title: message.title,
+-        body: interpolate(message.body, [getName(item)]),
+-        submit: message.submit,
+-        confirm: onSubmit
+-      };
+-      return simpleModalService.modal(options).result;
+-
+-      function onSubmit() {
+-        return stopInstance(item.id).then(onSuccess, onError);
+-      }
+-
+-      function onSuccess() {
+-        toast.add('success', interpolate(message.success, [getName(item)]));
+-      }
+-
+-      function onError() {
+-        toast.add('error', interpolate(message.error, [getName(item)]));
+-      }
++    function perform(items) {
++      var instances = angular.isArray(items) ? items : [items];
++      context.labels = labelize(instances.length);
++      context.deleteEntity = stopInstance;
++      return $qExtensions.allSettled(instances.map(checkPermission)).then(afterCheck);
+     }
+ 
+     function allowed(instance) {
+-      return $q.all([
+-        policy.ifAllowed({rules: [['compute', 'compute:stop']]}),
+-        isRunningOrSuspended(instance),
+-        isNotLockedOrAdmin(instance)
+-      ]);
++      // only row actions pass in instance
++      // otherwise, assume it is a batch action
++      if (instance) {
++        return $q.all([
++          isRunningOrSuspended(instance),
++          stopPromise,
++          isNotLockedOrAdmin(instance)
++        ]);
++      } else {
++        return stopPromise;
++      }
+     }
+ 
+     function isNotLockedOrAdmin(instance) {
+@@ -119,8 +101,48 @@
+       }
+     }
+ 
+-    function getName(entity) {
+-      return entity.name;
++    function checkPermission(instance) {
++      return {promise: allowed(instance), context: instance};
++    }
++
++    function afterCheck(result) {
++      var outcome = $q.reject();  // Reject the promise by default
++      if (result.fail.length > 0) {
++        var errorMessage;
++        var instance = result.fail[0].context;
++        var allowStatus = ['active', 'suspended'];
++        if (allowStatus.indexOf(instance.status) === -1) {
++          errorMessage = interpolate(
++            gettext('Instance "%s" status is not in active or suspended, can not stop it.'),
++            [instance.name || instance.id]
++          );
++        } else {
++          errorMessage = getMessage(notAllowedMessage, result.fail);
++        }
++        var params = {
++          body: errorMessage
++        };
++        tipsModal.open(params);
++        outcome = $q.reject(result.fail);
++      }
++      if (result.pass.length > 0 && result.fail.length === 0) {
++        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(
++          // For reretrieve the instances
++          function() {
++            return null;
++          }
++        );
++      }
++      return outcome;
++    }
++
++    function labelize() {
++      return {
++        title: gettext('Stop Instance'),
++        message: gettext('Are you sure to stop instance "%s" ?'),
++        success: gettext('Instance "%s" stopped successfully.'),
++        error: gettext('Unable to stop instance "%s".')
++      };
+     }
+ 
+     function isRunningOrSuspended(instance) {
+@@ -132,8 +154,16 @@
+       return nova.stopServer(instanceId);
+     }
+ 
+-    function isIronicInstance(instance) {
+-      return instance.metadata.hypervisor_type === 'ironic';
++    function getMessage(message, entities) {
++      return interpolate(message, [entities.map(getName).join("\", \"")]);
++    }
++
++    function getName(result) {
++      return getEntity(result).name;
++    }
++
++    function getEntity(result) {
++      return result.context;
+     }
+ 
+   }
+diff --git a/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js
+index 679d781cef..40009e0b6e 100644
+--- a/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js
++++ b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/actions.module.js
+@@ -38,10 +38,10 @@
+     'horizon.app.contrib.project.instances.actions.edit.service',
+     'horizon.app.contrib.project.instances.actions.edit-security-groups.service',
+     'horizon.app.contrib.project.instances.actions.update-metadata.service',
+-    'horizon.app.contrib.project.instances.actions.reboot.service',
++    'horizon.app.contrib.project.ironic-instances.actions.reboot.service',
+     'horizon.app.contrib.project.instances.actions.rebuild.service',
+-    'horizon.app.contrib.project.instances.actions.start.service',
+-    'horizon.app.contrib.project.instances.actions.stop.service',
++    'horizon.app.contrib.project.ironic-instances.actions.start.service',
++    'horizon.app.contrib.project.ironic-instances.actions.stop.service',
+     'horizon.app.contrib.project.ironic-instances.actions.create.service',
+     'horizon.app.contrib.project.ironic-instances.actions.delete.service',
+     'horizon.app.contrib.project.ironic-instances.resourceType'
+diff --git a/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js
+new file mode 100644
+index 0000000000..b17543deb4
+--- /dev/null
++++ b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/reboot.action.service.js
+@@ -0,0 +1,130 @@
++/**
++ * Copyright 2016 99Cloud Inc.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License"); you may
++ * not use self file except in compliance with the License. You may obtain
++ * a copy of the License at
++ *
++ *    http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
++ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
++ * License for the specific language governing permissions and limitations
++ * under the License.
++ */
++
++(function() {
++  'use strict';
++
++  angular
++    .module('horizon.app.contrib.project.ironic-instances.actions')
++    .factory('horizon.app.contrib.project.ironic-instances.actions.reboot.service', service);
++
++  service.$inject = [
++    '$q',
++    'horizon.app.core.openstack-service-api.nova',
++    'horizon.app.core.openstack-service-api.policy',
++    'horizon.framework.util.i18n.gettext',
++    'horizon.framework.util.q.extensions',
++    'horizon.framework.widgets.modal.simple-modal.service',
++    'horizon.framework.widgets.toast.service'
++  ];
++
++  /*
++   * @ngdoc factory
++   * @name horizon.app.contrib.project.ironic-instances.actions.reboot.service
++   *
++   * @Description
++   * Brings up the reboot ironic instance confirmation modal dialog.
++
++   * On submit, reboot ironic instance.
++   * On cancel, do nothing.
++   */
++  function service(
++    $q,
++    nova,
++    policy,
++    gettext,
++    $qExtensions,
++    simpleModalService,
++    toast
++  ) {
++
++    var service = {
++      initScope: initScope,
++      allowed: allowed,
++      perform: perform
++    };
++
++    return service;
++
++    //////////////
++
++    function initScope() {
++      return;
++    }
++
++    function perform(item) {
++      var isIronic = isIronicInstance(item);
++      var message = {
++        title: isIronic ? gettext('Reboot Ironic Instance') : gettext('Reboot Instance'),
++        body: isIronic
++          ? gettext('Are you sure to reboot ironic instance "%s" ?')
++          : gettext('Are you sure to reboot instance "%s" ?'),
++        success: isIronic
++          ? gettext('Ironic instance "%s" rebooted successfully.')
++          : gettext('Instance "%s" rebooted successfully.'),
++        error: isIronic
++          ? gettext('Unable to reboot ironic instance "%s".')
++          : gettext('Unable to reboot instance "%s".')
++      };
++
++      var options = {
++        title: message.title,
++        body: interpolate(message.body, [getName(item)]),
++        submit: message.submit,
++        confirm: onSubmit
++      };
++      return simpleModalService.modal(options).result;
++
++      function onSubmit() {
++        return rebootInstance(item.id).then(onSuccess, onError);
++      }
++
++      function onSuccess() {
++        toast.add('success', interpolate(message.success, [getName(item)]));
++      }
++
++      function onError() {
++        toast.add('error', interpolate(message.error, [getName(item)]));
++      }
++    }
++
++    function allowed(instance) {
++      return $q.all([
++        policy.ifAllowed({rules: [['compute', 'compute:reboot']]}),
++        isActiveOrShutOffOrError(instance)
++      ]);
++    }
++
++    function getName(entity) {
++      return entity.name;
++    }
++
++    function isActiveOrShutOffOrError(instance) {
++      return $qExtensions.booleanAsPromise(instance.status === 'active' ||
++                                           instance.status === 'shutoff' ||
++                                           instance.status === 'error');
++    }
++
++    function rebootInstance(instanceId) {
++      return nova.hardRebootServer(instanceId);
++    }
++
++    function isIronicInstance(instance) {
++      return instance.metadata.hypervisor_type === 'ironic';
++    }
++
++  }
++})();
+diff --git a/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js
+new file mode 100644
+index 0000000000..e0e1380723
+--- /dev/null
++++ b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/start.action.service.js
+@@ -0,0 +1,135 @@
++/**
++ * Copyright 2016 99Cloud Inc.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License"); you may
++ * not use self file except in compliance with the License. You may obtain
++ * a copy of the License at
++ *
++ *    http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
++ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
++ * License for the specific language governing permissions and limitations
++ * under the License.
++ */
++
++(function() {
++  'use strict';
++
++  angular
++    .module('horizon.app.contrib.project.ironic-instances.actions')
++    .factory(
++      'horizon.app.contrib.project.ironic-instances.actions.start.service',
++      service
++    );
++
++  service.$inject = [
++    '$q',
++    'horizon.app.core.openstack-service-api.nova',
++    'horizon.app.core.openstack-service-api.policy',
++    'horizon.framework.util.i18n.gettext',
++    'horizon.framework.util.q.extensions',
++    'horizon.framework.widgets.modal.simple-modal.service',
++    'horizon.framework.widgets.toast.service'
++  ];
++
++  /*
++   * @ngdoc factory
++   * @name horizon.app.contrib.project.ironic-instances.actions.start.service
++   *
++   * @Description
++   * Brings up the start instance confirmation modal dialog.
++
++   * On submit, start instance.
++   * On cancel, do nothing.
++   */
++  function service(
++    $q,
++    nova,
++    policy,
++    gettext,
++    $qExtensions,
++    simpleModalService,
++    toast
++  ) {
++    var startPromise;
++
++    var service = {
++      initScope: initScope,
++      allowed: allowed,
++      perform: perform
++    };
++
++    return service;
++
++    //////////////
++
++    function initScope() {
++      startPromise = policy.ifAllowed({rules: [[ "compute", "compute:start" ]]});
++    }
++
++    function perform(item) {
++      var isIronic = isIronicInstance(item);
++      var message = {
++        title: isIronic ? gettext('Start Ironic Instance') : gettext('Start Instance'),
++        body: isIronic
++          ? gettext('Are you sure to start ironic instance "%s" ?')
++          : gettext('Are you sure to start instance "%s" ?'),
++        success: isIronic
++          ? gettext('Ironic instance "%s" started successfully.')
++          : gettext('Instance "%s" started successfully.'),
++        error: isIronic
++          ? gettext('Unable to start ironic instance "%s".')
++          : gettext('Unable to start instance "%s".')
++      };
++
++      var options = {
++        title: message.title,
++        body: interpolate(message.body, [getName(item)]),
++        submit: message.submit,
++        confirm: onSubmit
++      };
++      return simpleModalService.modal(options).result;
++
++      function onSubmit() {
++        return startInstance(item.id).then(onSuccess, onError);
++      }
++
++      function onSuccess() {
++        toast.add('success', interpolate(message.success, [getName(item)]));
++      }
++
++      function onError() {
++        toast.add('error', interpolate(message.error, [getName(item)]));
++      }
++    }
++
++    function allowed(item) {
++      return $q.all([
++        startPromise,
++        canStart(item)
++      ]);
++    }
++
++    function getName(entity) {
++      return entity.name;
++    }
++
++    function canStart(instance) {
++      // 'shutdown' & 'crashed' are not instance status
++      return $qExtensions.booleanAsPromise(instance.status === 'shutdown' ||
++                                           instance.status === 'shutoff' ||
++                                           instance.status === 'crashed');
++    }
++
++    function startInstance(instanceId) {
++      return nova.startServer(instanceId);
++    }
++
++    function isIronicInstance(instance) {
++      return instance.metadata.hypervisor_type === 'ironic';
++    }
++
++  }
++})();
+diff --git a/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js
+new file mode 100644
+index 0000000000..286c470f3d
+--- /dev/null
++++ b/openstack_dashboard/static/app/contrib/project/ironic-instances/actions/stop.action.service.js
+@@ -0,0 +1,129 @@
++/**
++ * Copyright 2016 99Cloud Inc.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License"); you may
++ * not use self file except in compliance with the License. You may obtain
++ * a copy of the License at
++ *
++ *    http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
++ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
++ * License for the specific language governing permissions and limitations
++ * under the License.
++ */
++
++(function() {
++  'use strict';
++
++  angular
++    .module('horizon.app.contrib.project.ironic-instances.actions')
++    .factory('horizon.app.contrib.project.ironic-instances.actions.stop.service', service);
++
++  service.$inject = [
++    '$q',
++    'horizon.app.core.openstack-service-api.nova',
++    'horizon.app.core.openstack-service-api.policy',
++    'horizon.framework.util.i18n.gettext',
++    'horizon.framework.util.q.extensions',
++    'horizon.framework.widgets.modal.simple-modal.service',
++    'horizon.framework.widgets.toast.service'
++  ];
++
++  /*
++   * @ngdoc factory
++   * @name horizon.app.contrib.project.ironic-instances.actions.stop.service
++   *
++   * @Description
++   * Brings up the stop instance confirmation modal dialog.
++
++   * On submit, stop instance.
++   * On cancel, do nothing.
++   */
++  function service(
++    $q,
++    nova,
++    policy,
++    gettext,
++    $qExtensions,
++    simpleModalService,
++    toast
++  ) {
++
++    var service = {
++      initScope: initScope,
++      allowed: allowed,
++      perform: perform
++    };
++
++    return service;
++
++    //////////////
++
++    function initScope() {
++      return;
++    }
++
++    function perform(item) {
++      var isIronic = isIronicInstance(item);
++      var message = {
++        title: isIronic ? gettext('Stop Ironic Instance') : gettext('Stop Instance'),
++        body: isIronic
++          ? gettext('Are you sure to stop ironic instance "%s" ?')
++          : gettext('Are you sure to stop instance "%s" ?'),
++        success: isIronic
++          ? gettext('Ironic instance "%s" stopped successfully.')
++          : gettext('Instance "%s" stopped successfully.'),
++        error: isIronic
++          ? gettext('Unable to stop ironic instance "%s".')
++          : gettext('Unable to stop instance "%s".')
++      };
++
++      var options = {
++        title: message.title,
++        body: interpolate(message.body, [getName(item)]),
++        submit: message.submit,
++        confirm: onSubmit
++      };
++      return simpleModalService.modal(options).result;
++
++      function onSubmit() {
++        return stopInstance(item.id).then(onSuccess, onError);
++      }
++
++      function onSuccess() {
++        toast.add('success', interpolate(message.success, [getName(item)]));
++      }
++
++      function onError() {
++        toast.add('error', interpolate(message.error, [getName(item)]));
++      }
++    }
++
++    function allowed(instance) {
++      return $q.all([
++        policy.ifAllowed({rules: [['compute', 'compute:stop']]}),
++        isRunningOrSuspended(instance)
++      ]);
++    }
++
++    function getName(entity) {
++      return entity.name;
++    }
++
++    function isRunningOrSuspended(instance) {
++      return $qExtensions.booleanAsPromise(instance.status === 'active' ||
++                                           instance.status === 'suspended');
++    }
++
++    function stopInstance(instanceId) {
++      return nova.stopServer(instanceId);
++    }
++
++    function isIronicInstance(instance) {
++      return instance.metadata.hypervisor_type === 'ironic';
++    }
++
++  }
++})();
+diff --git a/openstack_dashboard/themes/contrib/static/horizon/components/_table_actions.scss b/openstack_dashboard/themes/contrib/static/horizon/components/_table_actions.scss
+index 395529e2f7..001771a69c 100644
+--- a/openstack_dashboard/themes/contrib/static/horizon/components/_table_actions.scss
++++ b/openstack_dashboard/themes/contrib/static/horizon/components/_table_actions.scss
+@@ -48,4 +48,13 @@
+       border-color: $primary-button-color;
+     }
+   }
++  .btn-batch-action {
++    background-color: none;
++    border-color: #7b8997;
++    color: #7b8997;
++    &:hover {
++      background-color: #7b8997;
++      color: #ffffff;
++    }
++  }
+ }
