@@ -1,0 +1,301 @@
+Ignoring sphinxcontrib-applehelp: markers 'python_version == "3.6"' don't match your environment
+Ignoring sphinxcontrib-applehelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.4"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.5"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.6"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.7"' don't match your environment
+Looking in links: /tmp/wheels/
+Collecting cryptography===2.7
+  Downloading cryptography-2.7-cp27-cp27mu-manylinux1_x86_64.whl (2.3 MB)
+Collecting enum34===1.1.6
+  Downloading enum34-1.1.6-py2-none-any.whl (12 kB)
+Collecting PyMySQL===0.9.3
+  Downloading PyMySQL-0.9.3-py2.py3-none-any.whl (47 kB)
+Processing /tmp/wheels/python_memcached-1.59-py2.py3-none-any.whl
+Collecting six===1.12.0
+  Downloading six-1.12.0-py2.py3-none-any.whl (10 kB)
+Collecting cffi===1.12.3
+  Downloading cffi-1.12.3-cp27-cp27mu-manylinux1_x86_64.whl (415 kB)
+Processing /tmp/wheels/uWSGI-2.0.17.1-cp27-cp27mu-linux_x86_64.whl
+Collecting fluent-logger
+  Downloading fluent_logger-0.9.4-py2.py3-none-any.whl (12 kB)
+Collecting ipaddress===1.0.22
+  Downloading ipaddress-1.0.22-py2.py3-none-any.whl (18 kB)
+Collecting asn1crypto===0.24.0
+  Downloading asn1crypto-0.24.0-py2.py3-none-any.whl (101 kB)
+Processing /tmp/wheels/pycparser-2.19-py2.py3-none-any.whl
+Collecting msgpack===0.6.1
+  Downloading msgpack-0.6.1-cp27-cp27mu-manylinux1_x86_64.whl (231 kB)
+Installing collected packages: ipaddress, asn1crypto, pycparser, cffi, six, enum34, cryptography, msgpack, PyMySQL, python-memcached, uWSGI, fluent-logger
+Successfully installed PyMySQL-0.9.3 asn1crypto-0.24.0 cffi-1.12.3 cryptography-2.7 enum34-1.1.6 fluent-logger-0.9.4 ipaddress-1.0.22 msgpack-0.6.1 pycparser-2.19 python-memcached-1.59 six-1.12.0 uWSGI-2.0.17.1
++ [[ glance == \n\o\v\a ]]
+++ dirname /opt/loci/scripts/install.sh
++ /opt/loci/scripts/clone_project.sh
++ git clone https://opendev.org/openstack/glance.git /tmp/glance
+Cloning into '/tmp/glance'...
+^[[B/tmp/glance /
++ pushd /tmp/glance
++ git fetch https://opendev.org/openstack/glance.git stable/train
+From https://opendev.org/openstack/glance
+ * branch            stable/train -> FETCH_HEAD
++ git checkout FETCH_HEAD
+Note: checking out 'FETCH_HEAD'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+HEAD is now at c5bdc55... Ensure store ID parsed from URI is properly encoded
++ popd
+/
+++ dirname /opt/loci/scripts/install.sh
++ /opt/loci/scripts/install_packages.sh
++ [[ no != \n\o ]]
++ for file in '/opt/loci/bindep*'
++ PACKAGES+=($(bindep -f $file -b -l newline ${PROJECT} ${PROFILES} ${python3} || :))
+++ bindep -f /opt/loci/bindep.txt -b -l newline glance fluent glance ceph
++ [[ ! -z ceph-common ]]
++ case ${distro} in
++ yum -y --setopt=skip_missing_names_on_install=False install ceph-common libxml2 python-rbd postgresql-libs
+Loaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirrors.tuna.tsinghua.edu.cn
+ * extras: ap.stykers.moe
+ * updates: mirrors.huaweicloud.com
+http://build.starlingx.cengn.ca:80//mirror/starlingx/master/centos/20191203T153530Z/outputs/RPMS/std/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
+To address this issue please refer to the below wiki article
+
+https://wiki.centos.org/yum-errors
+
+If above article doesn't help to resolve this issue please use https://bugs.centos.org/.
+
+http://build.starlingx.cengn.ca:80//mirror/starlingx/master/centos/20191203T153530Z/inputs/RPMS/repodata/repomd.xml: [Errno 14] HTTP Error 404 - Not Found
+Trying other mirror.
+Package libxml2-2.9.1-6.el7_2.3.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package ceph-common.x86_64 1:10.2.5-4.el7 will be installed
+--> Processing Dependency: python-rados = 1:10.2.5-4.el7 for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: librbd1 = 1:10.2.5-4.el7 for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: librados2 = 1:10.2.5-4.el7 for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: xfsprogs for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: python-requests for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: parted for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: initscripts for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: hdparm for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: gdisk for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: cryptsetup for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_thread-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_system-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_regex-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_random-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_program_options-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+--> Processing Dependency: libboost_iostreams-mt.so.1.53.0()(64bit) for package: 1:ceph-common-10.2.5-4.el7.x86_64
+---> Package postgresql-libs.x86_64 0:9.2.24-2.el7_7 will be installed
+---> Package python-rbd.x86_64 1:10.2.5-4.el7 will be installed
+--> Running transaction check
+---> Package boost-iostreams.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-program-options.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-random.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-regex.x86_64 0:1.53.0-27.el7 will be installed
+--> Processing Dependency: libicuuc.so.50()(64bit) for package: boost-regex-1.53.0-27.el7.x86_64
+--> Processing Dependency: libicui18n.so.50()(64bit) for package: boost-regex-1.53.0-27.el7.x86_64
+--> Processing Dependency: libicudata.so.50()(64bit) for package: boost-regex-1.53.0-27.el7.x86_64
+---> Package boost-system.x86_64 0:1.53.0-27.el7 will be installed
+---> Package boost-thread.x86_64 0:1.53.0-27.el7 will be installed
+---> Package cryptsetup.x86_64 0:2.0.3-5.el7 will be installed
+---> Package gdisk.x86_64 0:0.8.10-3.el7 will be installed
+---> Package hdparm.x86_64 0:9.43-5.el7 will be installed
+---> Package initscripts.x86_64 0:9.49.47-1.el7 will be installed
+--> Processing Dependency: iproute for package: initscripts-9.49.47-1.el7.x86_64
+---> Package librados2.i686 1:10.2.5-4.el7 will be installed
+--> Processing Dependency: libuuid.so.1 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.9) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.19) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.18) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.15) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.14) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4.11) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(GLIBCXX_3.4) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3.7) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3.5) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3.1) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6(CXXABI_1.3) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libstdc++.so.6 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libssl3.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libsmime3.so(NSS_3.2) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libsmime3.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: librt.so.1(GLIBC_2.2) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: librt.so.1 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.3.2) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.2) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.12) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.1) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0(GLIBC_2.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libpthread.so.0 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libplds4.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libplc4.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnssutil3.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnss3.so(NSS_3.3) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnss3.so(NSS_3.2) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnss3.so(NSS_3.12.9) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnss3.so(NSS_3.12.5) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnss3.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libnspr4.so for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libm.so.6(GLIBC_2.1) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libm.so.6(GLIBC_2.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libm.so.6 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libgcc_s.so.1(GLIBC_2.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libgcc_s.so.1(GCC_3.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libgcc_s.so.1 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libdl.so.2(GLIBC_2.1) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libdl.so.2(GLIBC_2.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libdl.so.2 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libc.so.6(GLIBC_2.15) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libboost_thread-mt.so.1.53.0 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libboost_system-mt.so.1.53.0 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libboost_random-mt.so.1.53.0 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libboost_iostreams-mt.so.1.53.0 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libblkid.so.1(BLKID_1.0) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: libblkid.so.1 for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: ld-linux.so.2(GLIBC_2.3) for package: 1:librados2-10.2.5-4.el7.i686
+--> Processing Dependency: ld-linux.so.2 for package: 1:librados2-10.2.5-4.el7.i686
+---> Package librbd1.i686 1:10.2.5-4.el7 will be installed
+---> Package parted.x86_64 0:3.1-31.el7 will be installed
+---> Package python-rados.x86_64 1:10.2.5-4.el7 will be installed
+---> Package python-requests.noarch 0:2.6.0-8.el7_7 will be installed
+--> Processing Dependency: python-urllib3 >= 1.10.2-1 for package: python-requests-2.6.0-8.el7_7.noarch
+---> Package xfsprogs.x86_64 0:4.5.0-20.el7 will be installed
+--> Running transaction check
+---> Package boost-iostreams.i686 0:1.53.0-27.el7 will be installed
+--> Processing Dependency: libz.so.1 for package: boost-iostreams-1.53.0-27.el7.i686
+--> Processing Dependency: libbz2.so.1 for package: boost-iostreams-1.53.0-27.el7.i686
+---> Package boost-random.i686 0:1.53.0-27.el7 will be installed
+---> Package boost-system.i686 0:1.53.0-27.el7 will be installed
+---> Package boost-thread.i686 0:1.53.0-27.el7 will be installed
+---> Package glibc.i686 0:2.17-292.el7 will be installed
+--> Processing Dependency: libfreebl3.so(NSSRAWHASH_3.12.3) for package: glibc-2.17-292.el7.i686
+--> Processing Dependency: libfreebl3.so for package: glibc-2.17-292.el7.i686
+---> Package iproute.x86_64 0:4.11.0-25.el7_7.2 will be installed
+--> Processing Dependency: libmnl.so.0(LIBMNL_1.0)(64bit) for package: iproute-4.11.0-25.el7_7.2.x86_64
+--> Processing Dependency: libxtables.so.10()(64bit) for package: iproute-4.11.0-25.el7_7.2.x86_64
+--> Processing Dependency: libmnl.so.0()(64bit) for package: iproute-4.11.0-25.el7_7.2.x86_64
+---> Package libblkid.i686 0:2.23.2-61.el7_7.1 will be installed
+---> Package libgcc.i686 0:4.8.5-39.el7 will be installed
+---> Package libicu.x86_64 0:50.2-3.el7 will be installed
+---> Package libstdc++.i686 0:4.8.5-39.el7 will be installed
+---> Package libuuid.i686 0:2.23.2-61.el7_7.1 will be installed
+---> Package nspr.i686 0:4.21.0-1.el7 will be installed
+---> Package nss.i686 0:3.44.0-7.el7_7 will be installed
+--> Processing Dependency: nss-softokn(x86-32) >= 3.44.0-1 for package: nss-3.44.0-7.el7_7.i686
+--> Processing Dependency: nss-pem(x86-32) for package: nss-3.44.0-7.el7_7.i686
+---> Package nss-util.i686 0:3.44.0-4.el7_7 will be installed
+---> Package python-urllib3.noarch 0:1.10.2-7.el7 will be installed
+--> Processing Dependency: python-six for package: python-urllib3-1.10.2-7.el7.noarch
+--> Running transaction check
+---> Package bzip2-libs.i686 0:1.0.6-13.el7 will be installed
+---> Package iptables.x86_64 0:1.4.21-33.el7 will be installed
+--> Processing Dependency: libnfnetlink.so.0()(64bit) for package: iptables-1.4.21-33.el7.x86_64
+--> Processing Dependency: libnetfilter_conntrack.so.3()(64bit) for package: iptables-1.4.21-33.el7.x86_64
+---> Package libmnl.x86_64 0:1.0.3-7.el7 will be installed
+---> Package nss-pem.i686 0:1.0.3-7.el7 will be installed
+---> Package nss-softokn.i686 0:3.44.0-8.el7_7 will be installed
+--> Processing Dependency: libsqlite3.so.0 for package: nss-softokn-3.44.0-8.el7_7.i686
+---> Package nss-softokn-freebl.i686 0:3.44.0-8.el7_7 will be installed
+---> Package python-six.noarch 0:1.9.0-2.el7 will be installed
+---> Package zlib.i686 0:1.2.7-18.el7 will be installed
+--> Running transaction check
+---> Package libnetfilter_conntrack.x86_64 0:1.0.6-1.el7_3 will be installed
+---> Package libnfnetlink.x86_64 0:1.0.1-4.el7 will be installed
+---> Package sqlite.i686 0:3.7.17-8.el7_7.1 will be installed
+--> Processing Dependency: libtinfo.so.5 for package: sqlite-3.7.17-8.el7_7.1.i686
+--> Processing Dependency: libreadline.so.6 for package: sqlite-3.7.17-8.el7_7.1.i686
+--> Processing Dependency: libncurses.so.5 for package: sqlite-3.7.17-8.el7_7.1.i686
+--> Running transaction check
+---> Package ncurses-libs.i686 0:5.9-14.20130511.el7_4 will be installed
+---> Package readline.i686 0:6.2-11.el7 will be installed
+--> Finished Dependency Resolution
+Error:  Multilib version problems found. This often means that the root
+       cause is something else and multilib version checking is just
+       pointing out that there is a problem. Eg.:
+
+         1. You have an upgrade for librados2 which is missing some
+            dependency that another package requires. Yum is trying to
+            solve this by installing an older version of librados2 of the
+            different architecture. If you exclude the bad architecture
+            yum will tell you what the root cause is (which package
+            requires what). You can try redoing the upgrade with
+            --exclude librados2.otherarch ... this should give you an error
+            message showing the root cause of the problem.
+
+         2. You have multiple architectures of librados2 installed, but
+            yum can only see an upgrade for one of those architectures.
+            If you don't want/need both architectures anymore then you
+            can remove the one with the missing update and everything
+            will work.
+
+         3. You have duplicate versions of librados2 installed already.
+            You can use "yum check" to get yum show these errors.
+
+       ...you can also use --setopt=protected_multilib=false to remove
+       this checking, however this is almost never the correct thing to
+       do as something else is very likely to go wrong (often causing
+       much more problems).
+
+       Protected multilib versions: 1:librados2-10.2.5-4.el7.i686 != 2:librados2-13.2.2-0.el7.tis.28.x86_64
+Error: Protected multilib versions: 1:librbd1-10.2.5-4.el7.i686 != 2:librbd1-13.2.2-0.el7.tis.28.x86_64
+The command '/bin/sh -c /opt/loci/scripts/install.sh' returned a non-zero code: 1
+Command (docker) failed, attempt 1 of 1.
+Max command attempts reached. Aborting...
+Failed to build stx-glance... Aborting
+Cleaning loci build container and image: 920fadd24060fb5617fc53d668b285d6ca8e090edf2f0d5df60d09c774fb23f3 sha256:fa9cc93844f7d7d57deec601d4955dcd229b567a1450c1bbe7cbcd441ea06f83
+920fadd24060fb5617fc53d668b285d6ca8e090edf2f0d5df60d09c774fb23f3
+Deleted: sha256:fa9cc93844f7d7d57deec601d4955dcd229b567a1450c1bbe7cbcd441ea06f83
+Deleted: sha256:fb13659ab1cc80b1e7bbc9355edcfe2ac298ce4462bc58f8e5ed8bbab3cfed90
+Deleted: sha256:8d9c79693028bce3b990753a6a0effad3021ebc577ebde73ab28c2945d0d09d2
+Deleted: sha256:4ad6228540f48b9c12976a13e203ca2db293e99d61a7c875f0c187151e81c373
+Deleted: sha256:1a71469781f57387ada9eab745ec8414c33e8ef1a045886cafc926717b9ded5f
+Deleted: sha256:cf42757dd02569023c05cb2c64caaf98ddea846abdfbd66cf5cc3f5651bd2b51
+Deleted: sha256:af46c9d60a87ca8aa79f4ddf43f538f9503a3f1786fe56a865c0f5ee4aea1a0d
+Deleted: sha256:7a90f44cb6c1a0036281a4497baaae657c1cf8526c2320f3ffd75bed98ec09e1
+Deleted: sha256:a2c162a1684b812f843e8e7afea90bc9a26eae53a38197eaf79411eedf5121fb
+Deleted: sha256:b7dc1d48d1d34447ce23a5732cc1f56a392e99ab1d30bfe2cfd77ecc1c91f02b
+Deleted: sha256:7ec87bbe6b2c520e953d98965238e3ea1bff79cc10092f344926bf67b3762c45
+Deleted: sha256:f0609a68f673c27be4a76ff5f54d9194c246280bd9be88fb757ff599efa38e6a
+Deleted: sha256:7d98780bc7b78d16cec808f937e96cb03a172f2637dfd81d0065be27a85fa914
+Deleted: sha256:26ef5eaefd3701b17f5f0514f6a25c4aeec7ed0759885d39149e82294fadee1c
+Deleted: sha256:32e68cc27cb1bf829c4ab1255f524410cc8eb73a0cb053fecd45b8e6fcae8e36
+Deleted: sha256:389b3bb8142b08a75b565929aee0b6ed7e30ff52fe9681eb4d9150b2b19567a7
+Deleted: sha256:71bf2dca95808af68f9f160e4051ec4b159be5126cbea3e189299602f4f2b764
+Deleted: sha256:df67b3ca3538dc9de12d48c5e8f7586726b94a75e139fb7ab9bd617513758065
+Deleted: sha256:b4f3a0c95c23dd3c26a892f3603610ebaa32c5b80cb448f219414954fca6f600
+Deleted: sha256:62e7c5058ac02888a1c4a70ab478013583976977b8caa20ed1efd4ca75b96ede
+Deleted: sha256:ac14d11ffb35bada0a034664978451acf30bdf42be629726450ff617acb8f707
+Deleted: sha256:f4b4bb4b73d95c68f53801402355a2a53e0b46a8152cb1d9b2c0d346a84f9f93
+Deleted: sha256:8efc7e64defee6ee7423252135933c8689aee4d717f0b68e7aa8a7557d98982c
+Deleted: sha256:caab75132ed3b52a7c7a90d5a834848956bac2256388b6469e2f0b7d0ac0c311
+Deleted: sha256:3db01c36f48b7b6818e233ed538e799e6d111e1cfce0bb0cca6b4d60fc0f12b2
+Skipping stx-gnocchi
+Skipping stx-heat
+Skipping stx-horizon
+Skipping stx-keystone
+Skipping stx-neutron
+Skipping stx-nova
+Skipping stx-openstackclients
+Skipping stx-placement
+Skipping stx-platformclients
+
+#######################################
+
+There were 1 failures:
+stx-glance
+
+real    35m19.269s
+user    0m0.816s
+sys     0m0.296s
