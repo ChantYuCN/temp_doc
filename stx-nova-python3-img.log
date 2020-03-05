@@ -1,0 +1,1911 @@
+check base images
+172.16.206.38:5000/chant/stx-centos:master-stable-chant
+pull stx base images
+master-stable-chant: Pulling from chant/stx-centos
+Digest: sha256:4e45606df688d256a31eea6a48b28b2daadf4cc3a826be66b8d09a117c9793cc
+Status: Image is up to date for 172.16.206.38:5000/chant/stx-centos:master-stable-chant
+172.16.206.38:5000/chant/stx-centos:master-stable-chant
+Download loci
+M	Dockerfile
+M	scripts/fetch_wheels.py
+M	scripts/fetch_wheels.sh
+Find the directive files
+GIT_LIST=/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root
+GIT_LIST_REL=./cgcs-root
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/distributedcloud/centos_stable_docker_images.inc
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/distributedcloud
+distributedcloud
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/distributedcloud/distributedcloud/centos/stx-keystone-api-proxy.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-keystone-api-proxy 
+only value
+stx-nova
+space 1
+proj infra
+label stx-keystone-api-proxy
+Skipping stx-keystone-api-proxy
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/fault/centos_stable_docker_images.inc
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/fault
+fm-rest-api
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/fault/fm-rest-api/centos/stx-fm-rest-api.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-fm-rest-api 
+only value
+stx-nova
+space 1
+proj infra
+label stx-fm-rest-api
+Skipping stx-fm-rest-api
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/centos_stable_docker_images.inc
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ
+database/mariadb
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/database/mariadb/centos/stx-mariadb.stable_docker_image
+in docker
+Skipping stx-mariadb
+kubernetes/cni/sriov-cni
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/kubernetes/cni/sriov-cni/centos/k8s-cni-sriov.stable_docker_image
+in docker
+Skipping k8s-cni-sriov
+kubernetes/plugins/sriov-network-device-plugin
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/kubernetes/plugins/sriov-network-device-plugin/centos/k8s-plugins-sriov-network-device.stable_docker_image
+in docker
+Skipping k8s-plugins-sriov-network-device
+networking/openvswitch
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/networking/openvswitch/centos/stx-ovs.stable_docker_image
+in docker
+Skipping stx-ovs
+virt/libvirt
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/integ/virt/libvirt/centos/stx-libvirt.stable_docker_image
+in docker
+Skipping stx-libvirt
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/nfv/centos_stable_docker_images.inc
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/nfv
+./nova-api-proxy
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/nfv/./nova-api-proxy/centos/stx-nova-api-proxy.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-nova-api-proxy 
+only value
+stx-nova
+space 1
+proj infra
+label stx-nova-api-proxy
+Skipping stx-nova-api-proxy
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/centos_stable_docker_images.inc
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream
+openstack/openstack-aodh
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/openstack-aodh/centos/stx-aodh.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-aodh 
+only value
+stx-nova
+space 1
+proj aodh
+label stx-aodh
+Skipping stx-aodh
+openstack/openstack-ironic
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/openstack-ironic/centos/stx-ironic.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-ironic 
+only value
+stx-nova
+space 1
+proj ironic
+label stx-ironic
+Skipping stx-ironic
+openstack/openstack-panko
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/openstack-panko/centos/stx-panko.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-panko 
+only value
+stx-nova
+space 1
+proj panko
+label stx-panko
+Skipping stx-panko
+openstack/python-barbican
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-barbican/centos/stx-barbican.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-barbican 
+only value
+stx-nova
+space 1
+proj barbican
+label stx-barbican
+Skipping stx-barbican
+openstack/python-ceilometer
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-ceilometer/centos/stx-ceilometer.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-ceilometer 
+only value
+stx-nova
+space 1
+proj ceilometer
+label stx-ceilometer
+Skipping stx-ceilometer
+openstack/python-cinder
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-cinder/centos/stx-cinder.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-cinder 
+only value
+stx-nova
+space 1
+proj cinder
+label stx-cinder
+Skipping stx-cinder
+openstack/python-glance
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-glance/centos/stx-glance.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-glance 
+only value
+stx-nova
+space 1
+proj glance
+label stx-glance
+Skipping stx-glance
+openstack/python-gnocchi
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-gnocchi/centos/stx-gnocchi.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-gnocchi 
+only value
+stx-nova
+space 1
+proj gnocchi
+label stx-gnocchi
+Skipping stx-gnocchi
+openstack/python-heat/openstack-heat
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-heat/openstack-heat/centos/stx-heat.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-heat 
+only value
+stx-nova
+space 1
+proj heat
+label stx-heat
+Skipping stx-heat
+openstack/python-horizon
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-horizon/centos/stx-horizon.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-horizon 
+only value
+stx-nova
+space 1
+proj horizon
+label stx-horizon
+Skipping stx-horizon
+openstack/python-keystone
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-keystone/centos/stx-keystone.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-keystone 
+only value
+stx-nova
+space 1
+proj keystone
+label stx-keystone
+Skipping stx-keystone
+openstack/python-neutron
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-neutron/centos/stx-neutron.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-neutron 
+only value
+stx-nova
+space 1
+proj neutron
+label stx-neutron
+Skipping stx-neutron
+openstack/python-nova
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-nova/centos/stx-nova.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-nova 
+only value
+stx-nova
+space 1
+proj nova
+label stx-nova
+Building stx-nova
+Running: docker build /home/chant/starlingx/workspace/localdisk/loadbuild/chant/starlingx//std/build-images/loci --no-cache --build-arg PROJECT=nova --build-arg PROJECT_REPO=https://opendev.org/openstack/nova.git --build-arg FROM=172.16.206.38:5000/chant/stx-centos:master-stable-chant --build-arg WHEELS=http://172.16.206.38:8080/stx-centos-stable-wheels.tar --build-arg PIP_PACKAGES=pycrypto httplib2 pylint python-ironicclient --build-arg DIST_PACKAGES=openssh-clients openssh-server libvirt e2fsprogs --build-arg PROFILES=fluent nova ceph linuxbridge openvswitch configdrive qemu apache --tag chant/stx-nova:dev-centos-stable-build
+Sending build context to Docker daemon  521.2kB
+Step 1/26 : ARG FROM=ubuntu:xenial
+Step 2/26 : FROM ${FROM}
+ ---> 069428bcc024
+Step 3/26 : ENV PATH=/var/lib/openstack/bin:$PATH
+ ---> Running in 7405f70fda02
+Removing intermediate container 7405f70fda02
+ ---> 7fcacfd0ae6f
+Step 4/26 : ARG PROJECT
+ ---> Running in 654b34a5d703
+Removing intermediate container 654b34a5d703
+ ---> 546f7528dc8c
+Step 5/26 : ARG WHEELS=loci/requirements:master-ubuntu
+ ---> Running in 528373f2c64a
+Removing intermediate container 528373f2c64a
+ ---> 8e1aaed1eafe
+Step 6/26 : ARG PROJECT_REPO=https://git.openstack.org/openstack/${PROJECT}
+ ---> Running in acada61d5f3c
+Removing intermediate container acada61d5f3c
+ ---> efa3f2ad3b84
+Step 7/26 : ARG PROJECT_REF=master
+ ---> Running in a9ad6f05910d
+Removing intermediate container a9ad6f05910d
+ ---> 6807c60db7c3
+Step 8/26 : ARG DISTRO
+ ---> Running in 92303be8e0f7
+Removing intermediate container 92303be8e0f7
+ ---> 6affb1a780a5
+Step 9/26 : ARG PROFILES
+ ---> Running in 4efc6453aca4
+Removing intermediate container 4efc6453aca4
+ ---> dff4dbeb5177
+Step 10/26 : ARG PIP_PACKAGES=""
+ ---> Running in 245ec79e4d3c
+Removing intermediate container 245ec79e4d3c
+ ---> b30d0e0fca08
+Step 11/26 : ARG PIP_ARGS=""
+ ---> Running in 4264972056e2
+Removing intermediate container 4264972056e2
+ ---> 8b9a8a9b8bb3
+Step 12/26 : ARG PIP_WHEEL_ARGS=$PIP_ARGS
+ ---> Running in 9430cd01caae
+Removing intermediate container 9430cd01caae
+ ---> 8d9366df6384
+Step 13/26 : ARG DIST_PACKAGES=""
+ ---> Running in 237b790ad16c
+Removing intermediate container 237b790ad16c
+ ---> 5c1c2102eaae
+Step 14/26 : ARG PLUGIN=no
+ ---> Running in 752c437ae4c5
+Removing intermediate container 752c437ae4c5
+ ---> 26814d195cd2
+Step 15/26 : ARG PYTHON3=yes
+ ---> Running in 8331b5df418e
+Removing intermediate container 8331b5df418e
+ ---> c6f3fb450ffc
+Step 16/26 : ARG EXTRA_BINDEP=""
+ ---> Running in 0d4ff91e1078
+Removing intermediate container 0d4ff91e1078
+ ---> eecd4da6b907
+Step 17/26 : ARG EXTRA_PYDEP=""
+ ---> Running in a3a9e8bc81e0
+Removing intermediate container a3a9e8bc81e0
+ ---> f74e0259a7e7
+Step 18/26 : ARG UID=42424
+ ---> Running in 55c837e9b4ea
+Removing intermediate container 55c837e9b4ea
+ ---> 4164945ff8c8
+Step 19/26 : ARG GID=42424
+ ---> Running in 6036e9be33ec
+Removing intermediate container 6036e9be33ec
+ ---> 7204a8d25558
+Step 20/26 : ARG NOVNC_REPO=https://github.com/novnc/novnc
+ ---> Running in cc4ed9b02347
+Removing intermediate container cc4ed9b02347
+ ---> b59dc9370cc6
+Step 21/26 : ARG NOVNC_REF=v1.0.0
+ ---> Running in f1ac6d32ced9
+Removing intermediate container f1ac6d32ced9
+ ---> a4a149859897
+Step 22/26 : ARG SPICE_REPO=https://gitlab.freedesktop.org/spice/spice-html5.git
+ ---> Running in e7eca3bd591d
+Removing intermediate container e7eca3bd591d
+ ---> abffb440718f
+Step 23/26 : ARG SPICE_REF=spice-html5-0.1.6
+ ---> Running in 8f90eb47c738
+Removing intermediate container 8f90eb47c738
+ ---> a981dfa28fbe
+Step 24/26 : COPY scripts /opt/loci/scripts
+ ---> 2e40bf69f13e
+Step 25/26 : ADD bindep.txt pydep.txt $EXTRA_BINDEP $EXTRA_PYDEP /opt/loci/
+ ---> ea747ef9fac4
+Step 26/26 : RUN /opt/loci/scripts/install.sh
+ ---> Running in 1a138cca687b
+[91m++ awk -F= '/^ID=/ {gsub(/\"/, "", $2); print $2}' /etc/centos-release /etc/os-release /etc/redhat-release /etc/system-release
+[0m[91m+ distro=centos
++ export distro=centos
++ distro=centos
+[0m[91m+ [[ yes == \n\o ]]
++ dpkg_python_packages=("python3" "python3-virtualenv")
+[0m[91m+ rpm_python_packages=("python3" "python3-virtualenv")
+[0m[91m+ case ${distro} in
++ yum upgrade -y
+[0mLoaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirrors.tuna.tsinghua.edu.cn
+ * extras: mirrors.ustc.edu.cn
+ * updates: mirrors.ustc.edu.cn
+Resolving Dependencies
+--> Running transaction check
+---> Package audit-libs.x86_64 0:2.8.4-4.el7 will be updated
+---> Package audit-libs.x86_64 0:2.8.5-4.el7 will be an update
+---> Package bash.x86_64 0:4.2.46-31.el7.tis.4 will be updated
+---> Package bash.x86_64 0:4.2.46-33.el7 will be an update
+---> Package bind-license.noarch 32:9.9.4-72.el7 will be updated
+---> Package bind-license.noarch 32:9.11.4-9.P2.el7 will be an update
+---> Package binutils.x86_64 0:2.27-34.base.el7 will be updated
+---> Package binutils.x86_64 0:2.27-41.base.el7_7.2 will be an update
+---> Package ca-certificates.noarch 0:2018.2.22-70.0.el7_5 will be updated
+---> Package ca-certificates.noarch 0:2019.2.32-76.el7_7 will be an update
+---> Package centos-release.x86_64 0:7-6.1810.2.el7.centos will be updated
+---> Package centos-release.x86_64 0:7-7.1908.0.el7.centos will be an update
+---> Package coreutils.x86_64 0:8.22-23.el7 will be updated
+---> Package coreutils.x86_64 0:8.22-24.el7 will be an update
+---> Package cryptsetup-libs.x86_64 0:2.0.3-3.el7 will be updated
+---> Package cryptsetup-libs.x86_64 0:2.0.3-5.el7 will be an update
+---> Package curl.x86_64 0:7.29.0-51.el7_6.3 will be updated
+---> Package curl.x86_64 0:7.29.0-54.el7_7.2 will be an update
+---> Package dbus.x86_64 1:1.10.24-12.el7 will be updated
+---> Package dbus.x86_64 1:1.10.24-13.el7_6 will be an update
+---> Package dbus-libs.x86_64 1:1.10.24-12.el7 will be updated
+---> Package dbus-libs.x86_64 1:1.10.24-13.el7_6 will be an update
+---> Package device-mapper.x86_64 7:1.02.146-4.el7 will be updated
+---> Package device-mapper.x86_64 7:1.02.158-2.el7_7.2 will be an update
+---> Package device-mapper-libs.x86_64 7:1.02.146-4.el7 will be updated
+---> Package device-mapper-libs.x86_64 7:1.02.158-2.el7_7.2 will be an update
+---> Package diffutils.x86_64 0:3.3-4.el7 will be updated
+---> Package diffutils.x86_64 0:3.3-5.el7 will be an update
+---> Package dracut.x86_64 0:033-554.el7 will be updated
+---> Package dracut.x86_64 0:033-564.el7 will be an update
+---> Package elfutils-default-yama-scope.noarch 0:0.172-2.el7 will be updated
+---> Package elfutils-default-yama-scope.noarch 0:0.176-2.el7 will be an update
+---> Package elfutils-libelf.x86_64 0:0.172-2.el7 will be updated
+---> Package elfutils-libelf.x86_64 0:0.176-2.el7 will be an update
+---> Package elfutils-libs.x86_64 0:0.172-2.el7 will be updated
+---> Package elfutils-libs.x86_64 0:0.176-2.el7 will be an update
+---> Package glib2.x86_64 0:2.56.1-2.el7 will be updated
+---> Package glib2.x86_64 0:2.56.1-5.el7 will be an update
+---> Package glibc.x86_64 0:2.17-260.el7 will be updated
+---> Package glibc.x86_64 0:2.17-292.el7 will be an update
+---> Package glibc-common.x86_64 0:2.17-260.el7 will be updated
+---> Package glibc-common.x86_64 0:2.17-292.el7 will be an update
+---> Package gnutls.x86_64 0:3.3.29-8.el7 will be updated
+---> Package gnutls.x86_64 0:3.3.29-9.el7_6 will be an update
+---> Package hostname.x86_64 0:3.13-3.el7 will be updated
+---> Package hostname.x86_64 0:3.13-3.el7_7.1 will be an update
+---> Package hwdata.x86_64 0:0.252-9.1.el7 will be updated
+---> Package hwdata.x86_64 0:0.252-9.3.el7 will be an update
+---> Package ima-evm-utils.x86_64 0:1.1-2.el7 will be updated
+---> Package ima-evm-utils.x86_64 0:1.1-3.el7 will be an update
+---> Package kmod.x86_64 0:20-23.el7 will be updated
+---> Package kmod.x86_64 0:20-25.el7 will be an update
+---> Package kmod-libs.x86_64 0:20-23.el7 will be updated
+---> Package kmod-libs.x86_64 0:20-25.el7 will be an update
+---> Package kpartx.x86_64 0:0.4.9-119.el7 will be updated
+---> Package kpartx.x86_64 0:0.4.9-127.el7 will be an update
+---> Package krb5-libs.x86_64 0:1.15.1-34.el7 will be updated
+---> Package krb5-libs.x86_64 0:1.15.1-37.el7_7.2 will be an update
+---> Package libblkid.x86_64 0:2.23.2-59.el7 will be updated
+---> Package libblkid.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---> Package libcap.x86_64 0:2.22-9.el7 will be updated
+---> Package libcap.x86_64 0:2.22-10.el7 will be an update
+---> Package libcom_err.x86_64 0:1.42.9-13.el7 will be updated
+---> Package libcom_err.x86_64 0:1.42.9-16.el7 will be an update
+---> Package libcurl.x86_64 0:7.29.0-51.el7_6.3 will be updated
+---> Package libcurl.x86_64 0:7.29.0-54.el7_7.2 will be an update
+---> Package libdb.x86_64 0:5.3.21-24.el7 will be updated
+---> Package libdb.x86_64 0:5.3.21-25.el7 will be an update
+---> Package libdb-utils.x86_64 0:5.3.21-24.el7 will be updated
+---> Package libdb-utils.x86_64 0:5.3.21-25.el7 will be an update
+---> Package libgcc.x86_64 0:4.8.5-36.el7 will be updated
+---> Package libgcc.x86_64 0:4.8.5-39.el7 will be an update
+---> Package libmount.x86_64 0:2.23.2-59.el7 will be updated
+---> Package libmount.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---> Package libsmartcols.x86_64 0:2.23.2-59.el7 will be updated
+---> Package libsmartcols.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---> Package libssh2.x86_64 0:1.4.3-12.el7 will be updated
+---> Package libssh2.x86_64 0:1.8.0-3.el7 will be an update
+---> Package libstdc++.x86_64 0:4.8.5-36.el7 will be updated
+---> Package libstdc++.x86_64 0:4.8.5-39.el7 will be an update
+---> Package libtirpc.x86_64 0:0.2.4-0.15.el7 will be updated
+---> Package libtirpc.x86_64 0:0.2.4-0.16.el7 will be an update
+---> Package libuuid.x86_64 0:2.23.2-59.el7 will be updated
+---> Package libuuid.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---> Package lz4.x86_64 0:1.7.5-2.el7 will be updated
+---> Package lz4.x86_64 0:1.7.5-3.el7 will be an update
+---> Package nspr.x86_64 0:4.19.0-1.el7_5 will be updated
+---> Package nspr.x86_64 0:4.21.0-1.el7 will be an update
+---> Package nss.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss.x86_64 0:3.44.0-7.el7_7 will be an update
+---> Package nss-pem.x86_64 0:1.0.3-5.el7 will be updated
+---> Package nss-pem.x86_64 0:1.0.3-7.el7 will be an update
+---> Package nss-softokn.x86_64 0:3.36.0-5.el7_5 will be updated
+---> Package nss-softokn.x86_64 0:3.44.0-8.el7_7 will be an update
+---> Package nss-softokn-freebl.x86_64 0:3.36.0-5.el7_5 will be updated
+---> Package nss-softokn-freebl.x86_64 0:3.44.0-8.el7_7 will be an update
+---> Package nss-sysinit.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss-sysinit.x86_64 0:3.44.0-7.el7_7 will be an update
+---> Package nss-tools.x86_64 0:3.36.0-7.el7_5 will be updated
+---> Package nss-tools.x86_64 0:3.44.0-7.el7_7 will be an update
+---> Package nss-util.x86_64 0:3.36.0-1.el7_5 will be updated
+---> Package nss-util.x86_64 0:3.44.0-4.el7_7 will be an update
+---> Package openldap.x86_64 0:2.4.44-20.el7.tis.9 will be updated
+---> Package openldap.x86_64 0:2.4.44-21.el7_6 will be an update
+---> Package openssh.x86_64 0:7.4p1-16.el7_4.tis.10 will be updated
+---> Package openssh.x86_64 0:7.4p1-21.el7 will be an update
+---> Package openssh-clients.x86_64 0:7.4p1-16.el7_4.tis.10 will be updated
+---> Package openssh-clients.x86_64 0:7.4p1-21.el7 will be an update
+---> Package openssl-libs.x86_64 1:1.0.2k-16.el7 will be updated
+---> Package openssl-libs.x86_64 1:1.0.2k-19.el7 will be an update
+---> Package passwd.x86_64 0:0.79-4.el7 will be updated
+---> Package passwd.x86_64 0:0.79-5.el7 will be an update
+---> Package procps-ng.x86_64 0:3.3.10-23.el7 will be updated
+---> Package procps-ng.x86_64 0:3.3.10-26.el7_7.1 will be an update
+---> Package python.x86_64 0:2.7.5-76.el7.tis.4 will be updated
+---> Package python.x86_64 0:2.7.5-86.el7 will be an update
+---> Package python-libs.x86_64 0:2.7.5-76.el7.tis.4 will be updated
+---> Package python-libs.x86_64 0:2.7.5-86.el7 will be an update
+---> Package readline.x86_64 0:6.2-10.el7 will be updated
+---> Package readline.x86_64 0:6.2-11.el7 will be an update
+---> Package shadow-utils.x86_64 2:4.1.5.1-25.el7 will be updated
+---> Package shadow-utils.x86_64 2:4.6-5.el7 will be an update
+---> Package sqlite.x86_64 0:3.7.17-8.el7 will be updated
+---> Package sqlite.x86_64 0:3.7.17-8.el7_7.1 will be an update
+---> Package systemd.x86_64 0:219-62.el7_6.5.tis.11 will be updated
+---> Package systemd.x86_64 0:219-67.el7_7.3 will be an update
+---> Package systemd-libs.x86_64 0:219-62.el7_6.5.tis.11 will be updated
+---> Package systemd-libs.x86_64 0:219-67.el7_7.3 will be an update
+---> Package tzdata.noarch 0:2018g-1.el7 will be updated
+---> Package tzdata.noarch 0:2019c-1.el7 will be an update
+---> Package util-linux.x86_64 0:2.23.2-59.el7 will be updated
+---> Package util-linux.x86_64 0:2.23.2-61.el7_7.1 will be an update
+---> Package vim-minimal.x86_64 2:7.4.160-5.el7 will be updated
+---> Package vim-minimal.x86_64 2:7.4.629-6.el7 will be an update
+---> Package yum.noarch 0:3.4.3-161.el7.centos will be updated
+---> Package yum.noarch 0:3.4.3-163.el7.centos will be an update
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-50.el7 will be updated
+---> Package yum-plugin-fastestmirror.noarch 0:1.1.31-52.el7 will be an update
+---> Package yum-plugin-ovl.noarch 0:1.1.31-45.el7 will be updated
+---> Package yum-plugin-ovl.noarch 0:1.1.31-52.el7 will be an update
+---> Package yum-utils.noarch 0:1.1.31-50.el7 will be updated
+---> Package yum-utils.noarch 0:1.1.31-52.el7 will be an update
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                       Arch     Version                 Repository
+                                                                           Size
+================================================================================
+Updating:
+ audit-libs                    x86_64   2.8.5-4.el7             base      102 k
+ bash                          x86_64   4.2.46-33.el7           base      1.0 M
+ bind-license                  noarch   32:9.11.4-9.P2.el7      base       88 k
+ binutils                      x86_64   2.27-41.base.el7_7.2    updates   5.9 M
+ ca-certificates               noarch   2019.2.32-76.el7_7      updates   399 k
+ centos-release                x86_64   7-7.1908.0.el7.centos   base       26 k
+ coreutils                     x86_64   8.22-24.el7             base      3.3 M
+ cryptsetup-libs               x86_64   2.0.3-5.el7             base      338 k
+ curl                          x86_64   7.29.0-54.el7_7.2       updates   270 k
+ dbus                          x86_64   1:1.10.24-13.el7_6      base      245 k
+ dbus-libs                     x86_64   1:1.10.24-13.el7_6      base      169 k
+ device-mapper                 x86_64   7:1.02.158-2.el7_7.2    updates   294 k
+ device-mapper-libs            x86_64   7:1.02.158-2.el7_7.2    updates   322 k
+ diffutils                     x86_64   3.3-5.el7               base      322 k
+ dracut                        x86_64   033-564.el7             base      329 k
+ elfutils-default-yama-scope   noarch   0.176-2.el7             base       33 k
+ elfutils-libelf               x86_64   0.176-2.el7             base      194 k
+ elfutils-libs                 x86_64   0.176-2.el7             base      291 k
+ glib2                         x86_64   2.56.1-5.el7            base      2.5 M
+ glibc                         x86_64   2.17-292.el7            base      3.6 M
+ glibc-common                  x86_64   2.17-292.el7            base       11 M
+ gnutls                        x86_64   3.3.29-9.el7_6          base      680 k
+ hostname                      x86_64   3.13-3.el7_7.1          updates    17 k
+ hwdata                        x86_64   0.252-9.3.el7           base      2.4 M
+ ima-evm-utils                 x86_64   1.1-3.el7               base       46 k
+ kmod                          x86_64   20-25.el7               base      122 k
+ kmod-libs                     x86_64   20-25.el7               base       51 k
+ kpartx                        x86_64   0.4.9-127.el7           base       78 k
+ krb5-libs                     x86_64   1.15.1-37.el7_7.2       updates   805 k
+ libblkid                      x86_64   2.23.2-61.el7_7.1       updates   181 k
+ libcap                        x86_64   2.22-10.el7             base       47 k
+ libcom_err                    x86_64   1.42.9-16.el7           base       41 k
+ libcurl                       x86_64   7.29.0-54.el7_7.2       updates   223 k
+ libdb                         x86_64   5.3.21-25.el7           base      720 k
+ libdb-utils                   x86_64   5.3.21-25.el7           base      132 k
+ libgcc                        x86_64   4.8.5-39.el7            base      102 k
+ libmount                      x86_64   2.23.2-61.el7_7.1       updates   183 k
+ libsmartcols                  x86_64   2.23.2-61.el7_7.1       updates   141 k
+ libssh2                       x86_64   1.8.0-3.el7             base       88 k
+ libstdc++                     x86_64   4.8.5-39.el7            base      305 k
+ libtirpc                      x86_64   0.2.4-0.16.el7          base       89 k
+ libuuid                       x86_64   2.23.2-61.el7_7.1       updates    83 k
+ lz4                           x86_64   1.7.5-3.el7             base       99 k
+ nspr                          x86_64   4.21.0-1.el7            base      127 k
+ nss                           x86_64   3.44.0-7.el7_7          updates   854 k
+ nss-pem                       x86_64   1.0.3-7.el7             base       74 k
+ nss-softokn                   x86_64   3.44.0-8.el7_7          updates   330 k
+ nss-softokn-freebl            x86_64   3.44.0-8.el7_7          updates   224 k
+ nss-sysinit                   x86_64   3.44.0-7.el7_7          updates    65 k
+ nss-tools                     x86_64   3.44.0-7.el7_7          updates   528 k
+ nss-util                      x86_64   3.44.0-4.el7_7          updates    79 k
+ openldap                      x86_64   2.4.44-21.el7_6         base      356 k
+ openssh                       x86_64   7.4p1-21.el7            base      510 k
+ openssh-clients               x86_64   7.4p1-21.el7            base      655 k
+ openssl-libs                  x86_64   1:1.0.2k-19.el7         base      1.2 M
+ passwd                        x86_64   0.79-5.el7              base      105 k
+ procps-ng                     x86_64   3.3.10-26.el7_7.1       updates   291 k
+ python                        x86_64   2.7.5-86.el7            base       95 k
+ python-libs                   x86_64   2.7.5-86.el7            base      5.6 M
+ readline                      x86_64   6.2-11.el7              base      193 k
+ shadow-utils                  x86_64   2:4.6-5.el7             base      1.2 M
+ sqlite                        x86_64   3.7.17-8.el7_7.1        updates   394 k
+ systemd                       x86_64   219-67.el7_7.3          updates   5.1 M
+ systemd-libs                  x86_64   219-67.el7_7.3          updates   411 k
+ tzdata                        noarch   2019c-1.el7             updates   493 k
+ util-linux                    x86_64   2.23.2-61.el7_7.1       updates   2.0 M
+ vim-minimal                   x86_64   2:7.4.629-6.el7         base      443 k
+ yum                           noarch   3.4.3-163.el7.centos    base      1.2 M
+ yum-plugin-fastestmirror      noarch   1.1.31-52.el7           base       34 k
+ yum-plugin-ovl                noarch   1.1.31-52.el7           base       27 k
+ yum-utils                     noarch   1.1.31-52.el7           base      121 k
+
+Transaction Summary
+================================================================================
+Upgrade  71 Packages
+
+Total download size: 60 M
+Downloading packages:
+Delta RPMs disabled because /usr/bin/applydeltarpm not installed.
+[91mwarning: /var/cache/yum/x86_64/7/base/packages/audit-libs-2.8.5-4.el7.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+[0mPublic key for audit-libs-2.8.5-4.el7.x86_64.rpm is not installed
+Public key for binutils-2.27-41.base.el7_7.2.x86_64.rpm is not installed
+--------------------------------------------------------------------------------
+Total                                               12 MB/s |  60 MB  00:05     
+Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[91mImporting GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-6.1810.2.el7.centos.x86_64 (@stx-distro)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[0mRunning transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Updating   : libgcc-4.8.5-39.el7.x86_64                                 1/142 
+  Updating   : centos-release-7-7.1908.0.el7.centos.x86_64                2/142 
+  Updating   : tzdata-2019c-1.el7.noarch                                  3/142 
+  Updating   : bash-4.2.46-33.el7.x86_64                                  4/142 
+  Updating   : nss-softokn-freebl-3.44.0-8.el7_7.x86_64                   5/142 
+  Updating   : glibc-common-2.17-292.el7.x86_64                           6/142 
+  Updating   : glibc-2.17-292.el7.x86_64                                  7/142 
+warning: /etc/nsswitch.conf created as /etc/nsswitch.conf.rpmnew
+  Updating   : nspr-4.21.0-1.el7.x86_64                                   8/142 
+  Updating   : nss-util-3.44.0-4.el7_7.x86_64                             9/142 
+  Updating   : audit-libs-2.8.5-4.el7.x86_64                             10/142 
+  Updating   : libcom_err-1.42.9-16.el7.x86_64                           11/142 
+  Updating   : libuuid-2.23.2-61.el7_7.1.x86_64                          12/142 
+  Updating   : diffutils-3.3-5.el7.x86_64                                13/142 
+install-info: No such file or directory for /usr/share/info/diffutils.info
+  Updating   : libcap-2.22-10.el7.x86_64                                 14/142 
+  Updating   : readline-6.2-11.el7.x86_64                                15/142 
+  Updating   : sqlite-3.7.17-8.el7_7.1.x86_64                            16/142 
+  Updating   : nss-softokn-3.44.0-8.el7_7.x86_64                         17/142 
+  Updating   : lz4-1.7.5-3.el7.x86_64                                    18/142 
+  Updating   : libdb-5.3.21-25.el7.x86_64                                19/142 
+  Updating   : elfutils-libelf-0.176-2.el7.x86_64                        20/142 
+  Updating   : kmod-libs-20-25.el7.x86_64                                21/142 
+  Updating   : libsmartcols-2.23.2-61.el7_7.1.x86_64                     22/142 
+  Updating   : ca-certificates-2019.2.32-76.el7_7.noarch                 23/142 
+  Updating   : coreutils-8.22-24.el7.x86_64                              24/142 
+  Updating   : 1:openssl-libs-1.0.2k-19.el7.x86_64                       25/142 
+  Updating   : krb5-libs-1.15.1-37.el7_7.2.x86_64                        26/142 
+  Updating   : libblkid-2.23.2-61.el7_7.1.x86_64                         27/142 
+  Updating   : libmount-2.23.2-61.el7_7.1.x86_64                         28/142 
+  Updating   : 2:shadow-utils-4.6-5.el7.x86_64                           29/142 
+  Updating   : glib2-2.56.1-5.el7.x86_64                                 30/142 
+  Updating   : libssh2-1.8.0-3.el7.x86_64                                31/142 
+  Updating   : python-libs-2.7.5-86.el7.x86_64                           32/142 
+  Updating   : python-2.7.5-86.el7.x86_64                                33/142 
+  Updating   : yum-plugin-fastestmirror-1.1.31-52.el7.noarch             34/142 
+  Updating   : yum-3.4.3-163.el7.centos.noarch                           35/142 
+  Updating   : nss-pem-1.0.3-7.el7.x86_64                                36/142 
+  Updating   : nss-sysinit-3.44.0-7.el7_7.x86_64                         37/142 
+  Updating   : nss-3.44.0-7.el7_7.x86_64                                 38/142 
+  Updating   : nss-tools-3.44.0-7.el7_7.x86_64                           39/142 
+  Updating   : openldap-2.4.44-21.el7_6.x86_64                           40/142 
+  Updating   : libcurl-7.29.0-54.el7_7.2.x86_64                          41/142 
+  Updating   : binutils-2.27-41.base.el7_7.2.x86_64                      42/142 
+install-info: No such file or directory for /usr/share/info/as.info.gz
+install-info: No such file or directory for /usr/share/info/binutils.info.gz
+install-info: No such file or directory for /usr/share/info/gprof.info.gz
+install-info: No such file or directory for /usr/share/info/ld.info.gz
+install-info: No such file or directory for /usr/share/info/standards.info.gz
+  Updating   : util-linux-2.23.2-61.el7_7.1.x86_64                       43/142 
+  Updating   : procps-ng-3.3.10-26.el7_7.1.x86_64                        44/142 
+  Updating   : kpartx-0.4.9-127.el7.x86_64                               45/142 
+  Updating   : 7:device-mapper-1.02.158-2.el7_7.2.x86_64                 46/142 
+  Updating   : 7:device-mapper-libs-1.02.158-2.el7_7.2.x86_64            47/142 
+  Updating   : cryptsetup-libs-2.0.3-5.el7.x86_64                        48/142 
+  Updating   : dracut-033-564.el7.x86_64                                 49/142 
+  Updating   : kmod-20-25.el7.x86_64                                     50/142 
+  Updating   : elfutils-libs-0.176-2.el7.x86_64                          51/142 
+  Updating   : systemd-libs-219-67.el7_7.3.x86_64                        52/142 
+  Updating   : 1:dbus-libs-1.10.24-13.el7_6.x86_64                       53/142 
+  Updating   : systemd-219-67.el7_7.3.x86_64                             54/142 
+Failed to get D-Bus connection: Operation not permitted
+  Updating   : elfutils-default-yama-scope-0.176-2.el7.noarch            55/142 
+  Updating   : 1:dbus-1.10.24-13.el7_6.x86_64                            56/142 
+  Updating   : openssh-7.4p1-21.el7.x86_64                               57/142 
+  Updating   : openssh-clients-7.4p1-21.el7.x86_64                       58/142 
+  Updating   : hwdata-0.252-9.3.el7.x86_64                               59/142 
+  Updating   : curl-7.29.0-54.el7_7.2.x86_64                             60/142 
+  Updating   : yum-plugin-ovl-1.1.31-52.el7.noarch                       61/142 
+  Updating   : yum-utils-1.1.31-52.el7.noarch                            62/142 
+  Updating   : passwd-0.79-5.el7.x86_64                                  63/142 
+  Updating   : libtirpc-0.2.4-0.16.el7.x86_64                            64/142 
+  Updating   : ima-evm-utils-1.1-3.el7.x86_64                            65/142 
+  Updating   : libdb-utils-5.3.21-25.el7.x86_64                          66/142 
+  Updating   : libstdc++-4.8.5-39.el7.x86_64                             67/142 
+  Updating   : 2:vim-minimal-7.4.629-6.el7.x86_64                        68/142 
+  Updating   : gnutls-3.3.29-9.el7_6.x86_64                              69/142 
+  Updating   : hostname-3.13-3.el7_7.1.x86_64                            70/142 
+  Updating   : 32:bind-license-9.11.4-9.P2.el7.noarch                    71/142 
+  Cleanup    : openssh-clients-7.4p1-16.el7_4.tis.10.x86_64              72/142 
+  Cleanup    : openssh-7.4p1-16.el7_4.tis.10.x86_64                      73/142 
+  Cleanup    : libtirpc-0.2.4-0.15.el7.x86_64                            74/142 
+  Cleanup    : curl-7.29.0-51.el7_6.3.x86_64                             75/142 
+  Cleanup    : libstdc++-4.8.5-36.el7.x86_64                             76/142 
+  Cleanup    : ima-evm-utils-1.1-2.el7.x86_64                            77/142 
+  Cleanup    : gnutls-3.3.29-8.el7.x86_64                                78/142 
+  Cleanup    : passwd-0.79-4.el7.x86_64                                  79/142 
+  Cleanup    : glib2-2.56.1-2.el7.x86_64                                 80/142 
+  Cleanup    : libdb-utils-5.3.21-24.el7.x86_64                          81/142 
+  Cleanup    : hwdata-0.252-9.1.el7.x86_64                               82/142 
+  Cleanup    : yum-utils-1.1.31-50.el7.noarch                            83/142 
+  Cleanup    : yum-plugin-ovl-1.1.31-45.el7.noarch                       84/142 
+  Cleanup    : 1:dbus-libs-1.10.24-12.el7.x86_64                         85/142 
+  Cleanup    : procps-ng-3.3.10-23.el7.x86_64                            86/142 
+  Cleanup    : util-linux-2.23.2-59.el7.x86_64                           87/142 
+  Cleanup    : kpartx-0.4.9-119.el7.x86_64                               88/142 
+  Cleanup    : cryptsetup-libs-2.0.3-3.el7.x86_64                        89/142 
+  Cleanup    : 7:device-mapper-libs-1.02.146-4.el7.x86_64                90/142 
+  Cleanup    : 7:device-mapper-1.02.146-4.el7.x86_64                     91/142 
+  Cleanup    : systemd-libs-219-62.el7_6.5.tis.11.x86_64                 92/142 
+  Cleanup    : kmod-20-23.el7.x86_64                                     93/142 
+  Cleanup    : dracut-033-554.el7.x86_64                                 94/142 
+  Cleanup    : elfutils-libs-0.172-2.el7.x86_64                          95/142 
+  Cleanup    : elfutils-default-yama-scope-0.172-2.el7.noarch            96/142 
+  Cleanup    : 1:dbus-1.10.24-12.el7.x86_64                              97/142 
+  Cleanup    : systemd-219-62.el7_6.5.tis.11.x86_64                      98/142 
+  Cleanup    : libcurl-7.29.0-51.el7_6.3.x86_64                          99/142 
+  Cleanup    : openldap-2.4.44-20.el7.tis.9.x86_64                      100/142 
+  Cleanup    : nss-tools-3.36.0-7.el7_5.x86_64                          101/142 
+  Cleanup    : nss-3.36.0-7.el7_5.x86_64                                102/142 
+  Cleanup    : nss-softokn-3.36.0-5.el7_5.x86_64                        103/142 
+  Cleanup    : libmount-2.23.2-59.el7.x86_64                            104/142 
+  Cleanup    : binutils-2.27-34.base.el7.x86_64                         105/142 
+  Cleanup    : libblkid-2.23.2-59.el7.x86_64                            106/142 
+  Cleanup    : nss-sysinit-3.36.0-7.el7_5.x86_64                        107/142 
+  Cleanup    : 2:shadow-utils-4.1.5.1-25.el7.x86_64                     108/142 
+  Cleanup    : nss-pem-1.0.3-5.el7.x86_64                               109/142 
+  Cleanup    : kmod-libs-20-23.el7.x86_64                               110/142 
+  Cleanup    : libsmartcols-2.23.2-59.el7.x86_64                        111/142 
+  Cleanup    : libssh2-1.4.3-12.el7.x86_64                              112/142 
+  Cleanup    : audit-libs-2.8.4-4.el7.x86_64                            113/142 
+  Cleanup    : libuuid-2.23.2-59.el7.x86_64                             114/142 
+  Cleanup    : elfutils-libelf-0.172-2.el7.x86_64                       115/142 
+  Cleanup    : 2:vim-minimal-7.4.160-5.el7.x86_64                       116/142 
+  Cleanup    : yum-3.4.3-161.el7.centos.noarch                          117/142 
+  Cleanup    : centos-release-7-6.1810.2.el7.centos.x86_64              118/142 
+  Cleanup    : yum-plugin-fastestmirror-1.1.31-50.el7.noarch            119/142 
+  Cleanup    : 32:bind-license-9.9.4-72.el7.noarch                      120/142 
+  Cleanup    : python-2.7.5-76.el7.tis.4.x86_64                         121/142 
+  Cleanup    : python-libs-2.7.5-76.el7.tis.4.x86_64                    122/142 
+  Cleanup    : coreutils-8.22-23.el7.x86_64                             123/142 
+  Cleanup    : krb5-libs-1.15.1-34.el7.x86_64                           124/142 
+  Cleanup    : 1:openssl-libs-1.0.2k-16.el7.x86_64                      125/142 
+  Cleanup    : libdb-5.3.21-24.el7.x86_64                               126/142 
+  Cleanup    : sqlite-3.7.17-8.el7.x86_64                               127/142 
+  Cleanup    : readline-6.2-10.el7.x86_64                               128/142 
+  Cleanup    : libcom_err-1.42.9-13.el7.x86_64                          129/142 
+  Cleanup    : libcap-2.22-9.el7.x86_64                                 130/142 
+  Cleanup    : diffutils-3.3-4.el7.x86_64                               131/142 
+  Cleanup    : lz4-1.7.5-2.el7.x86_64                                   132/142 
+  Cleanup    : hostname-3.13-3.el7.x86_64                               133/142 
+  Cleanup    : ca-certificates-2018.2.22-70.0.el7_5.noarch              134/142 
+  Cleanup    : glibc-common-2.17-260.el7.x86_64                         135/142 
+  Cleanup    : bash-4.2.46-31.el7.tis.4.x86_64                          136/142 
+  Cleanup    : nspr-4.19.0-1.el7_5.x86_64                               137/142 
+  Cleanup    : nss-util-3.36.0-1.el7_5.x86_64                           138/142 
+  Cleanup    : nss-softokn-freebl-3.36.0-5.el7_5.x86_64                 139/142 
+  Cleanup    : glibc-2.17-260.el7.x86_64                                140/142 
+  Cleanup    : tzdata-2018g-1.el7.noarch                                141/142 
+  Cleanup    : libgcc-4.8.5-36.el7.x86_64                               142/142 
+  Verifying  : tzdata-2019c-1.el7.noarch                                  1/142 
+  Verifying  : yum-3.4.3-163.el7.centos.noarch                            2/142 
+  Verifying  : libdb-utils-5.3.21-25.el7.x86_64                           3/142 
+  Verifying  : nss-3.44.0-7.el7_7.x86_64                                  4/142 
+  Verifying  : libssh2-1.8.0-3.el7.x86_64                                 5/142 
+  Verifying  : elfutils-default-yama-scope-0.176-2.el7.noarch             6/142 
+  Verifying  : python-libs-2.7.5-86.el7.x86_64                            7/142 
+  Verifying  : readline-6.2-11.el7.x86_64                                 8/142 
+  Verifying  : sqlite-3.7.17-8.el7_7.1.x86_64                             9/142 
+  Verifying  : ca-certificates-2019.2.32-76.el7_7.noarch                 10/142 
+  Verifying  : nss-pem-1.0.3-7.el7.x86_64                                11/142 
+  Verifying  : glibc-common-2.17-292.el7.x86_64                          12/142 
+  Verifying  : yum-plugin-ovl-1.1.31-52.el7.noarch                       13/142 
+  Verifying  : lz4-1.7.5-3.el7.x86_64                                    14/142 
+  Verifying  : 1:openssl-libs-1.0.2k-19.el7.x86_64                       15/142 
+  Verifying  : hwdata-0.252-9.3.el7.x86_64                               16/142 
+  Verifying  : util-linux-2.23.2-61.el7_7.1.x86_64                       17/142 
+  Verifying  : nss-tools-3.44.0-7.el7_7.x86_64                           18/142 
+  Verifying  : coreutils-8.22-24.el7.x86_64                              19/142 
+  Verifying  : 7:device-mapper-libs-1.02.158-2.el7_7.2.x86_64            20/142 
+  Verifying  : libstdc++-4.8.5-39.el7.x86_64                             21/142 
+  Verifying  : glib2-2.56.1-5.el7.x86_64                                 22/142 
+  Verifying  : python-2.7.5-86.el7.x86_64                                23/142 
+  Verifying  : libuuid-2.23.2-61.el7_7.1.x86_64                          24/142 
+  Verifying  : 2:vim-minimal-7.4.629-6.el7.x86_64                        25/142 
+  Verifying  : passwd-0.79-5.el7.x86_64                                  26/142 
+  Verifying  : gnutls-3.3.29-9.el7_6.x86_64                              27/142 
+  Verifying  : systemd-libs-219-67.el7_7.3.x86_64                        28/142 
+  Verifying  : nss-sysinit-3.44.0-7.el7_7.x86_64                         29/142 
+  Verifying  : openssh-clients-7.4p1-21.el7.x86_64                       30/142 
+  Verifying  : 32:bind-license-9.11.4-9.P2.el7.noarch                    31/142 
+  Verifying  : yum-utils-1.1.31-52.el7.noarch                            32/142 
+  Verifying  : elfutils-libs-0.176-2.el7.x86_64                          33/142 
+  Verifying  : libcurl-7.29.0-54.el7_7.2.x86_64                          34/142 
+  Verifying  : nss-softokn-freebl-3.44.0-8.el7_7.x86_64                  35/142 
+  Verifying  : openldap-2.4.44-21.el7_6.x86_64                           36/142 
+  Verifying  : yum-plugin-fastestmirror-1.1.31-52.el7.noarch             37/142 
+  Verifying  : binutils-2.27-41.base.el7_7.2.x86_64                      38/142 
+  Verifying  : kmod-libs-20-25.el7.x86_64                                39/142 
+  Verifying  : 2:shadow-utils-4.6-5.el7.x86_64                           40/142 
+  Verifying  : ima-evm-utils-1.1-3.el7.x86_64                            41/142 
+  Verifying  : centos-release-7-7.1908.0.el7.centos.x86_64               42/142 
+  Verifying  : audit-libs-2.8.5-4.el7.x86_64                             43/142 
+  Verifying  : cryptsetup-libs-2.0.3-5.el7.x86_64                        44/142 
+  Verifying  : diffutils-3.3-5.el7.x86_64                                45/142 
+  Verifying  : hostname-3.13-3.el7_7.1.x86_64                            46/142 
+  Verifying  : libdb-5.3.21-25.el7.x86_64                                47/142 
+  Verifying  : 1:dbus-libs-1.10.24-13.el7_6.x86_64                       48/142 
+  Verifying  : 1:dbus-1.10.24-13.el7_6.x86_64                            49/142 
+  Verifying  : libblkid-2.23.2-61.el7_7.1.x86_64                         50/142 
+  Verifying  : libtirpc-0.2.4-0.16.el7.x86_64                            51/142 
+  Verifying  : 7:device-mapper-1.02.158-2.el7_7.2.x86_64                 52/142 
+  Verifying  : bash-4.2.46-33.el7.x86_64                                 53/142 
+  Verifying  : openssh-7.4p1-21.el7.x86_64                               54/142 
+  Verifying  : procps-ng-3.3.10-26.el7_7.1.x86_64                        55/142 
+  Verifying  : libgcc-4.8.5-39.el7.x86_64                                56/142 
+  Verifying  : krb5-libs-1.15.1-37.el7_7.2.x86_64                        57/142 
+  Verifying  : dracut-033-564.el7.x86_64                                 58/142 
+  Verifying  : curl-7.29.0-54.el7_7.2.x86_64                             59/142 
+  Verifying  : libmount-2.23.2-61.el7_7.1.x86_64                         60/142 
+  Verifying  : nspr-4.21.0-1.el7.x86_64                                  61/142 
+  Verifying  : systemd-219-67.el7_7.3.x86_64                             62/142 
+  Verifying  : kpartx-0.4.9-127.el7.x86_64                               63/142 
+  Verifying  : libcap-2.22-10.el7.x86_64                                 64/142 
+  Verifying  : libcom_err-1.42.9-16.el7.x86_64                           65/142 
+  Verifying  : glibc-2.17-292.el7.x86_64                                 66/142 
+  Verifying  : nss-softokn-3.44.0-8.el7_7.x86_64                         67/142 
+  Verifying  : libsmartcols-2.23.2-61.el7_7.1.x86_64                     68/142 
+  Verifying  : kmod-20-25.el7.x86_64                                     69/142 
+  Verifying  : nss-util-3.44.0-4.el7_7.x86_64                            70/142 
+  Verifying  : elfutils-libelf-0.176-2.el7.x86_64                        71/142 
+  Verifying  : ima-evm-utils-1.1-2.el7.x86_64                            72/142 
+  Verifying  : libgcc-4.8.5-36.el7.x86_64                                73/142 
+  Verifying  : libstdc++-4.8.5-36.el7.x86_64                             74/142 
+  Verifying  : cryptsetup-libs-2.0.3-3.el7.x86_64                        75/142 
+  Verifying  : libsmartcols-2.23.2-59.el7.x86_64                         76/142 
+  Verifying  : 2:shadow-utils-4.1.5.1-25.el7.x86_64                      77/142 
+  Verifying  : curl-7.29.0-51.el7_6.3.x86_64                             78/142 
+  Verifying  : nss-sysinit-3.36.0-7.el7_5.x86_64                         79/142 
+  Verifying  : krb5-libs-1.15.1-34.el7.x86_64                            80/142 
+  Verifying  : 7:device-mapper-1.02.146-4.el7.x86_64                     81/142 
+  Verifying  : readline-6.2-10.el7.x86_64                                82/142 
+  Verifying  : sqlite-3.7.17-8.el7.x86_64                                83/142 
+  Verifying  : 7:device-mapper-libs-1.02.146-4.el7.x86_64                84/142 
+  Verifying  : libuuid-2.23.2-59.el7.x86_64                              85/142 
+  Verifying  : hwdata-0.252-9.1.el7.x86_64                               86/142 
+  Verifying  : openssh-clients-7.4p1-16.el7_4.tis.10.x86_64              87/142 
+  Verifying  : systemd-219-62.el7_6.5.tis.11.x86_64                      88/142 
+  Verifying  : coreutils-8.22-23.el7.x86_64                              89/142 
+  Verifying  : elfutils-libelf-0.172-2.el7.x86_64                        90/142 
+  Verifying  : libcap-2.22-9.el7.x86_64                                  91/142 
+  Verifying  : lz4-1.7.5-2.el7.x86_64                                    92/142 
+  Verifying  : nss-tools-3.36.0-7.el7_5.x86_64                           93/142 
+  Verifying  : util-linux-2.23.2-59.el7.x86_64                           94/142 
+  Verifying  : nss-softokn-3.36.0-5.el7_5.x86_64                         95/142 
+  Verifying  : ca-certificates-2018.2.22-70.0.el7_5.noarch               96/142 
+  Verifying  : yum-utils-1.1.31-50.el7.noarch                            97/142 
+  Verifying  : python-2.7.5-76.el7.tis.4.x86_64                          98/142 
+  Verifying  : centos-release-7-6.1810.2.el7.centos.x86_64               99/142 
+  Verifying  : libcom_err-1.42.9-13.el7.x86_64                          100/142 
+  Verifying  : yum-3.4.3-161.el7.centos.noarch                          101/142 
+  Verifying  : libblkid-2.23.2-59.el7.x86_64                            102/142 
+  Verifying  : libdb-utils-5.3.21-24.el7.x86_64                         103/142 
+  Verifying  : elfutils-libs-0.172-2.el7.x86_64                         104/142 
+  Verifying  : gnutls-3.3.29-8.el7.x86_64                               105/142 
+  Verifying  : dracut-033-554.el7.x86_64                                106/142 
+  Verifying  : passwd-0.79-4.el7.x86_64                                 107/142 
+  Verifying  : glibc-2.17-260.el7.x86_64                                108/142 
+  Verifying  : glib2-2.56.1-2.el7.x86_64                                109/142 
+  Verifying  : openldap-2.4.44-20.el7.tis.9.x86_64                      110/142 
+  Verifying  : binutils-2.27-34.base.el7.x86_64                         111/142 
+  Verifying  : bash-4.2.46-31.el7.tis.4.x86_64                          112/142 
+  Verifying  : systemd-libs-219-62.el7_6.5.tis.11.x86_64                113/142 
+  Verifying  : libdb-5.3.21-24.el7.x86_64                               114/142 
+  Verifying  : kmod-20-23.el7.x86_64                                    115/142 
+  Verifying  : elfutils-default-yama-scope-0.172-2.el7.noarch           116/142 
+  Verifying  : 2:vim-minimal-7.4.160-5.el7.x86_64                       117/142 
+  Verifying  : libmount-2.23.2-59.el7.x86_64                            118/142 
+  Verifying  : hostname-3.13-3.el7.x86_64                               119/142 
+  Verifying  : 32:bind-license-9.9.4-72.el7.noarch                      120/142 
+  Verifying  : tzdata-2018g-1.el7.noarch                                121/142 
+  Verifying  : nss-softokn-freebl-3.36.0-5.el7_5.x86_64                 122/142 
+  Verifying  : yum-plugin-ovl-1.1.31-45.el7.noarch                      123/142 
+  Verifying  : nspr-4.19.0-1.el7_5.x86_64                               124/142 
+  Verifying  : libcurl-7.29.0-51.el7_6.3.x86_64                         125/142 
+  Verifying  : libtirpc-0.2.4-0.15.el7.x86_64                           126/142 
+  Verifying  : 1:dbus-libs-1.10.24-12.el7.x86_64                        127/142 
+  Verifying  : 1:dbus-1.10.24-12.el7.x86_64                             128/142 
+  Verifying  : python-libs-2.7.5-76.el7.tis.4.x86_64                    129/142 
+  Verifying  : nss-3.36.0-7.el7_5.x86_64                                130/142 
+  Verifying  : procps-ng-3.3.10-23.el7.x86_64                           131/142 
+  Verifying  : 1:openssl-libs-1.0.2k-16.el7.x86_64                      132/142 
+  Verifying  : kpartx-0.4.9-119.el7.x86_64                              133/142 
+  Verifying  : audit-libs-2.8.4-4.el7.x86_64                            134/142 
+  Verifying  : nss-pem-1.0.3-5.el7.x86_64                               135/142 
+  Verifying  : kmod-libs-20-23.el7.x86_64                               136/142 
+  Verifying  : libssh2-1.4.3-12.el7.x86_64                              137/142 
+  Verifying  : yum-plugin-fastestmirror-1.1.31-50.el7.noarch            138/142 
+  Verifying  : glibc-common-2.17-260.el7.x86_64                         139/142 
+  Verifying  : nss-util-3.36.0-1.el7_5.x86_64                           140/142 
+  Verifying  : openssh-7.4p1-16.el7_4.tis.10.x86_64                     141/142 
+  Verifying  : diffutils-3.3-4.el7.x86_64                               142/142 
+
+Updated:
+  audit-libs.x86_64 0:2.8.5-4.el7                                               
+  bash.x86_64 0:4.2.46-33.el7                                                   
+  bind-license.noarch 32:9.11.4-9.P2.el7                                        
+  binutils.x86_64 0:2.27-41.base.el7_7.2                                        
+  ca-certificates.noarch 0:2019.2.32-76.el7_7                                   
+  centos-release.x86_64 0:7-7.1908.0.el7.centos                                 
+  coreutils.x86_64 0:8.22-24.el7                                                
+  cryptsetup-libs.x86_64 0:2.0.3-5.el7                                          
+  curl.x86_64 0:7.29.0-54.el7_7.2                                               
+  dbus.x86_64 1:1.10.24-13.el7_6                                                
+  dbus-libs.x86_64 1:1.10.24-13.el7_6                                           
+  device-mapper.x86_64 7:1.02.158-2.el7_7.2                                     
+  device-mapper-libs.x86_64 7:1.02.158-2.el7_7.2                                
+  diffutils.x86_64 0:3.3-5.el7                                                  
+  dracut.x86_64 0:033-564.el7                                                   
+  elfutils-default-yama-scope.noarch 0:0.176-2.el7                              
+  elfutils-libelf.x86_64 0:0.176-2.el7                                          
+  elfutils-libs.x86_64 0:0.176-2.el7                                            
+  glib2.x86_64 0:2.56.1-5.el7                                                   
+  glibc.x86_64 0:2.17-292.el7                                                   
+  glibc-common.x86_64 0:2.17-292.el7                                            
+  gnutls.x86_64 0:3.3.29-9.el7_6                                                
+  hostname.x86_64 0:3.13-3.el7_7.1                                              
+  hwdata.x86_64 0:0.252-9.3.el7                                                 
+  ima-evm-utils.x86_64 0:1.1-3.el7                                              
+  kmod.x86_64 0:20-25.el7                                                       
+  kmod-libs.x86_64 0:20-25.el7                                                  
+  kpartx.x86_64 0:0.4.9-127.el7                                                 
+  krb5-libs.x86_64 0:1.15.1-37.el7_7.2                                          
+  libblkid.x86_64 0:2.23.2-61.el7_7.1                                           
+  libcap.x86_64 0:2.22-10.el7                                                   
+  libcom_err.x86_64 0:1.42.9-16.el7                                             
+  libcurl.x86_64 0:7.29.0-54.el7_7.2                                            
+  libdb.x86_64 0:5.3.21-25.el7                                                  
+  libdb-utils.x86_64 0:5.3.21-25.el7                                            
+  libgcc.x86_64 0:4.8.5-39.el7                                                  
+  libmount.x86_64 0:2.23.2-61.el7_7.1                                           
+  libsmartcols.x86_64 0:2.23.2-61.el7_7.1                                       
+  libssh2.x86_64 0:1.8.0-3.el7                                                  
+  libstdc++.x86_64 0:4.8.5-39.el7                                               
+  libtirpc.x86_64 0:0.2.4-0.16.el7                                              
+  libuuid.x86_64 0:2.23.2-61.el7_7.1                                            
+  lz4.x86_64 0:1.7.5-3.el7                                                      
+  nspr.x86_64 0:4.21.0-1.el7                                                    
+  nss.x86_64 0:3.44.0-7.el7_7                                                   
+  nss-pem.x86_64 0:1.0.3-7.el7                                                  
+  nss-softokn.x86_64 0:3.44.0-8.el7_7                                           
+  nss-softokn-freebl.x86_64 0:3.44.0-8.el7_7                                    
+  nss-sysinit.x86_64 0:3.44.0-7.el7_7                                           
+  nss-tools.x86_64 0:3.44.0-7.el7_7                                             
+  nss-util.x86_64 0:3.44.0-4.el7_7                                              
+  openldap.x86_64 0:2.4.44-21.el7_6                                             
+  openssh.x86_64 0:7.4p1-21.el7                                                 
+  openssh-clients.x86_64 0:7.4p1-21.el7                                         
+  openssl-libs.x86_64 1:1.0.2k-19.el7                                           
+  passwd.x86_64 0:0.79-5.el7                                                    
+  procps-ng.x86_64 0:3.3.10-26.el7_7.1                                          
+  python.x86_64 0:2.7.5-86.el7                                                  
+  python-libs.x86_64 0:2.7.5-86.el7                                             
+  readline.x86_64 0:6.2-11.el7                                                  
+  shadow-utils.x86_64 2:4.6-5.el7                                               
+  sqlite.x86_64 0:3.7.17-8.el7_7.1                                              
+  systemd.x86_64 0:219-67.el7_7.3                                               
+  systemd-libs.x86_64 0:219-67.el7_7.3                                          
+  tzdata.noarch 0:2019c-1.el7                                                   
+  util-linux.x86_64 0:2.23.2-61.el7_7.1                                         
+  vim-minimal.x86_64 2:7.4.629-6.el7                                            
+  yum.noarch 0:3.4.3-163.el7.centos                                             
+  yum-plugin-fastestmirror.noarch 0:1.1.31-52.el7                               
+  yum-plugin-ovl.noarch 0:1.1.31-52.el7                                         
+  yum-utils.noarch 0:1.1.31-52.el7                                              
+
+Complete!
+[91m+ yum install -y --setopt=skip_missing_names_on_install=False git patch redhat-lsb-core sudo python3 python3-virtualenv
+[0mLoaded plugins: fastestmirror, ovl
+Loading mirror speeds from cached hostfile
+ * base: mirror.bit.edu.cn
+ * extras: mirrors.ustc.edu.cn
+ * updates: mirrors.ustc.edu.cn
+Package python3-3.6.8-10.el7.x86_64 already installed and latest version
+Resolving Dependencies
+--> Running transaction check
+---> Package git.x86_64 0:1.8.3.1-21.el7_7 will be installed
+--> Processing Dependency: perl-Git = 1.8.3.1-21.el7_7 for package: git-1.8.3.1-21.el7_7.x86_64
+--> Processing Dependency: rsync for package: git-1.8.3.1-21.el7_7.x86_64
+--> Processing Dependency: perl(Term::ReadKey) for package: git-1.8.3.1-21.el7_7.x86_64
+--> Processing Dependency: perl(Git) for package: git-1.8.3.1-21.el7_7.x86_64
+--> Processing Dependency: perl(Error) for package: git-1.8.3.1-21.el7_7.x86_64
+--> Processing Dependency: less for package: git-1.8.3.1-21.el7_7.x86_64
+---> Package patch.x86_64 0:2.7.1-12.el7_7 will be installed
+---> Package python36-virtualenv.noarch 0:15.1.0-5.el7 will be installed
+--> Processing Dependency: python36-devel for package: python36-virtualenv-15.1.0-5.el7.noarch
+---> Package redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1 will be installed
+--> Processing Dependency: redhat-lsb-submod-security(x86-64) = 4.1-27.el7.centos.1 for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: spax for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/sbin/sendmail for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/sbin/fuser for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/time for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/msgfmt for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/man for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/make for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/m4 for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/lpr for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/lp for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/killall for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/gettext for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/file for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/crontab for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/bc for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/batch for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /usr/bin/at for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /sbin/pidof for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /bin/mailx for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+--> Processing Dependency: /bin/ed for package: redhat-lsb-core-4.1-27.el7.centos.1.x86_64
+---> Package sudo.x86_64 0:1.8.23-4.el7_7.2 will be installed
+--> Running transaction check
+---> Package at.x86_64 0:3.1.13-24.el7 will be installed
+---> Package bc.x86_64 0:1.06.95-13.el7 will be installed
+---> Package cronie.x86_64 0:1.4.11-23.el7 will be installed
+--> Processing Dependency: dailyjobs for package: cronie-1.4.11-23.el7.x86_64
+---> Package cups-client.x86_64 1:1.6.3-40.el7 will be installed
+--> Processing Dependency: cups-libs(x86-64) = 1:1.6.3-40.el7 for package: 1:cups-client-1.6.3-40.el7.x86_64
+--> Processing Dependency: libcups.so.2()(64bit) for package: 1:cups-client-1.6.3-40.el7.x86_64
+--> Processing Dependency: libavahi-common.so.3()(64bit) for package: 1:cups-client-1.6.3-40.el7.x86_64
+--> Processing Dependency: libavahi-client.so.3()(64bit) for package: 1:cups-client-1.6.3-40.el7.x86_64
+---> Package ed.x86_64 0:1.9-4.el7 will be installed
+---> Package file.x86_64 0:5.11-35.el7 will be installed
+---> Package gettext.x86_64 0:0.19.8.1-2.el7 will be installed
+--> Processing Dependency: gettext-libs(x86-64) = 0.19.8.1-2.el7 for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libgomp.so.1(GOMP_1.0)(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libunistring.so.0()(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libgomp.so.1()(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libgettextsrc-0.19.8.1.so()(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libgettextlib-0.19.8.1.so()(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+--> Processing Dependency: libcroco-0.6.so.3()(64bit) for package: gettext-0.19.8.1-2.el7.x86_64
+---> Package less.x86_64 0:458-9.el7 will be installed
+---> Package m4.x86_64 0:1.4.16-10.el7 will be installed
+---> Package mailx.x86_64 0:12.5-19.el7 will be installed
+---> Package make.x86_64 1:3.82-24.el7 will be installed
+---> Package man-db.x86_64 0:2.6.3-11.el7 will be installed
+--> Processing Dependency: libpipeline.so.1()(64bit) for package: man-db-2.6.3-11.el7.x86_64
+---> Package perl-Error.noarch 1:0.17020-2.el7 will be installed
+---> Package perl-Git.noarch 0:1.8.3.1-21.el7_7 will be installed
+---> Package perl-TermReadKey.x86_64 0:2.30-20.el7 will be installed
+---> Package psmisc.x86_64 0:22.20-16.el7 will be installed
+---> Package python3-devel.x86_64 0:3.6.8-10.el7 will be installed
+--> Processing Dependency: redhat-rpm-config for package: python3-devel-3.6.8-10.el7.x86_64
+--> Processing Dependency: python3-rpm-macros for package: python3-devel-3.6.8-10.el7.x86_64
+--> Processing Dependency: python3-rpm-generators for package: python3-devel-3.6.8-10.el7.x86_64
+--> Processing Dependency: python-rpm-macros for package: python3-devel-3.6.8-10.el7.x86_64
+---> Package redhat-lsb-submod-security.x86_64 0:4.1-27.el7.centos.1 will be installed
+---> Package rsync.x86_64 0:3.1.2-6.el7_6.1 will be installed
+---> Package spax.x86_64 0:1.5.2-13.el7 will be installed
+---> Package ssmtp.x86_64 0:2.64-14.el7 will be installed
+---> Package sysvinit-tools.x86_64 0:2.88-14.dsf.el7 will be installed
+---> Package time.x86_64 0:1.7-45.el7 will be installed
+--> Running transaction check
+---> Package avahi-libs.x86_64 0:0.6.31-19.el7 will be installed
+---> Package cronie-anacron.x86_64 0:1.4.11-23.el7 will be installed
+--> Processing Dependency: crontabs for package: cronie-anacron-1.4.11-23.el7.x86_64
+---> Package cups-libs.x86_64 1:1.6.3-40.el7 will be installed
+---> Package gettext-libs.x86_64 0:0.19.8.1-2.el7 will be installed
+---> Package libcroco.x86_64 0:0.6.12-4.el7 will be installed
+---> Package libgomp.x86_64 0:4.8.5-39.el7 will be installed
+---> Package libpipeline.x86_64 0:1.2.3-3.el7 will be installed
+---> Package libunistring.x86_64 0:0.9.3-9.el7 will be installed
+---> Package python-rpm-macros.noarch 0:3-32.el7 will be installed
+--> Processing Dependency: python-srpm-macros for package: python-rpm-macros-3-32.el7.noarch
+---> Package python3-rpm-generators.noarch 0:6-2.el7 will be installed
+---> Package python3-rpm-macros.noarch 0:3-32.el7 will be installed
+---> Package redhat-rpm-config.noarch 0:9.1.0-88.el7.centos will be installed
+--> Processing Dependency: dwz >= 0.4 for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+--> Processing Dependency: zip for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+--> Processing Dependency: perl-srpm-macros for package: redhat-rpm-config-9.1.0-88.el7.centos.noarch
+--> Running transaction check
+---> Package crontabs.noarch 0:1.11-6.20121102git.el7 will be installed
+---> Package dwz.x86_64 0:0.11-3.el7 will be installed
+---> Package perl-srpm-macros.noarch 0:1-8.el7 will be installed
+---> Package python-srpm-macros.noarch 0:3-32.el7 will be installed
+---> Package zip.x86_64 0:3.0-11.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+================================================================================
+ Package                     Arch    Version                  Repository   Size
+================================================================================
+Installing:
+ git                         x86_64  1.8.3.1-21.el7_7         updates     4.4 M
+ patch                       x86_64  2.7.1-12.el7_7           updates     111 k
+ python36-virtualenv         noarch  15.1.0-5.el7             stx-distro  1.7 M
+ redhat-lsb-core             x86_64  4.1-27.el7.centos.1      base         38 k
+ sudo                        x86_64  1.8.23-4.el7_7.2         updates     842 k
+Installing for dependencies:
+ at                          x86_64  3.1.13-24.el7            base         51 k
+ avahi-libs                  x86_64  0.6.31-19.el7            base         61 k
+ bc                          x86_64  1.06.95-13.el7           base        115 k
+ cronie                      x86_64  1.4.11-23.el7            base         92 k
+ cronie-anacron              x86_64  1.4.11-23.el7            base         36 k
+ crontabs                    noarch  1.11-6.20121102git.el7   base         13 k
+ cups-client                 x86_64  1:1.6.3-40.el7           base        151 k
+ cups-libs                   x86_64  1:1.6.3-40.el7           base        358 k
+ dwz                         x86_64  0.11-3.el7               base         99 k
+ ed                          x86_64  1.9-4.el7                base         72 k
+ file                        x86_64  5.11-35.el7              base         57 k
+ gettext                     x86_64  0.19.8.1-2.el7           base        1.0 M
+ gettext-libs                x86_64  0.19.8.1-2.el7           base        501 k
+ less                        x86_64  458-9.el7                base        120 k
+ libcroco                    x86_64  0.6.12-4.el7             base        105 k
+ libgomp                     x86_64  4.8.5-39.el7             base        158 k
+ libpipeline                 x86_64  1.2.3-3.el7              base         53 k
+ libunistring                x86_64  0.9.3-9.el7              base        293 k
+ m4                          x86_64  1.4.16-10.el7            base        256 k
+ mailx                       x86_64  12.5-19.el7              base        245 k
+ make                        x86_64  1:3.82-24.el7            base        421 k
+ man-db                      x86_64  2.6.3-11.el7             base        832 k
+ perl-Error                  noarch  1:0.17020-2.el7          base         32 k
+ perl-Git                    noarch  1.8.3.1-21.el7_7         updates      55 k
+ perl-TermReadKey            x86_64  2.30-20.el7              base         31 k
+ perl-srpm-macros            noarch  1-8.el7                  base        4.6 k
+ psmisc                      x86_64  22.20-16.el7             base        141 k
+ python-rpm-macros           noarch  3-32.el7                 base        8.8 k
+ python-srpm-macros          noarch  3-32.el7                 base        8.4 k
+ python3-devel               x86_64  3.6.8-10.el7             base        215 k
+ python3-rpm-generators      noarch  6-2.el7                  base         20 k
+ python3-rpm-macros          noarch  3-32.el7                 base        7.7 k
+ redhat-lsb-submod-security  x86_64  4.1-27.el7.centos.1      base         15 k
+ redhat-rpm-config           noarch  9.1.0-88.el7.centos      base         81 k
+ rsync                       x86_64  3.1.2-6.el7_6.1          base        404 k
+ spax                        x86_64  1.5.2-13.el7             base        260 k
+ ssmtp                       x86_64  2.64-14.el7              stx-distro   50 k
+ sysvinit-tools              x86_64  2.88-14.dsf.el7          base         63 k
+ time                        x86_64  1.7-45.el7               base         30 k
+ zip                         x86_64  3.0-11.el7               base        260 k
+
+Transaction Summary
+================================================================================
+Install  5 Packages (+40 Dependent packages)
+
+Total download size: 14 M
+Installed size: 46 M
+Downloading packages:
+--------------------------------------------------------------------------------
+Total                                              8.1 MB/s |  14 MB  00:01     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : crontabs-1.11-6.20121102git.el7.noarch                      1/45 
+  Installing : cronie-anacron-1.4.11-23.el7.x86_64                         2/45 
+  Installing : cronie-1.4.11-23.el7.x86_64                                 3/45 
+  Installing : less-458-9.el7.x86_64                                       4/45 
+  Installing : 1:perl-Error-0.17020-2.el7.noarch                           5/45 
+  Installing : python-srpm-macros-3-32.el7.noarch                          6/45 
+  Installing : libgomp-4.8.5-39.el7.x86_64                                 7/45 
+  Installing : libcroco-0.6.12-4.el7.x86_64                                8/45 
+  Installing : avahi-libs-0.6.31-19.el7.x86_64                             9/45 
+  Installing : libunistring-0.9.3-9.el7.x86_64                            10/45 
+  Installing : gettext-libs-0.19.8.1-2.el7.x86_64                         11/45 
+  Installing : gettext-0.19.8.1-2.el7.x86_64                              12/45 
+install-info: No such file or directory for /usr/share/info/gettext.info.gz
+  Installing : 1:cups-libs-1.6.3-40.el7.x86_64                            13/45 
+  Installing : 1:cups-client-1.6.3-40.el7.x86_64                          14/45 
+  Installing : python-rpm-macros-3-32.el7.noarch                          15/45 
+  Installing : ssmtp-2.64-14.el7.x86_64                                   16/45 
+  Installing : dwz-0.11-3.el7.x86_64                                      17/45 
+  Installing : spax-1.5.2-13.el7.x86_64                                   18/45 
+  Installing : zip-3.0-11.el7.x86_64                                      19/45 
+  Installing : time-1.7-45.el7.x86_64                                     20/45 
+  Installing : mailx-12.5-19.el7.x86_64                                   21/45 
+  Installing : at-3.1.13-24.el7.x86_64                                    22/45 
+  Installing : libpipeline-1.2.3-3.el7.x86_64                             23/45 
+  Installing : man-db-2.6.3-11.el7.x86_64                                 24/45 
+  Installing : file-5.11-35.el7.x86_64                                    25/45 
+  Installing : patch-2.7.1-12.el7_7.x86_64                                26/45 
+  Installing : psmisc-22.20-16.el7.x86_64                                 27/45 
+  Installing : 1:make-3.82-24.el7.x86_64                                  28/45 
+  Installing : python3-rpm-macros-3-32.el7.noarch                         29/45 
+  Installing : perl-srpm-macros-1-8.el7.noarch                            30/45 
+  Installing : redhat-rpm-config-9.1.0-88.el7.centos.noarch               31/45 
+  Installing : perl-TermReadKey-2.30-20.el7.x86_64                        32/45 
+  Installing : bc-1.06.95-13.el7.x86_64                                   33/45 
+  Installing : rsync-3.1.2-6.el7_6.1.x86_64                               34/45 
+  Installing : git-1.8.3.1-21.el7_7.x86_64                                35/45 
+  Installing : perl-Git-1.8.3.1-21.el7_7.noarch                           36/45 
+  Installing : sysvinit-tools-2.88-14.dsf.el7.x86_64                      37/45 
+  Installing : m4-1.4.16-10.el7.x86_64                                    38/45 
+  Installing : ed-1.9-4.el7.x86_64                                        39/45 
+install-info: No such file or directory for /usr/share/info/ed.info.gz
+  Installing : python3-rpm-generators-6-2.el7.noarch                      40/45 
+  Installing : python3-devel-3.6.8-10.el7.x86_64                          41/45 
+  Installing : redhat-lsb-submod-security-4.1-27.el7.centos.1.x86_64      42/45 
+  Installing : redhat-lsb-core-4.1-27.el7.centos.1.x86_64                 43/45 
+  Installing : python36-virtualenv-15.1.0-5.el7.noarch                    44/45 
+  Installing : sudo-1.8.23-4.el7_7.2.x86_64                               45/45 
+  Verifying  : redhat-lsb-submod-security-4.1-27.el7.centos.1.x86_64       1/45 
+  Verifying  : python3-rpm-generators-6-2.el7.noarch                       2/45 
+  Verifying  : perl-Git-1.8.3.1-21.el7_7.noarch                            3/45 
+  Verifying  : libunistring-0.9.3-9.el7.x86_64                             4/45 
+  Verifying  : ed-1.9-4.el7.x86_64                                         5/45 
+  Verifying  : m4-1.4.16-10.el7.x86_64                                     6/45 
+  Verifying  : sysvinit-tools-2.88-14.dsf.el7.x86_64                       7/45 
+  Verifying  : rsync-3.1.2-6.el7_6.1.x86_64                                8/45 
+  Verifying  : python3-devel-3.6.8-10.el7.x86_64                           9/45 
+  Verifying  : 1:cups-client-1.6.3-40.el7.x86_64                          10/45 
+  Verifying  : bc-1.06.95-13.el7.x86_64                                   11/45 
+  Verifying  : 1:cups-libs-1.6.3-40.el7.x86_64                            12/45 
+  Verifying  : avahi-libs-0.6.31-19.el7.x86_64                            13/45 
+  Verifying  : libcroco-0.6.12-4.el7.x86_64                               14/45 
+  Verifying  : perl-TermReadKey-2.30-20.el7.x86_64                        15/45 
+  Verifying  : perl-srpm-macros-1-8.el7.noarch                            16/45 
+  Verifying  : gettext-0.19.8.1-2.el7.x86_64                              17/45 
+  Verifying  : gettext-libs-0.19.8.1-2.el7.x86_64                         18/45 
+  Verifying  : python3-rpm-macros-3-32.el7.noarch                         19/45 
+  Verifying  : libgomp-4.8.5-39.el7.x86_64                                20/45 
+  Verifying  : 1:make-3.82-24.el7.x86_64                                  21/45 
+  Verifying  : cronie-1.4.11-23.el7.x86_64                                22/45 
+  Verifying  : man-db-2.6.3-11.el7.x86_64                                 23/45 
+  Verifying  : python-srpm-macros-3-32.el7.noarch                         24/45 
+  Verifying  : psmisc-22.20-16.el7.x86_64                                 25/45 
+  Verifying  : patch-2.7.1-12.el7_7.x86_64                                26/45 
+  Verifying  : sudo-1.8.23-4.el7_7.2.x86_64                               27/45 
+  Verifying  : file-5.11-35.el7.x86_64                                    28/45 
+  Verifying  : libpipeline-1.2.3-3.el7.x86_64                             29/45 
+  Verifying  : crontabs-1.11-6.20121102git.el7.noarch                     30/45 
+  Verifying  : 1:perl-Error-0.17020-2.el7.noarch                          31/45 
+  Verifying  : at-3.1.13-24.el7.x86_64                                    32/45 
+  Verifying  : cronie-anacron-1.4.11-23.el7.x86_64                        33/45 
+  Verifying  : mailx-12.5-19.el7.x86_64                                   34/45 
+  Verifying  : python-rpm-macros-3-32.el7.noarch                          35/45 
+  Verifying  : time-1.7-45.el7.x86_64                                     36/45 
+  Verifying  : zip-3.0-11.el7.x86_64                                      37/45 
+  Verifying  : spax-1.5.2-13.el7.x86_64                                   38/45 
+  Verifying  : git-1.8.3.1-21.el7_7.x86_64                                39/45 
+  Verifying  : dwz-0.11-3.el7.x86_64                                      40/45 
+  Verifying  : ssmtp-2.64-14.el7.x86_64                                   41/45 
+  Verifying  : redhat-lsb-core-4.1-27.el7.centos.1.x86_64                 42/45 
+  Verifying  : python36-virtualenv-15.1.0-5.el7.noarch                    43/45 
+  Verifying  : less-458-9.el7.x86_64                                      44/45 
+  Verifying  : redhat-rpm-config-9.1.0-88.el7.centos.noarch               45/45 
+
+Installed:
+  git.x86_64 0:1.8.3.1-21.el7_7                                                 
+  patch.x86_64 0:2.7.1-12.el7_7                                                 
+  python36-virtualenv.noarch 0:15.1.0-5.el7                                     
+  redhat-lsb-core.x86_64 0:4.1-27.el7.centos.1                                  
+  sudo.x86_64 0:1.8.23-4.el7_7.2                                                
+
+Dependency Installed:
+  at.x86_64 0:3.1.13-24.el7                                                     
+  avahi-libs.x86_64 0:0.6.31-19.el7                                             
+  bc.x86_64 0:1.06.95-13.el7                                                    
+  cronie.x86_64 0:1.4.11-23.el7                                                 
+  cronie-anacron.x86_64 0:1.4.11-23.el7                                         
+  crontabs.noarch 0:1.11-6.20121102git.el7                                      
+  cups-client.x86_64 1:1.6.3-40.el7                                             
+  cups-libs.x86_64 1:1.6.3-40.el7                                               
+  dwz.x86_64 0:0.11-3.el7                                                       
+  ed.x86_64 0:1.9-4.el7                                                         
+  file.x86_64 0:5.11-35.el7                                                     
+  gettext.x86_64 0:0.19.8.1-2.el7                                               
+  gettext-libs.x86_64 0:0.19.8.1-2.el7                                          
+  less.x86_64 0:458-9.el7                                                       
+  libcroco.x86_64 0:0.6.12-4.el7                                                
+  libgomp.x86_64 0:4.8.5-39.el7                                                 
+  libpipeline.x86_64 0:1.2.3-3.el7                                              
+  libunistring.x86_64 0:0.9.3-9.el7                                             
+  m4.x86_64 0:1.4.16-10.el7                                                     
+  mailx.x86_64 0:12.5-19.el7                                                    
+  make.x86_64 1:3.82-24.el7                                                     
+  man-db.x86_64 0:2.6.3-11.el7                                                  
+  perl-Error.noarch 1:0.17020-2.el7                                             
+  perl-Git.noarch 0:1.8.3.1-21.el7_7                                            
+  perl-TermReadKey.x86_64 0:2.30-20.el7                                         
+  perl-srpm-macros.noarch 0:1-8.el7                                             
+  psmisc.x86_64 0:22.20-16.el7                                                  
+  python-rpm-macros.noarch 0:3-32.el7                                           
+  python-srpm-macros.noarch 0:3-32.el7                                          
+  python3-devel.x86_64 0:3.6.8-10.el7                                           
+  python3-rpm-generators.noarch 0:6-2.el7                                       
+  python3-rpm-macros.noarch 0:3-32.el7                                          
+  redhat-lsb-submod-security.x86_64 0:4.1-27.el7.centos.1                       
+  redhat-rpm-config.noarch 0:9.1.0-88.el7.centos                                
+  rsync.x86_64 0:3.1.2-6.el7_6.1                                                
+  spax.x86_64 0:1.5.2-13.el7                                                    
+  ssmtp.x86_64 0:2.64-14.el7                                                    
+  sysvinit-tools.x86_64 0:2.88-14.dsf.el7                                       
+  time.x86_64 0:1.7-45.el7                                                      
+  zip.x86_64 0:3.0-11.el7                                                       
+
+Complete!
+[91m+ [[ nova == \r\e\q\u\i\r\e\m\e\n\t\s ]]
+[0m[91m++ dirname /opt/loci/scripts/install.sh
+[0m[91m+ /opt/loci/scripts/fetch_wheels.sh
+[0m[91m+ [[ yes == \n\o ]]
++ python=python3
+[0m[91m++ dirname /opt/loci/scripts/fetch_wheels.sh
+[0m[91m+ python3 /opt/loci/scripts/fetch_wheels.py
+[0m[91m+ mkdir -p /tmp/wheels/
+[0m[91m+ tar -xf /tmp/wheels.tar.gz '--exclude=.*' -C /tmp/wheels/
+[0m[91m+ [[ nova == \i\n\f\r\a ]]
++ [[ no == \n\o ]]
+[0m[91m++ dirname /opt/loci/scripts/install.sh
+[0m[91m+ /opt/loci/scripts/create_user.sh
+[0m[91m+ groupadd -g 42424 nova
+[0m[91m+ useradd -u 42424 -g nova -M -d /var/lib/nova -s /usr/sbin/nologin -c 'nova user' nova
+[0m[91m+ mkdir -p /etc/nova /var/log/nova /var/lib/nova /var/cache/nova
+[0m[91m+ chown nova:nova /etc/nova /var/log/nova /var/lib/nova /var/cache/nova
+[0m[91m++ dirname /opt/loci/scripts/install.sh
+[0m[91m+ /opt/loci/scripts/setup_pip.sh
+[0m[91m+ [[ yes == \n\o ]]
++ TMP_VIRTUALENV='python3 -m virtualenv --python=python3'
+[0m[91m++ python3 -m virtualenv --python=python3 --version
+[0m[91m++ cut -d. -f1
+[0m[91m+ ((  15 >= 14  ))
++ SETUPTOOLS=--no-setuptools
++ python3 -m virtualenv --python=python3 --extra-search-dir=/tmp/wheels --no-setuptools /tmp/venv
+[0mAlready using interpreter /usr/bin/python3
+Using base prefix '/usr'
+New python executable in /tmp/venv/bin/python3
+Also creating executable in /tmp/venv/bin/python
+Installing pip, wheel...done.
+[91m+ source /tmp/venv/bin/activate
+[0m[91m++ deactivate nondestructive
+[0m[91m++ unset -f pydoc
+[0m[91m++ '[' -z '' ']'
+[0m[91m++ '[' -z '' ']'
+[0m[91m++ '[' -n /bin/bash ']'
+[0m[91m++ hash -r
+[0m[91m++ '[' -z '' ']'
+++ unset VIRTUAL_ENV
+[0m[91m++ '[' '!' nondestructive = nondestructive ']'
+[0m[91m++ VIRTUAL_ENV=/tmp/venv
+++ export VIRTUAL_ENV
+[0m[91m++ _OLD_VIRTUAL_PATH=/var/lib/openstack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+[0m[91m++ PATH=/tmp/venv/bin:/var/lib/openstack/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ export PATH
+[0m[91m++ '[' -z '' ']'
+[0m[91m++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+[0m[91m++ '[' x '!=' x ']'
+[0m[91m+++ basename /tmp/venv
+[0m[91m++ PS1='(venv) '
+++ export PS1
+[0m[91m++ alias pydoc
+[0m[91m++ '[' -n /bin/bash ']'
+++ hash -r
+[0m[91m+ pip install --upgrade virtualenv==16.3.0
+[0mCollecting virtualenv==16.3.0
+  Downloading virtualenv-16.3.0-py2.py3-none-any.whl (2.0 MB)
+Collecting setuptools>=18.0.0
+  Downloading setuptools-45.2.0-py3-none-any.whl (584 kB)
+Installing collected packages: setuptools, virtualenv
+Successfully installed setuptools-45.2.0 virtualenv-16.3.0
+[91m+ hash -r
++ virtualenv --extra-search-dir=/tmp/wheels /var/lib/openstack
+[0mUsing real prefix '/usr'
+New python executable in /var/lib/openstack/bin/python3
+Also creating executable in /var/lib/openstack/bin/python
+Installing setuptools, pip, wheel...
+done.
+[91m++ dirname /opt/loci/scripts/install.sh
+[0m[91m+ /opt/loci/scripts/pip_install.sh bindep
+[0m[91m+ packages=bindep
+[0m[91m+ pip install --no-cache-dir --only-binary :all: --no-compile -c /tmp/wheels/upper-constraints.txt --find-links /tmp/wheels/ bindep
+[0mIgnoring python-saharaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-saharaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.limit: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.limit: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-actdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-actdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-api-ref: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-api-ref: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.concurrency: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.concurrency: markers 'python_version == "3.7"' don't match your environment
+Ignoring osprofiler: markers 'python_version == "2.7"' don't match your environment
+Ignoring osprofiler: markers 'python_version == "3.7"' don't match your environment
+Ignoring pytest: markers 'python_version == "2.7"' don't match your environment
+Ignoring pytest: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.service: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.service: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-nwdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-nwdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring microversion-parse: markers 'python_version == "2.7"' don't match your environment
+Ignoring microversion-parse: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pint: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pint: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.i18n: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.i18n: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-mistralclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-mistralclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.context: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.context: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-senlinclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-senlinclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring pycadf: markers 'python_version == "2.7"' don't match your environment
+Ignoring pycadf: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-websupport: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-htmlhelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring ipaddress: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-freezerclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-freezerclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-vitrageclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-vitrageclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring networkx: markers 'python_version == "2.7"' don't match your environment
+Ignoring networkx: markers 'python_version == "3.7"' don't match your environment
+Ignoring bashate: markers 'python_version == "2.7"' don't match your environment
+Ignoring bashate: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pillow: markers 'python_version == "2.7"' don't match your environment
+Ignoring Pillow: markers 'python_version == "3.7"' don't match your environment
+Ignoring zeroconf: markers 'python_version == "2.7"' don't match your environment
+Ignoring zeroconf: markers 'python_version == "3.7"' don't match your environment
+Ignoring scipy: markers 'python_version == "2.7"' don't match your environment
+Ignoring scipy: markers 'python_version == "3.7"' don't match your environment
+Ignoring mypy-extensions: markers 'python_version == "3.7"' don't match your environment
+Ignoring debtcollector: markers 'python_version == "2.7"' don't match your environment
+Ignoring debtcollector: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-cloudkittyclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-cloudkittyclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring soupsieve: markers 'python_version == "2.7"' don't match your environment
+Ignoring soupsieve: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslotest: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslotest: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-blockdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-blockdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring taskflow: markers 'python_version == "2.7"' don't match your environment
+Ignoring taskflow: markers 'python_version == "3.7"' don't match your environment
+Ignoring openstack-doc-tools: markers 'python_version == "2.7"' don't match your environment
+Ignoring openstack-doc-tools: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.messaging: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.messaging: markers 'python_version == "3.7"' don't match your environment
+Ignoring ifaddr: markers 'python_version == "3.7"' don't match your environment
+Ignoring reno: markers 'python_version == "2.7"' don't match your environment
+Ignoring reno: markers 'python_version == "3.7"' don't match your environment
+Ignoring unicodecsv: markers 'python_version == "2.7"' don't match your environment
+Ignoring pathlib: markers 'python_version == "2.7"' don't match your environment
+Ignoring backports.ssl-match-hostname: markers 'python_version == "2.7"' don't match your environment
+Ignoring mox3: markers 'python_version == "2.7"' don't match your environment
+Ignoring mox3: markers 'python_version == "3.7"' don't match your environment
+Ignoring gunicorn: markers 'python_version == "2.7"' don't match your environment
+Ignoring gunicorn: markers 'python_version == "3.7"' don't match your environment
+Ignoring asyncio: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-jsmath: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-manilaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-manilaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-serializinghtml: markers 'python_version == "3.7"' don't match your environment
+Ignoring M2Crypto: markers 'python_version == "2.7"' don't match your environment
+Ignoring influxdb: markers 'python_version == "2.7"' don't match your environment
+Ignoring influxdb: markers 'python_version == "3.7"' don't match your environment
+Ignoring cliff: markers 'python_version == "2.7"' don't match your environment
+Ignoring cliff: markers 'python_version == "3.7"' don't match your environment
+Ignoring trollius: markers 'python_version == "2.7"' don't match your environment
+Ignoring funcsigs: markers 'python_version == "2.7"' don't match your environment
+Ignoring dnspython3: markers 'python_version == "3.7"' don't match your environment
+Ignoring joblib: markers 'python_version == "3.7"' don't match your environment
+Ignoring castellan: markers 'python_version == "2.7"' don't match your environment
+Ignoring castellan: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.versionedobjects: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.versionedobjects: markers 'python_version == "3.7"' don't match your environment
+Ignoring webcolors: markers 'python_version == "2.7"' don't match your environment
+Ignoring webcolors: markers 'python_version == "3.7"' don't match your environment
+Ignoring autobahn: markers 'python_version == "2.7"' don't match your environment
+Ignoring autobahn: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.log: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.log: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-searchlightclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-searchlightclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.middleware: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.middleware: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-ken: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-ken: markers 'python_version == "3.7"' don't match your environment
+Ignoring mypy: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-seqdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-seqdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-win: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-win: markers 'python_version == "3.7"' don't match your environment
+Ignoring jeepney: markers 'python_version == "3.7"' don't match your environment
+Ignoring singledispatch: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.serialization: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.serialization: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-svg2pdfconverter: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-svg2pdfconverter: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.vmware: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.vmware: markers 'python_version == "3.7"' don't match your environment
+Ignoring gitdb: markers 'python_version == "2.7"' don't match your environment
+Ignoring gitdb: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-monascaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-monascaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring automaton: markers 'python_version == "2.7"' don't match your environment
+Ignoring automaton: markers 'python_version == "3.7"' don't match your environment
+Ignoring keyring: markers 'python_version == "2.7"' don't match your environment
+Ignoring keyring: markers 'python_version == "3.7"' don't match your environment
+Ignoring enum34: markers 'python_version == "2.7"' don't match your environment
+Ignoring txaio: markers 'python_version == "2.7"' don't match your environment
+Ignoring txaio: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-qinlingclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-qinlingclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring blockdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring blockdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring SecretStorage: markers 'python_version == "2.7"' don't match your environment
+Ignoring SecretStorage: markers 'python_version == "3.7"' don't match your environment
+Ignoring tooz: markers 'python_version == "2.7"' don't match your environment
+Ignoring tooz: markers 'python_version == "3.7"' don't match your environment
+Ignoring weakrefmethod: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.cache: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.cache: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.reports: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.reports: markers 'python_version == "3.7"' don't match your environment
+Ignoring Faker: markers 'python_version == "2.7"' don't match your environment
+Ignoring Faker: markers 'python_version == "3.7"' don't match your environment
+Ignoring more-itertools: markers 'python_version == "2.7"' don't match your environment
+Ignoring more-itertools: markers 'python_version == "3.7"' don't match your environment
+Ignoring seqdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring seqdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring numpy: markers 'python_version == "2.7"' don't match your environment
+Ignoring numpy: markers 'python_version == "3.7"' don't match your environment
+Ignoring Sphinx: markers 'python_version == "2.7"' don't match your environment
+Ignoring Sphinx: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.config: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.config: markers 'python_version == "3.7"' don't match your environment
+Ignoring openstackdocstheme: markers 'python_version == "2.7"' don't match your environment
+Ignoring openstackdocstheme: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-solumclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-solumclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring tricircleclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring tricircleclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.upgradecheck: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.upgradecheck: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.rootwrap: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.rootwrap: markers 'python_version == "3.7"' don't match your environment
+Ignoring Django: markers 'python_version == "2.7"' don't match your environment
+Ignoring Django: markers 'python_version == "3.7"' don't match your environment
+Ignoring atomicwrites: markers 'python_version == "2.7"' don't match your environment
+Ignoring typed-ast: markers 'python_version == "3.7"' don't match your environment
+Ignoring subprocess32: markers 'python_version == "2.7"' don't match your environment
+Ignoring GitPython: markers 'python_version == "2.7"' don't match your environment
+Ignoring GitPython: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-ironicclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-ironicclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.db: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.db: markers 'python_version == "3.7"' don't match your environment
+Ignoring dataclasses: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.privsep: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.privsep: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-muranoclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-muranoclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring functools32: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-vif: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-vif: markers 'python_version == "3.7"' don't match your environment
+Ignoring backports.functools-lru-cache: markers 'python_version == "2.7"' don't match your environment
+Ignoring entrypoints: markers 'python_version == "2.7"' don't match your environment
+Ignoring cachetools: markers 'python_version == "2.7"' don't match your environment
+Ignoring cachetools: markers 'python_version == "3.7"' don't match your environment
+Ignoring backports-abc: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-qthelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring qpid-python: markers 'python_version == "2.7"' don't match your environment
+Ignoring contextlib2: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-congressclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-congressclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring ovsdbapp: markers 'python_version == "2.7"' don't match your environment
+Ignoring ovsdbapp: markers 'python_version == "3.7"' don't match your environment
+Ignoring configparser: markers 'python_version == "2.7"' don't match your environment
+Ignoring futurist: markers 'python_version == "2.7"' don't match your environment
+Ignoring futurist: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-devhelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-blazarclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-blazarclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring dnspython: markers 'python_version == "3.7"' don't match your environment
+Ignoring dnspython: markers 'python_version == "2.7"' don't match your environment
+Ignoring scandir: markers 'python_version == "2.7"' don't match your environment
+Ignoring zipp: markers 'python_version == "2.7"' don't match your environment
+Ignoring zipp: markers 'python_version == "3.7"' don't match your environment
+Ignoring futures: markers 'python_version == "2.7"' don't match your environment
+Ignoring happybase: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-tackerclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-tackerclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-heatclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-heatclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.utils: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.utils: markers 'python_version == "3.7"' don't match your environment
+Ignoring gitdb2: markers 'python_version == "2.7"' don't match your environment
+Ignoring gitdb2: markers 'python_version == "3.7"' don't match your environment
+Ignoring typing-extensions: markers 'python_version == "3.7"' don't match your environment
+Ignoring actdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring actdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-applehelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "2.7"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.7"' don't match your environment
+Looking in links: /tmp/wheels/
+Collecting bindep
+  Downloading bindep-2.8.1-py2.py3-none-any.whl (24 kB)
+Collecting pbr===5.4.4
+  Downloading pbr-5.4.4-py2.py3-none-any.whl (110 kB)
+Collecting Parsley===1.3
+  Downloading Parsley-1.3-py2.py3-none-any.whl (88 kB)
+Collecting distro===1.4.0
+  Downloading distro-1.4.0-py2.py3-none-any.whl (17 kB)
+Installing collected packages: pbr, Parsley, distro, bindep
+Successfully installed Parsley-1.3 bindep-2.8.1 distro-1.4.0 pbr-5.4.4
+[91m+ for file in '/opt/loci/pydep*'
++ PYDEP_PACKAGES+=($(bindep -f $file -b -l newline ${PROJECT} ${PROFILES} ${python3} || :))
+[0m[91m++ bindep -f /opt/loci/pydep.txt -b -l newline nova fluent nova ceph linuxbridge openvswitch configdrive qemu apache
+[0m[91m++ dirname /opt/loci/scripts/install.sh
+[0m[91m+ /opt/loci/scripts/pip_install.sh cryptography fluent-logger libvirt-python pymysql python-memcached uwsgi
+[0m[91m+ packages='cryptography fluent-logger libvirt-python pymysql python-memcached uwsgi'
+[0m[91m+ pip install --no-cache-dir --only-binary :all: --no-compile -c /tmp/wheels/upper-constraints.txt --find-links /tmp/wheels/ cryptography fluent-logger libvirt-python pymysql python-memcached uwsgi
+[0mIgnoring python-saharaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-saharaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.limit: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.limit: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-actdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-actdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-api-ref: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-api-ref: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.concurrency: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.concurrency: markers 'python_version == "3.7"' don't match your environment
+Ignoring osprofiler: markers 'python_version == "2.7"' don't match your environment
+Ignoring osprofiler: markers 'python_version == "3.7"' don't match your environment
+Ignoring pytest: markers 'python_version == "2.7"' don't match your environment
+Ignoring pytest: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.service: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.service: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-nwdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-nwdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring microversion-parse: markers 'python_version == "2.7"' don't match your environment
+Ignoring microversion-parse: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pint: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pint: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.i18n: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.i18n: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-mistralclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-mistralclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.context: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.context: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-senlinclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-senlinclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring pycadf: markers 'python_version == "2.7"' don't match your environment
+Ignoring pycadf: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-websupport: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-htmlhelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring ipaddress: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-freezerclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-freezerclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-vitrageclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-vitrageclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring networkx: markers 'python_version == "2.7"' don't match your environment
+Ignoring networkx: markers 'python_version == "3.7"' don't match your environment
+Ignoring bashate: markers 'python_version == "2.7"' don't match your environment
+Ignoring bashate: markers 'python_version == "3.7"' don't match your environment
+Ignoring Pillow: markers 'python_version == "2.7"' don't match your environment
+Ignoring Pillow: markers 'python_version == "3.7"' don't match your environment
+Ignoring zeroconf: markers 'python_version == "2.7"' don't match your environment
+Ignoring zeroconf: markers 'python_version == "3.7"' don't match your environment
+Ignoring scipy: markers 'python_version == "2.7"' don't match your environment
+Ignoring scipy: markers 'python_version == "3.7"' don't match your environment
+Ignoring mypy-extensions: markers 'python_version == "3.7"' don't match your environment
+Ignoring debtcollector: markers 'python_version == "2.7"' don't match your environment
+Ignoring debtcollector: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-cloudkittyclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-cloudkittyclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring soupsieve: markers 'python_version == "2.7"' don't match your environment
+Ignoring soupsieve: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslotest: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslotest: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-blockdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-blockdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring taskflow: markers 'python_version == "2.7"' don't match your environment
+Ignoring taskflow: markers 'python_version == "3.7"' don't match your environment
+Ignoring openstack-doc-tools: markers 'python_version == "2.7"' don't match your environment
+Ignoring openstack-doc-tools: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.messaging: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.messaging: markers 'python_version == "3.7"' don't match your environment
+Ignoring ifaddr: markers 'python_version == "3.7"' don't match your environment
+Ignoring reno: markers 'python_version == "2.7"' don't match your environment
+Ignoring reno: markers 'python_version == "3.7"' don't match your environment
+Ignoring unicodecsv: markers 'python_version == "2.7"' don't match your environment
+Ignoring pathlib: markers 'python_version == "2.7"' don't match your environment
+Ignoring backports.ssl-match-hostname: markers 'python_version == "2.7"' don't match your environment
+Ignoring mox3: markers 'python_version == "2.7"' don't match your environment
+Ignoring mox3: markers 'python_version == "3.7"' don't match your environment
+Ignoring gunicorn: markers 'python_version == "2.7"' don't match your environment
+Ignoring gunicorn: markers 'python_version == "3.7"' don't match your environment
+Ignoring asyncio: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-jsmath: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-manilaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-manilaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-serializinghtml: markers 'python_version == "3.7"' don't match your environment
+Ignoring M2Crypto: markers 'python_version == "2.7"' don't match your environment
+Ignoring influxdb: markers 'python_version == "2.7"' don't match your environment
+Ignoring influxdb: markers 'python_version == "3.7"' don't match your environment
+Ignoring cliff: markers 'python_version == "2.7"' don't match your environment
+Ignoring cliff: markers 'python_version == "3.7"' don't match your environment
+Ignoring trollius: markers 'python_version == "2.7"' don't match your environment
+Ignoring funcsigs: markers 'python_version == "2.7"' don't match your environment
+Ignoring dnspython3: markers 'python_version == "3.7"' don't match your environment
+Ignoring joblib: markers 'python_version == "3.7"' don't match your environment
+Ignoring castellan: markers 'python_version == "2.7"' don't match your environment
+Ignoring castellan: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.versionedobjects: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.versionedobjects: markers 'python_version == "3.7"' don't match your environment
+Ignoring webcolors: markers 'python_version == "2.7"' don't match your environment
+Ignoring webcolors: markers 'python_version == "3.7"' don't match your environment
+Ignoring autobahn: markers 'python_version == "2.7"' don't match your environment
+Ignoring autobahn: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.log: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.log: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-searchlightclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-searchlightclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.middleware: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.middleware: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-ken: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-ken: markers 'python_version == "3.7"' don't match your environment
+Ignoring mypy: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-seqdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-seqdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring os-win: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-win: markers 'python_version == "3.7"' don't match your environment
+Ignoring jeepney: markers 'python_version == "3.7"' don't match your environment
+Ignoring singledispatch: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.serialization: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.serialization: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-svg2pdfconverter: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-svg2pdfconverter: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.vmware: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.vmware: markers 'python_version == "3.7"' don't match your environment
+Ignoring gitdb: markers 'python_version == "2.7"' don't match your environment
+Ignoring gitdb: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-monascaclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-monascaclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring automaton: markers 'python_version == "2.7"' don't match your environment
+Ignoring automaton: markers 'python_version == "3.7"' don't match your environment
+Ignoring keyring: markers 'python_version == "2.7"' don't match your environment
+Ignoring keyring: markers 'python_version == "3.7"' don't match your environment
+Ignoring enum34: markers 'python_version == "2.7"' don't match your environment
+Ignoring txaio: markers 'python_version == "2.7"' don't match your environment
+Ignoring txaio: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-qinlingclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-qinlingclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring blockdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring blockdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring SecretStorage: markers 'python_version == "2.7"' don't match your environment
+Ignoring SecretStorage: markers 'python_version == "3.7"' don't match your environment
+Ignoring tooz: markers 'python_version == "2.7"' don't match your environment
+Ignoring tooz: markers 'python_version == "3.7"' don't match your environment
+Ignoring weakrefmethod: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.cache: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.cache: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.reports: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.reports: markers 'python_version == "3.7"' don't match your environment
+Ignoring Faker: markers 'python_version == "2.7"' don't match your environment
+Ignoring Faker: markers 'python_version == "3.7"' don't match your environment
+Ignoring more-itertools: markers 'python_version == "2.7"' don't match your environment
+Ignoring more-itertools: markers 'python_version == "3.7"' don't match your environment
+Ignoring seqdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring seqdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring numpy: markers 'python_version == "2.7"' don't match your environment
+Ignoring numpy: markers 'python_version == "3.7"' don't match your environment
+Ignoring Sphinx: markers 'python_version == "2.7"' don't match your environment
+Ignoring Sphinx: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.config: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.config: markers 'python_version == "3.7"' don't match your environment
+Ignoring openstackdocstheme: markers 'python_version == "2.7"' don't match your environment
+Ignoring openstackdocstheme: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-solumclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-solumclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring tricircleclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring tricircleclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.upgradecheck: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.upgradecheck: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.rootwrap: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.rootwrap: markers 'python_version == "3.7"' don't match your environment
+Ignoring Django: markers 'python_version == "2.7"' don't match your environment
+Ignoring Django: markers 'python_version == "3.7"' don't match your environment
+Ignoring atomicwrites: markers 'python_version == "2.7"' don't match your environment
+Ignoring typed-ast: markers 'python_version == "3.7"' don't match your environment
+Ignoring subprocess32: markers 'python_version == "2.7"' don't match your environment
+Ignoring GitPython: markers 'python_version == "2.7"' don't match your environment
+Ignoring GitPython: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-ironicclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-ironicclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.db: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.db: markers 'python_version == "3.7"' don't match your environment
+Ignoring dataclasses: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.privsep: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.privsep: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-muranoclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-muranoclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring functools32: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-vif: markers 'python_version == "2.7"' don't match your environment
+Ignoring os-vif: markers 'python_version == "3.7"' don't match your environment
+Ignoring backports.functools-lru-cache: markers 'python_version == "2.7"' don't match your environment
+Ignoring entrypoints: markers 'python_version == "2.7"' don't match your environment
+Ignoring cachetools: markers 'python_version == "2.7"' don't match your environment
+Ignoring cachetools: markers 'python_version == "3.7"' don't match your environment
+Ignoring backports-abc: markers 'python_version == "2.7"' don't match your environment
+Ignoring sphinxcontrib-qthelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring qpid-python: markers 'python_version == "2.7"' don't match your environment
+Ignoring contextlib2: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-congressclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-congressclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring ovsdbapp: markers 'python_version == "2.7"' don't match your environment
+Ignoring ovsdbapp: markers 'python_version == "3.7"' don't match your environment
+Ignoring configparser: markers 'python_version == "2.7"' don't match your environment
+Ignoring futurist: markers 'python_version == "2.7"' don't match your environment
+Ignoring futurist: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-devhelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-blazarclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-blazarclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring dnspython: markers 'python_version == "3.7"' don't match your environment
+Ignoring dnspython: markers 'python_version == "2.7"' don't match your environment
+Ignoring scandir: markers 'python_version == "2.7"' don't match your environment
+Ignoring zipp: markers 'python_version == "2.7"' don't match your environment
+Ignoring zipp: markers 'python_version == "3.7"' don't match your environment
+Ignoring futures: markers 'python_version == "2.7"' don't match your environment
+Ignoring happybase: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-tackerclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-tackerclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring python-heatclient: markers 'python_version == "2.7"' don't match your environment
+Ignoring python-heatclient: markers 'python_version == "3.7"' don't match your environment
+Ignoring oslo.utils: markers 'python_version == "2.7"' don't match your environment
+Ignoring oslo.utils: markers 'python_version == "3.7"' don't match your environment
+Ignoring gitdb2: markers 'python_version == "2.7"' don't match your environment
+Ignoring gitdb2: markers 'python_version == "3.7"' don't match your environment
+Ignoring typing-extensions: markers 'python_version == "3.7"' don't match your environment
+Ignoring actdiag: markers 'python_version == "2.7"' don't match your environment
+Ignoring actdiag: markers 'python_version == "3.7"' don't match your environment
+Ignoring sphinxcontrib-applehelp: markers 'python_version == "3.7"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "2.7"' don't match your environment
+Ignoring scikit-learn: markers 'python_version == "3.7"' don't match your environment
+Looking in links: /tmp/wheels/
+Collecting cryptography===2.8
+  Downloading cryptography-2.8-cp34-abi3-manylinux2010_x86_64.whl (2.3 MB)
+[91mERROR: Could not find a version that satisfies the requirement libvirt-python===4.7.0 (from -c /tmp/wheels/upper-constraints.txt (line 276)) (from versions: none)
+[0m[91mERROR: No matching distribution found for libvirt-python===4.7.0 (from -c /tmp/wheels/upper-constraints.txt (line 276))
+[0mThe command '/bin/sh -c /opt/loci/scripts/install.sh' returned a non-zero code: 1
+Command (docker) failed, attempt 1 of 1.
+Max command attempts reached. Aborting...
+Failed to build stx-nova... Aborting
+Cleaning loci build container and image: 1a138cca687bdc7901c8226c7588ac3fe306c1237ffe1edf63c1bf860af010e2 sha256:ea747ef9fac4b833c49532321dfb84aeaf8ea0a4bea9f43de8dacb2d973f5ece
+1a138cca687bdc7901c8226c7588ac3fe306c1237ffe1edf63c1bf860af010e2
+Deleted: sha256:ea747ef9fac4b833c49532321dfb84aeaf8ea0a4bea9f43de8dacb2d973f5ece
+Deleted: sha256:aeaf1a45dea99dc912c8137325dc8f6575904419627a9a59368672386ab5d4e7
+Deleted: sha256:2e40bf69f13e9d1ccc1eccafb72980578e90d164d2b90eee56d525cfb0736b48
+Deleted: sha256:9e1a444dd662cd27dd2331bea7ed6cf1cbaeefb08793e6227eeec9dea49565d2
+Deleted: sha256:a981dfa28fbe193406306289cf5f4cc13e6cb10faf301feb4e3d2c1c750c47a7
+Deleted: sha256:abffb440718f564331bc29f2ea8fb7d775feeb8cc880a78e54643c0eef42eed2
+Deleted: sha256:a4a149859897714b2a6262aeeb4df32df785b66e084d58201a14a87fc2efd44b
+Deleted: sha256:b59dc9370cc658b61f5d5c6ba2593c615fbecb0179b375b234b2d236264b93b9
+Deleted: sha256:7204a8d25558aed6b86421d3dd2e650eee111dea4c13ddb26a93d1156884dba5
+Deleted: sha256:4164945ff8c83b7358b730f9a68c554f229b022d7883f21af0497b9fbfe92e3d
+Deleted: sha256:f74e0259a7e71bb397067bb24a90c9c4614de1d1a862ce189180082f24bf2ec8
+Deleted: sha256:eecd4da6b907af016feee48906d91e0112f32ef3e1cea2d63f6aa33631d451d7
+Deleted: sha256:c6f3fb450ffc24d0ae73138715ce14b8cc55133290d7ba36cc14873653e4f327
+Deleted: sha256:26814d195cd2c46dd435b68dd664d76313d62fddda0dbd28eb996525f309fa55
+Deleted: sha256:5c1c2102eaae7db13a6eaa2d359df7c4bce4bc576707279cb32ac1b9766b4646
+Deleted: sha256:8d9366df638454688bfc6ddf669ce22f93442fc8bbab7cdd2137923158fe10d1
+Deleted: sha256:8b9a8a9b8bb30caf2f269e5f89768bf1e884df52da02d0838f787f5b81e1bcfc
+Deleted: sha256:b30d0e0fca08b7695c8f77dc8fade701387cc6f8335dec54c041ad7dff094894
+Deleted: sha256:dff4dbeb5177ce6cd7c59ee4fa9829932232c6f098526a3d4ccc9b6f7adfcfa7
+Deleted: sha256:6affb1a780a56adfa18e40f86eeee655d5f45a0c6a48ca2e96bb4c5a2eeb6692
+Deleted: sha256:6807c60db7c3f711e4554569b8873d65c0e5e7ff9677f1c8f1320ed654d9703a
+Deleted: sha256:efa3f2ad3b845270867d95fbb932c3a0972fc5c66ba812163cfa0315d1b651c0
+Deleted: sha256:8e1aaed1eafe5fee9648c8da6b4f4479f10325147c6131c1f95d4e69b99ec329
+Deleted: sha256:546f7528dc8caf81d4ad1de96a02f23e06c62b44a06fa34267bf9f9c0b3d4b98
+Deleted: sha256:7fcacfd0ae6f0b0619b15fe7f77675042fb1048de85bf66fc16cabe61bc8647e
+openstack/python-openstackclient
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-openstackclient/centos/stx-openstackclient.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-openstackclients 
+only value
+stx-nova
+space 1
+proj infra
+label stx-openstackclients
+Skipping stx-openstackclients
+openstack/python-placement
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-placement/centos/stx-placement.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-placement 
+only value
+stx-nova
+space 1
+proj placement
+label stx-placement
+Skipping stx-placement
+openstack/python-platformclients
+/home/chant/starlingx/workspace/localdisk/designer/chant/starlingx/cgcs-root/stx/upstream/openstack/python-platformclients/centos/stx-platformclients.stable_docker_image
+in loci
+skip value
+space 0
+proj  
+label stx-platformclients 
+only value
+stx-nova
+space 1
+proj infra
+label stx-platformclients
+Skipping stx-platformclients
+
+#######################################
+
+There were 1 failures:
+stx-nova
