@@ -4,6 +4,8 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_dashboard import exceptions
+
 from horizon.utils import secret_key
 
 from openstack_dashboard.settings import HORIZON_CONFIG
@@ -11,7 +13,7 @@ from openstack_dashboard.settings import HORIZON_CONFIG
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.
@@ -57,7 +59,8 @@ DATABASES = {
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True                                                                  
+# SESSION_COOKIE_SECURE = True
+																			
 # The absolute path to the directory where message files are collected.
 # The message file must have a .json file extension. When the user logins to
 # horizon, the message files collected are processed and displayed to the user.
@@ -180,7 +183,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #]
 
 OPENSTACK_HOST = "172.16.214.112"
-OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
+OPENSTACK_KEYSTONE_URL = "http://172.16.214.112:5000"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 # Enables keystone web single-sign-on if set to True.
@@ -417,7 +420,7 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'publicURL'.
-#OPENSTACK_ENDPOINT_TYPE = "publicURL"
+OPENSTACK_ENDPOINT_TYPE = "internalURL"
 
 # SECONDARY_ENDPOINT_TYPE specifies the fallback endpoint type to use in the
 # case that OPENSTACK_ENDPOINT_TYPE is not present in the endpoints
@@ -476,7 +479,7 @@ TIME_ZONE = "UTC"
 # target installation.
 
 # Path to directory containing policy.json files
-POLICY_FILES_PATH = '/etc/openstack-dashboard'
+# POLICY_FILES_PATH = '/etc/openstack-dashboard'
 
 # Map of local copy of service policy files.
 # Please insure that your identity policy file matches the one being used on
