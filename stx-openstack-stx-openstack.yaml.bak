@@ -41,7 +41,7 @@ data:
   values:
     images:
       tags:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         nova_api_proxy: registry.local:9001/docker.io/starlingx/stx-nova-api-proxy:master-centos-stable-latest
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     pod:
@@ -90,7 +90,7 @@ data:
         image_repo_sync:
         prometheus_rabbitmq_exporter:
         prometheus_rabbitmq_exporter_helm_tests:
-        rabbitmq_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        rabbitmq_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         scripted_test: registry.local:9001/docker.io/rabbitmq:3.7.13-management
         rabbitmq: registry.local:9001/docker.io/rabbitmq:3.7.13
@@ -650,19 +650,19 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        ceilometer_api: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_central: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_collector: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_compute: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_db_sync: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_ipmi: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        ceilometer_notification: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
-        db_init_mongodb: registry.local:9001/docker.io/starlingx/stx-ceilometer:master-centos-stable-latest
+        ceilometer_api: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_central: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_collector: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_compute: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_db_sync: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_ipmi: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        ceilometer_notification: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        db_init: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
+        db_init_mongodb: registry.local:9001/docker.io/chantyu/stx-ceilometer:master-python3-20200311
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
@@ -837,13 +837,13 @@ data:
   values:
     images:
       tags:
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         fm_db_sync: registry.local:9001/docker.io/starlingx/stx-fm-rest-api:master-centos-stable-latest
         fm_rest_api: registry.local:9001/docker.io/starlingx/stx-fm-rest-api:master-centos-stable-latest
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     labels:
       api:
@@ -947,14 +947,14 @@ data:
           log_config_append: /etc/placement/logging.conf
     images:
       tags:
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        placement: registry.local:9001/docker.io/starlingx/stx-placement:master-centos-stable-latest
-        placement_db_sync: registry.local:9001/docker.io/starlingx/stx-placement:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        placement: registry.local:9001/docker.io/chantyu/stx-placement:master-python3-20200311
+        placement_db_sync: registry.local:9001/docker.io/chantyu/stx-placement:master-python3-20200311
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     labels:
       job:
@@ -1025,16 +1025,16 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        barbican_api: registry.local:9001/docker.io/starlingx/stx-barbican:master-centos-stable-latest
-        barbican_db_sync: registry.local:9001/docker.io/starlingx/stx-barbican:master-centos-stable-latest
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        barbican_api: registry.local:9001/docker.io/chantyu/stx-barbican:master-python3-20200311
+        barbican_db_sync: registry.local:9001/docker.io/chantyu/stx-barbican:master-python3-20200311
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        scripted_test: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        scripted_test: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     labels:
@@ -1117,19 +1117,19 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        keystone_api: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
+        keystone_api: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
         keystone_credential_cleanup:
-        keystone_credential_rotate: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        keystone_credential_setup: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        keystone_db_sync: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        keystone_domain_manage: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        keystone_fernet_rotate: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        keystone_fernet_setup: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        keystone_credential_rotate: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        keystone_credential_setup: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        keystone_db_sync: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        keystone_domain_manage: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        keystone_fernet_rotate: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        keystone_fernet_setup: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
@@ -1276,29 +1276,29 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        nova_api: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_cell_setup: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_cell_setup_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        nova_compute: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_compute_ironic: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_compute_ssh: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_conductor: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_consoleauth: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_db_sync: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_novncproxy: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_novncproxy_assets: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_placement: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_scheduler: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        nova_api: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_cell_setup: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_cell_setup_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        nova_compute: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_compute_ironic: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_compute_ssh: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_conductor: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_consoleauth: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_db_sync: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_novncproxy: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_novncproxy_assets: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_placement: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_scheduler: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
         nova_service_cleaner: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
-        nova_spiceproxy: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
-        nova_spiceproxy_assets: registry.local:9001/docker.io/starlingx/stx-nova:master-centos-stable-latest
+        nova_spiceproxy: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
+        nova_spiceproxy_assets: registry.local:9001/docker.io/chantyu/stx-nova:master-python3-20200311
         nova_storage_init: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
@@ -1457,16 +1457,16 @@ data:
           pipeline: cors http_proxy_to_wsgi pankoversions
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        panko_api: registry.local:9001/docker.io/starlingx/stx-panko:master-centos-stable-latest
-        panko_db_sync: registry.local:9001/docker.io/starlingx/stx-panko:master-centos-stable-latest
-        panko_events_cleaner: registry.local:9001/docker.io/starlingx/stx-panko:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        panko_api: registry.local:9001/docker.io/chantyu/stx-panko:master-python3-20200311
+        panko_db_sync: registry.local:9001/docker.io/chantyu/stx-panko:master-python3-20200311
+        panko_events_cleaner: registry.local:9001/docker.io/chantyu/stx-panko:master-python3-20200311
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     jobs:
@@ -1537,9 +1537,9 @@ data:
         ceph_config_helper: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
         ceph_rgw:
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         rgw_s3_admin: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     labels:
@@ -1621,8 +1621,8 @@ data:
   values:
     images:
       tags:
-        dcdbsync: registry.local:9001/docker.io/starlingx/stx-keystone:master-centos-stable-latest
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        dcdbsync: registry.local:9001/docker.io/chantyu/stx-keystone:master-python3-20200311
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
   wait:
     labels:
@@ -1843,19 +1843,19 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        aodh_alarms_cleaner: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        aodh_api: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        aodh_db_sync: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        aodh_evaluator: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        aodh_listener: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        aodh_notifier: registry.local:9001/docker.io/starlingx/stx-aodh:master-centos-stable-latest
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        aodh_alarms_cleaner: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        aodh_api: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        aodh_db_sync: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        aodh_evaluator: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        aodh_listener: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        aodh_notifier: registry.local:9001/docker.io/chantyu/stx-aodh:master-python3-20200311
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     jobs:
@@ -1941,17 +1941,17 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        glance_api: registry.local:9001/docker.io/starlingx/stx-glance:master-centos-stable-latest
-        glance_db_sync: registry.local:9001/docker.io/starlingx/stx-glance:master-centos-stable-latest
-        glance_registry: registry.local:9001/docker.io/starlingx/stx-glance:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        glance_api: registry.local:9001/docker.io/chantyu/stx-glance:ussuri-python3-20200325
+        glance_db_sync: registry.local:9001/docker.io/chantyu/stx-glance:ussuri-python3-20200325
+        glance_registry: registry.local:9001/docker.io/chantyu/stx-glance:ussuri-python3-20200325
         glance_storage_init: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         test:
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
@@ -2023,21 +2023,21 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        cinder_api: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
-        cinder_backup: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        cinder_api: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
+        cinder_backup: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
         cinder_backup_storage_init: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
-        cinder_db_sync: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
-        cinder_scheduler: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
+        cinder_db_sync: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
+        cinder_scheduler: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
         cinder_storage_init: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
-        cinder_volume: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
-        cinder_volume_usage_audit: registry.local:9001/docker.io/starlingx/stx-cinder:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        cinder_volume: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
+        cinder_volume_usage_audit: registry.local:9001/docker.io/chantyu/stx-cinder:ussuri-python3-20200325
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
@@ -2196,9 +2196,9 @@ data:
         gnocchi_statsd: registry.local:9001/docker.io/starlingx/stx-gnocchi:master-centos-stable-latest
         gnocchi_storage_init: registry.local:9001/docker.io/starlingx/ceph-config-helper:v1.15.0
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     manifests:
       daemonset_statsd: false
@@ -2319,24 +2319,24 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        neutron_bagpipe_bgp: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_db_sync: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_dhcp: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_l2gw: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_l3: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_linuxbridge_agent: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_metadata: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_openvswitch_agent: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_server: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_sriov_agent: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
-        neutron_sriov_agent_init: registry.local:9001/docker.io/starlingx/stx-neutron:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        neutron_bagpipe_bgp: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_db_sync: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_dhcp: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_l2gw: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_l3: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_linuxbridge_agent: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_metadata: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_openvswitch_agent: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_server: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_sriov_agent: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
+        neutron_sriov_agent_init: registry.local:9001/docker.io/chantyu/stx-neutron:master-python3-20200311
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
@@ -2571,22 +2571,22 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ironic_api: registry.local:9001/docker.io/starlingx/stx-ironic:master-centos-stable-latest
-        ironic_conductor: registry.local:9001/docker.io/starlingx/stx-ironic:master-centos-stable-latest
-        ironic_db_sync: registry.local:9001/docker.io/starlingx/stx-ironic:master-centos-stable-latest
-        ironic_manage_cleaning_network: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ironic_pxe: registry.local:9001/docker.io/starlingx/stx-ironic:master-centos-stable-latest
+        ironic_api: registry.local:9001/docker.io/chantyu/stx-ironic:master-python3-20200311
+        ironic_conductor: registry.local:9001/docker.io/chantyu/stx-ironic:master-python3-20200311
+        ironic_db_sync: registry.local:9001/docker.io/chantyu/stx-ironic:master-python3-20200311
+        ironic_manage_cleaning_network: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ironic_pxe: registry.local:9001/docker.io/chantyu/stx-ironic:master-python3-20200311
         ironic_pxe_http: registry.local:9001/docker.io/nginx:1.13.3
-        ironic_pxe_init: registry.local:9001/docker.io/starlingx/stx-ironic:master-centos-stable-latest
-        ironic_retrive_cleaning_network: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ironic_retrive_swift_config: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ironic_pxe_init: registry.local:9001/docker.io/chantyu/stx-ironic:master-python3-20200311
+        ironic_retrive_cleaning_network: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ironic_retrive_swift_config: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
     labels:
@@ -2649,7 +2649,7 @@ data:
     images:
       tags:
         keystone_api_proxy: registry.local:9001/docker.io/starlingx/stx-keystone-api-proxy:master-centos-stable-latest
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
   wait:
     labels:
@@ -3099,10 +3099,10 @@ data:
           site_dir: /etc/apache2/sites-enabled
     images:
       tags:
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        horizon: registry.local:9001/docker.io/starlingx/stx-horizon:master-centos-stable-latest
-        horizon_db_sync: registry.local:9001/docker.io/starlingx/stx-horizon:master-centos-stable-latest
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        horizon: registry.local:9001/docker.io/chantyu/stx-horizon:ussuri-python3-20200323
+        horizon_db_sync: registry.local:9001/docker.io/chantyu/stx-horizon:ussuri-python3-20200323
         image_repo_sync:
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
@@ -3207,20 +3207,20 @@ data:
           name: osh-openstack-rabbitmq-rabbitmq
     images:
       tags:
-        bootstrap: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_drop: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        db_init: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_api: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_cfn: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_cloudwatch: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_db_sync: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_engine: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_engine_cleaner: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        heat_purge_deleted: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        bootstrap: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_drop: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        db_init: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_api: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_cfn: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_cloudwatch: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_db_sync: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_engine: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_engine_cleaner: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        heat_purge_deleted: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         image_repo_sync:
-        ks_endpoints: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_service: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
-        ks_user: registry.local:9001/docker.io/starlingx/stx-heat:master-centos-stable-latest
+        ks_endpoints: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_service: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
+        ks_user: registry.local:9001/docker.io/chantyu/stx-heat:master-python3-20200310
         test:
         dep_check: registry.local:9001/quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
         rabbit_init: registry.local:9001/docker.io/rabbitmq:3.7-management
