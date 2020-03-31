@@ -1,0 +1,279 @@
+2020-03-31 03:21:14.473 796 DEBUG armada.handlers.document [-] Resolving reference /manifests/stx-openstack/1.0-19-centos-stable-latest/stx-openstack-stx-openstack.yaml. resolve_reference /usr/local/lib/python3.6/dist-packages/armada/handlers/document.py:49[00m
+2020-03-31 03:21:14.844 796 DEBUG armada.handlers.tiller [-] Using Tiller host IP: tiller-deploy.kube-system.svc.cluster.local _get_tiller_ip /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:165[00m
+2020-03-31 03:21:14.844 796 DEBUG armada.handlers.tiller [-] Using Tiller host port: 44134 _get_tiller_port /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:174[00m
+2020-03-31 03:21:14.844 796 DEBUG armada.handlers.tiller [-] Tiller getting gRPC insecure channel at tiller-deploy.kube-system.svc.cluster.local:44134 with options: [grpc.max_send_message_length=429496729, grpc.max_receive_message_length=429496729] get_channel /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:127[00m
+2020-03-31 03:21:14.848 796 DEBUG armada.handlers.tiller [-] Armada is using Tiller at: tiller-deploy.kube-system.svc.cluster.local:44134, namespace=kube-system, timeout=300 __init__ /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:107[00m
+2020-03-31 03:21:14.854 796 INFO armada.handlers.lock [-] Acquiring lock[00m
+2020-03-31 03:21:15.110 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-telemetry validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.110 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nova-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.111 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-rabbitmq validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.112 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-rabbitmq validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.112 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-fm-rest-api validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.112 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] kube-system-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.112 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ceilometer validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.113 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-heat validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.113 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] kube-system-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.114 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-garbd validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.114 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-fm-rest-api validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.115 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-libvirt validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.115 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-dcdbsync validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.115 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-placement validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.116 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-glance validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.116 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-barbican validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.117 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-keystone validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.117 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-mariadb validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.117 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-keystone validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.118 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nova validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.118 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-panko validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.119 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ceph-rgw validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.119 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-barbican validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.120 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.120 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-dcdbsync validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.120 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-mariadb validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.121 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.121 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-horizon validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.122 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-memcached validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.122 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-aodh validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.123 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-memcached validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.123 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-ceph-rgw validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.123 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-cinder validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.123 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-glance validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.124 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-cinder validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.124 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-gnocchi validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.125 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-neutron validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.125 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nginx-ports-control validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.126 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] helm-toolkit validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.126 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-compute-kit validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.126 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ironic validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.127 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-keystone-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.127 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-horizon validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.128 796 DEBUG armada.utils.validate [-] Validating document [armada/Manifest/v1] armada-manifest validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.128 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-keystone-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.128 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-heat validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.129 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-openvswitch validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.136 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-telemetry validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.136 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nova-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.136 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-rabbitmq validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.137 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-rabbitmq validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.137 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-fm-rest-api validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.137 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] kube-system-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.137 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ceilometer validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.138 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-heat validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.138 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] kube-system-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.139 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-garbd validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.139 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-fm-rest-api validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.140 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-libvirt validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.140 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-dcdbsync validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.140 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-placement validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.141 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-glance validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.141 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-barbican validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.141 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-keystone validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.142 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-mariadb validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.142 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-keystone validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.142 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nova validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.143 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-panko validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.143 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ceph-rgw validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.144 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-barbican validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.144 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.144 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-dcdbsync validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.145 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-mariadb validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.145 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ingress validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.146 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-horizon validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.146 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-memcached validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.146 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-aodh validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.147 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-memcached validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.147 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-ceph-rgw validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.147 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-cinder validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.147 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-glance validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.148 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-cinder validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.148 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-gnocchi validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.149 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-neutron validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.149 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-nginx-ports-control validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.150 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] helm-toolkit validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.150 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-compute-kit validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.150 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-ironic validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.151 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-keystone-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.151 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-horizon validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.152 796 DEBUG armada.utils.validate [-] Validating document [armada/Manifest/v1] armada-manifest validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.152 796 DEBUG armada.utils.validate [-] Validating document [armada/ChartGroup/v1] openstack-keystone-api-proxy validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.152 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-heat validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.153 796 DEBUG armada.utils.validate [-] Validating document [armada/Chart/v1] openstack-openvswitch validate_armada_document /usr/local/lib/python3.6/dist-packages/armada/utils/validate.py:108[00m
+2020-03-31 03:21:15.164 796 INFO armada.handlers.armada [-] Performing pre-flight operations.[00m
+2020-03-31 03:21:15.164 796 DEBUG armada.handlers.tiller [-] Using Tiller host IP: tiller-deploy.kube-system.svc.cluster.local _get_tiller_ip /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:165[00m
+2020-03-31 03:21:15.164 796 DEBUG armada.handlers.tiller [-] Getting Tiller Status: Tiller exists tiller_status /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:186[00m
+2020-03-31 03:21:15.165 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/ingress-0.1.0.tgz[00m
+2020-03-31 03:21:15.165 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.209 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/helm-toolkit-0.1.0.tgz[00m
+2020-03-31 03:21:15.209 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.240 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/nginx-ports-control-0.1.0.tgz[00m
+2020-03-31 03:21:15.240 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.246 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/mariadb-0.1.0.tgz[00m
+2020-03-31 03:21:15.247 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.298 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/memcached-0.1.0.tgz[00m
+2020-03-31 03:21:15.298 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.345 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/rabbitmq-0.1.0.tgz[00m
+2020-03-31 03:21:15.346 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.397 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/keystone-0.1.0.tgz[00m
+2020-03-31 03:21:15.397 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.453 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/glance-0.1.0.tgz[00m
+2020-03-31 03:21:15.453 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.518 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/cinder-0.1.0.tgz[00m
+2020-03-31 03:21:15.519 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.577 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/libvirt-0.1.0.tgz[00m
+2020-03-31 03:21:15.577 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.621 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/openvswitch-0.1.0.tgz[00m
+2020-03-31 03:21:15.622 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.660 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/nova-0.1.0.tgz[00m
+2020-03-31 03:21:15.660 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.710 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/nova-api-proxy-0.1.0.tgz[00m
+2020-03-31 03:21:15.711 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.739 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/neutron-0.1.0.tgz[00m
+2020-03-31 03:21:15.739 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.772 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/placement-0.1.0.tgz[00m
+2020-03-31 03:21:15.773 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.818 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/heat-0.1.0.tgz[00m
+2020-03-31 03:21:15.818 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.873 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/fm-rest-api-0.1.0.tgz[00m
+2020-03-31 03:21:15.874 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.912 796 INFO armada.handlers.armada [-] Downloading tarball from: http://controller:8080/helm_charts/starlingx/horizon-0.1.0.tgz[00m
+2020-03-31 03:21:15.912 796 WARNING armada.handlers.armada [-] Disabling server validation certs to extract charts[00m
+2020-03-31 03:21:15.958 796 DEBUG armada.handlers.tiller [-] Tiller ListReleases() with timeout=300, request=limit: 32
+status_codes: UNKNOWN
+status_codes: DEPLOYED
+status_codes: DELETED
+status_codes: DELETING
+status_codes: FAILED
+status_codes: PENDING_INSTALL
+status_codes: PENDING_UPGRADE
+status_codes: PENDING_ROLLBACK
+ get_results /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:215[00m
+2020-03-31 03:21:15.987 796 DEBUG armada.handlers.tiller [-] Found release stx-ceph-pools-audit, version 1, status: DEPLOYED list_releases /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:276[00m
+2020-03-31 03:21:15.987 796 DEBUG armada.handlers.tiller [-] Found release stx-rbd-provisioner, version 1, status: DEPLOYED list_releases /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:276[00m
+2020-03-31 03:21:15.988 796 INFO armada.handlers.armada [-] Processing ChartGroup: kube-system-ingress (System Ingress Controller), sequenced=False[00m
+2020-03-31 03:21:15.988 796 INFO armada.handlers.chart_deploy [-] [chart=kube-system-ingress]: Processing Chart, release=osh-kube-system-ingress[00m
+2020-03-31 03:21:15.989 796 INFO armada.handlers.chart_deploy [-] [chart=kube-system-ingress]: known: ['stx-ceph-pools-audit', 'stx-rbd-provisioner'], release_name: osh-kube-system-ingress[00m
+2020-03-31 03:21:15.989 796 DEBUG armada.handlers.wait [-] [chart=kube-system-ingress]: Resolved `wait.resources` list: [{'type': 'job', 'required': False, 'labels': {'release_group': 'osh-kube-system-ingress'}}, {'type': 'pod', 'labels': {'release_group': 'osh-kube-system-ingress'}}] __init__ /usr/local/lib/python3.6/dist-packages/armada/handlers/wait.py:89[00m
+2020-03-31 03:21:15.990 796 INFO armada.handlers.chartbuilder [-] [chart=kube-system-ingress]: Building dependency chart helm-toolkit for release kube-system-ingress.[00m
+2020-03-31 03:21:16.017 796 INFO armada.handlers.chart_deploy [-] [chart=kube-system-ingress]: Installing release osh-kube-system-ingress in namespace kube-system, wait=True, timeout=1800s[00m
+2020-03-31 03:21:16.024 796 INFO armada.handlers.tiller [-] [chart=kube-system-ingress]: Helm install release: wait=True, timeout=1800[00m
+2020-03-31 03:22:14.937 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:23:15.004 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:24:15.077 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:25:15.148 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:26:15.217 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:27:15.282 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:28:15.353 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:29:15.418 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:30:15.491 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:31:15.634 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:32:15.785 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:33:15.855 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:34:15.920 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:35:16.037 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:36:16.108 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:37:16.174 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:38:16.250 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:39:16.316 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:40:16.380 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:41:16.450 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:42:16.526 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:43:16.642 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:44:16.713 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:45:16.784 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:46:16.852 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:47:16.925 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:48:16.996 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:49:17.064 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:50:17.134 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:51:17.255 796 DEBUG armada.handlers.lock [-] Updating lock update_lock /usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py:176[00m
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller [-] [chart=kube-system-ingress]: Error while installing release osh-kube-system-ingress: grpc._channel._Rendezvous: <_Rendezvous of RPC that terminated with:
+	status = StatusCode.UNKNOWN
+	details = "release osh-kube-system-ingress failed: timed out waiting for the condition"
+	debug_error_string = "{"created":"@1585626683.353220219","description":"Error received from peer","file":"src/core/lib/surface/call.cc","file_line":1017,"grpc_message":"release osh-kube-system-ingress failed: timed out waiting for the condition","grpc_status":2}"
+>
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller Traceback (most recent call last):
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py", line 473, in install_release
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller     metadata=self.metadata)
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller   File "/usr/local/lib/python3.6/dist-packages/grpc/_channel.py", line 533, in __call__
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller     return _end_unary_response_blocking(state, call, False, None)
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller   File "/usr/local/lib/python3.6/dist-packages/grpc/_channel.py", line 467, in _end_unary_response_blocking
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller     raise _Rendezvous(state, None, None, deadline)
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller grpc._channel._Rendezvous: <_Rendezvous of RPC that terminated with:
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller 	status = StatusCode.UNKNOWN
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller 	details = "release osh-kube-system-ingress failed: timed out waiting for the condition"
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller 	debug_error_string = "{"created":"@1585626683.353220219","description":"Error received from peer","file":"src/core/lib/surface/call.cc","file_line":1017,"grpc_message":"release osh-kube-system-ingress failed: timed out waiting for the condition","grpc_status":2}"
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller >
+2020-03-31 03:51:23.353 796 ERROR armada.handlers.tiller [00m
+2020-03-31 03:51:23.634 796 DEBUG armada.handlers.tiller [-] [chart=kube-system-ingress]: Helm getting release status for release=osh-kube-system-ingress, version=0 get_release_status /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:539[00m
+2020-03-31 03:51:26.884 796 DEBUG armada.handlers.tiller [-] [chart=kube-system-ingress]: GetReleaseStatus= name: "osh-kube-system-ingress"
+info {
+  status {
+    code: FAILED
+  }
+  first_deployed {
+    seconds: 1585624876
+    nanos: 35117939
+  }
+  last_deployed {
+    seconds: 1585624876
+    nanos: 35117939
+  }
+  Description: "Release \"osh-kube-system-ingress\" failed: timed out waiting for the condition"
+}
+namespace: "kube-system"
+ get_release_status /usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py:547[00m
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada [-] Chart deploy [kube-system-ingress] failed: armada.exceptions.tiller_exceptions.ReleaseException: Failed to Install release: osh-kube-system-ingress - Tiller Message: b'Release "osh-kube-system-ingress" failed: timed out waiting for the condition'
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada Traceback (most recent call last):
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py", line 473, in install_release
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     metadata=self.metadata)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/grpc/_channel.py", line 533, in __call__
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     return _end_unary_response_blocking(state, call, False, None)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/grpc/_channel.py", line 467, in _end_unary_response_blocking
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     raise _Rendezvous(state, None, None, deadline)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada grpc._channel._Rendezvous: <_Rendezvous of RPC that terminated with:
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada 	status = StatusCode.UNKNOWN
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada 	details = "release osh-kube-system-ingress failed: timed out waiting for the condition"
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada 	debug_error_string = "{"created":"@1585626683.353220219","description":"Error received from peer","file":"src/core/lib/surface/call.cc","file_line":1017,"grpc_message":"release osh-kube-system-ingress failed: timed out waiting for the condition","grpc_status":2}"
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada >
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada 
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada During handling of the above exception, another exception occurred:
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada 
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada Traceback (most recent call last):
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/armada.py", line 225, in handle_result
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     result = get_result()
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     return self.__get_result()
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     raise self._exception
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     result = self.fn(*self.args, **self.kwargs)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/armada.py", line 214, in deploy_chart
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     chart, cg_test_all_charts, prefix, known_releases)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/chart_deploy.py", line 239, in execute
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     timeout=timer)
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/tiller.py", line 486, in install_release
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada     raise ex.ReleaseException(release, status, 'Install')
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada armada.exceptions.tiller_exceptions.ReleaseException: Failed to Install release: osh-kube-system-ingress - Tiller Message: b'Release "osh-kube-system-ingress" failed: timed out waiting for the condition'
+2020-03-31 03:51:26.886 796 ERROR armada.handlers.armada [00m
+2020-03-31 03:51:26.898 796 ERROR armada.handlers.armada [-] Chart deploy(s) failed: ['kube-system-ingress'][00m
+2020-03-31 03:51:27.271 796 INFO armada.handlers.lock [-] Releasing lock[00m
+2020-03-31 03:51:27.281 796 ERROR armada.cli [-] Caught internal exception: armada.exceptions.armada_exceptions.ChartDeployException: Exception deploying charts: ['kube-system-ingress']
+2020-03-31 03:51:27.281 796 ERROR armada.cli Traceback (most recent call last):
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/local/lib/python3.6/dist-packages/armada/cli/__init__.py", line 38, in safe_invoke
+2020-03-31 03:51:27.281 796 ERROR armada.cli     self.invoke()
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/local/lib/python3.6/dist-packages/armada/cli/apply.py", line 213, in invoke
+2020-03-31 03:51:27.281 796 ERROR armada.cli     resp = self.handle(documents, tiller)
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/lock.py", line 81, in func_wrapper
+2020-03-31 03:51:27.281 796 ERROR armada.cli     return future.result()
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/lib/python3.6/concurrent/futures/_base.py", line 425, in result
+2020-03-31 03:51:27.281 796 ERROR armada.cli     return self.__get_result()
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/lib/python3.6/concurrent/futures/_base.py", line 384, in __get_result
+2020-03-31 03:51:27.281 796 ERROR armada.cli     raise self._exception
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+2020-03-31 03:51:27.281 796 ERROR armada.cli     result = self.fn(*self.args, **self.kwargs)
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/local/lib/python3.6/dist-packages/armada/cli/apply.py", line 256, in handle
+2020-03-31 03:51:27.281 796 ERROR armada.cli     return armada.sync()
+2020-03-31 03:51:27.281 796 ERROR armada.cli   File "/usr/local/lib/python3.6/dist-packages/armada/handlers/armada.py", line 252, in sync
+2020-03-31 03:51:27.281 796 ERROR armada.cli     raise armada_exceptions.ChartDeployException(failures)
+2020-03-31 03:51:27.281 796 ERROR armada.cli armada.exceptions.armada_exceptions.ChartDeployException: Exception deploying charts: ['kube-system-ingress']
+2020-03-31 03:51:27.281 796 ERROR armada.cli [00m
